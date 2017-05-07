@@ -1,2 +1,24 @@
 Other
-Code/HostComputer
+Code/HostComputer/builds
+Code/controller/Output
+Code/detector/Output
+
+Circuit/CMBus Test/CMBus_Master/_Previews
+Circuit/CMBus Test/CMBus_Master/History
+Circuit/CMBus Test/CMBus_Master/Project Logs for CMBus_Master
+Circuit/CMBus Test/CMBus_Master/Project Outputs for CMBus_Master
+
+Circuit/CMBus Test/CMBus_Slave/_Previews
+Circuit/CMBus Test/CMBus_Slave/History
+Circuit/CMBus Test/CMBus_Slave/Project Logs for CMBus_Slave
+Circuit/CMBus Test/CMBus_Slave/Project Outputs for CMBus_Slave
+
+Circuit/CMBus Test/CMBus_Slave/_Previews
+Circuit/CMBus Test/CMBus_Slave/History
+Circuit/CMBus Test/CMBus_Slave/Project Logs for CMBus_Slave
+Circuit/CMBus Test/CMBus_Slave/Project Outputs for CMBus_Slave
+
+Circuit/Smoke Alarm Test/_Previews
+Circuit/Smoke Alarm Test/History
+Circuit/Smoke Alarm Test/Project Logs for CX1086
+Circuit/Smoke Alarm Test/Project Outputs for CX1086
