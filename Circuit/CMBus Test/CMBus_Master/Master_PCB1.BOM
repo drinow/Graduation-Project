@@ -1,0 +1,19 @@
+Bill of Material for 
+On 2017/5/1 at 10:20:31
+
+ Comment             Pattern     Quantity  Components
+------------------------------------------------------------------------------
+ BUK98180            TO-220AB         1    Q2                           N-Channel MOSFET     
+ Cap Pol             C-RB-10          1    C1                           极性电解电容               
+ Cap                 C-RAD-0805       3    C2, C3, C4                   无极性电容                
+ CMT100              QFN-16           1    *1                           主机                   
+ Header 2            HDR1X2           2    24+, Bus1                    Header, 2-Pin        
+ Inductor            L-RB-8           1    L1                           电感                   
+ LL4148              DO-35            1    D3                           Default Diode        
+ P6KE30A             DO-15            1    D4                           Schottky Rectifier   
+ Res1                0805-1           9    R1, R2, R3, R4, R5, R6, R7   贴片电阻                 
+                                           R8, R11
+ Res1                1206             2    R9, R10                      贴片电阻                 
+ RSJ250P10           TO-220AB         1    Q1                           P-Channel MOSFET     
+ SS18                DIODE-SMA        2    D2, D5                       Default Diode        
+ SS34B               DIODE-SMA        1    D1                           Default Diode        

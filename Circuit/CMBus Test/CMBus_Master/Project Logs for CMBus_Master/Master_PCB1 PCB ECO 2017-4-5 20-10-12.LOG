@@ -1,0 +1,5 @@
+Added Pin To Net: NetName=NetD1_1 Pin=Q1-D
+Added Pin To Net: NetName=BUS+ Pin=Q1-S
+Added Pin To Net: NetName=NetQ1_G Pin=Q1-G
+Added Pin To Net: NetName=NetQ1_G Pin=R6-2
+Added Net: Name=NetQ1_G

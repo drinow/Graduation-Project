@@ -1,0 +1,11 @@
+Added Component: Designator=Q1(TO-220AB)
+Added Pin To Net: NetName=Net*1_4 Pin=*1-4
+Added Pin To Net: NetName=Net*1_4 Pin=Q1-D
+Added Net: Name=Net*1_4
+Added Pin To Net: NetName=NetP2_2 Pin=P2-2
+Added Pin To Net: NetName=NetP2_2 Pin=Q1-G
+Added Net: Name=NetP2_2
+Added Pin To Net: NetName=NetQ1_S Pin=Q1-S
+Added Pin To Net: NetName=NetQ1_S Pin=R5-2
+Added Net: Name=NetQ1_S
+Added Member To Class: ClassName=CX1086_Sheet1 Member=Component Q1 MOSFET-N

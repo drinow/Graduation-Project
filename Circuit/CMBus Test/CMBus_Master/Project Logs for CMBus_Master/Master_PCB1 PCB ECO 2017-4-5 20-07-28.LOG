@@ -1,0 +1,12 @@
+Added Component: Designator=Q1(TO-220AB)
+Added Component: Designator=Q2(TO-220AB)
+Added Pin To Net: NetName=NetQ1_2 Pin=R6-2
+Added Net: Name=NetQ1_2
+Added Pin To Net: NetName=NetQ2_2 Pin=R11-2
+Added Net: Name=NetQ2_2
+Added Pin To Net: NetName=NetQ2_3 Pin=R9-2
+Added Pin To Net: NetName=NetQ2_3 Pin=R10-2
+Added Net: Name=NetQ2_3
+Added Member To Class: ClassName=Master_Sheet1 Member=Component P1 Header 2
+Added Member To Class: ClassName=Master_Sheet1 Member=Component Q1 RSJ250P10
+Added Member To Class: ClassName=Master_Sheet1 Member=Component Q2 BUK98180

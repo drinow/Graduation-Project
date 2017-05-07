@@ -1,0 +1,17 @@
+Removed Pin From Net: NetName=BUS- Pin=D4-3
+Removed Pin From Net: NetName=Net*1_12 Pin=F1-1
+Removed Member From Class: ClassName=Master_Sheet1 Member=F1
+Change Component Footprint: Designator=R1 Old Footprint=0603-1 New Footprint=0805-1
+Change Component Footprint: Designator=R2 Old Footprint=0603-1 New Footprint=0805-1
+Change Component Footprint: Designator=R3 Old Footprint=0603-1 New Footprint=0805-1
+Change Component Footprint: Designator=R4 Old Footprint=0603-1 New Footprint=0805-1
+Change Component Footprint: Designator=R5 Old Footprint=0603-1 New Footprint=0805-1
+Change Component Footprint: Designator=R6 Old Footprint=0603-1 New Footprint=0805-1
+Change Component Footprint: Designator=R7 Old Footprint=0603-1 New Footprint=0805-1
+Change Component Footprint: Designator=R8 Old Footprint=0603-1 New Footprint=0805-1
+Change Component Footprint: Designator=R11 Old Footprint=0603-1 New Footprint=0805-1
+Change Component Footprint: Designator=L1 Old Footprint=0805-1 New Footprint=L-RB-8
+Change Component Footprint: Designator=D3 Old Footprint=DIODE-SMA New Footprint=DO-35
+Change Component Footprint: Designator=D4 Old Footprint=TO-220AC New Footprint=DO-15
+Added Pin To Net: NetName=BUS- Pin=D4-2
+Change Net Name : Old Net Name=Net*1_12 New Net Name=24V

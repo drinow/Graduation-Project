@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=Net*1_1 Pin=R2-2
+Removed Member From Class: ClassName=CX1086_Sheet1 Member=R2
+Change Component Designator: OldDesignator= NewDesignator=Q1

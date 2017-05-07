@@ -1,0 +1,4 @@
+Added Component: Designator=Q1(TO-220AB)
+Added Component: Designator=Q2(TO-220AB)
+Added Member To Class: ClassName=Master_Sheet1 Member=Component Q1 RSJ250P10
+Added Member To Class: ClassName=Master_Sheet1 Member=Component Q2 BUK98180

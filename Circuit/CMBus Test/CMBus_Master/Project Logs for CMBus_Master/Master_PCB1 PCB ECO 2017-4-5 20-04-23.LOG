@@ -1,0 +1,4 @@
+Change Component Designator: OldDesignator=P1 NewDesignator=P2
+Change Component Designator: OldDesignator=P2 NewDesignator=P3
+Added Component: Designator=P1(HDR1X2)
+Added Member To Class: ClassName=Master_Sheet1 Member=Component P3 Header 2

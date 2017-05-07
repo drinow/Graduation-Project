@@ -1,0 +1,7 @@
+Added Component: Designator=Q1(TO-220AB)
+Added Component: Designator=Q2(TO-220AB)
+Added Pin To Net: NetName=BUS- Pin=P1-1
+Added Pin To Net: NetName=24V Pin=P1-2
+Added Member To Class: ClassName=Master_Sheet1 Member=Component P1 Header 2
+Added Member To Class: ClassName=Master_Sheet1 Member=Component Q1 RSJ250P10
+Added Member To Class: ClassName=Master_Sheet1 Member=Component Q2 BUK98180

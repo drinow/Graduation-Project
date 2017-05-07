@@ -1,0 +1,3 @@
+Change Component Designator: OldDesignator=Bus NewDesignator=Bus1
+Change Component Designator: OldDesignator=Ctrl NewDesignator=Ctrl1
+Change Component Designator: OldDesignator=POWER NewDesignator=POWER1
