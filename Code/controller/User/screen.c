@@ -39,22 +39,7 @@ void Screen_Config(void)
 		
 }
 
-void UART_PutChar(USART_TypeDef* USARTx, uint8_t Data)  
-{  
-    USART_SendData(USARTx, Data);  
-    while(USART_GetFlagStatus(USARTx, USART_FLAG_TC) == RESET){}  
-} 
 
-void USART_SendString(USART_TypeDef* USARTx, u8* pBuffer, u16 len)
-{
-   u16 i = 0; 
-    
-   for (i = 0; i < len; i++)
-   {             
-       USART_SendData(USARTx, pBuffer[i]);
-       while (USART_GetFlagStatus(USARTx, USART_FLAG_TC) == RESET);                               
-   }
-}
 
 
 void SC_SendTime(void)

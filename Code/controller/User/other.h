@@ -12,4 +12,9 @@ void TCP_SendFire(void);
 void DealCAN(CanRxMsg* RxMessage);
 void DealActuator(void);
 
+
+void CAN_Broadcast(void);
+
+void PwrCarrier_Deal(u8 data);
+void PwrTokenCtrl(void);
 #endif

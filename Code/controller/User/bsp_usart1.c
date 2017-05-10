@@ -43,7 +43,7 @@ void USART1_Config(void)
 		GPIO_Init(GPIOA, &GPIO_InitStructure);
 			
 		/* USART1 mode config */
-		USART_InitStructure.USART_BaudRate = 115200;
+		USART_InitStructure.USART_BaudRate = 9600;
 		USART_InitStructure.USART_WordLength = USART_WordLength_8b;
 		USART_InitStructure.USART_StopBits = USART_StopBits_1;
 		USART_InitStructure.USART_Parity = USART_Parity_No ;
@@ -57,10 +57,12 @@ void USART1_Config(void)
 
 void USART1_IRQHandler(void)
 {
+  u8 data;
 	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
 	{ 	
 	    //ch = USART1->DR;
-			USART_ReceiveData(USART1);
+			data=USART_ReceiveData(USART1);
+      PwrCarrier_Deal(data);//电力载波数据处理.
 	} 
 }
 
@@ -84,4 +86,24 @@ int fgetc(FILE *f)
 
 		return (int)USART_ReceiveData(USART1);
 }
+
+//发送一个字节
+void UART_PutChar(USART_TypeDef* USARTx, uint8_t Data)  
+{  
+    USART_SendData(USARTx, Data);  
+    while(USART_GetFlagStatus(USARTx, USART_FLAG_TC) == RESET){}  
+} 
+
+//发送一个数组
+void USART_SendString(USART_TypeDef* USARTx, u8* pBuffer, u16 len)
+{
+   u16 i = 0; 
+    
+   for (i = 0; i < len; i++)
+   {             
+       USART_SendData(USARTx, pBuffer[i]);
+       while (USART_GetFlagStatus(USARTx, USART_FLAG_TC) == RESET);                               
+   }
+}
+
 /*********************************************END OF FILE**********************/

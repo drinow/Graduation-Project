@@ -100,18 +100,18 @@ void CAN_Send(u8 *data,u8 can_id)
 {
   CanTxMsg TxMessage;
   
-  TxMessage.StdId=0xE8;
+  TxMessage.StdId=can_id;
   TxMessage.RTR = CAN_RTR_DATA;//数据帧(帧类型)
   TxMessage.IDE = CAN_ID_STD ; //标准帧模式
   TxMessage.DLC = 8;           //数据长度
-  TxMessage.Data[0]=0x01;
-  TxMessage.Data[1]=0x02;
-  TxMessage.Data[2]=0x03;
-  TxMessage.Data[3]=0x04;
-  TxMessage.Data[4]=0x05;
-  TxMessage.Data[5]=0x06;
-  TxMessage.Data[6]=0x07;
-  TxMessage.Data[7]=0x08;
+  TxMessage.Data[0]=data[0];
+  TxMessage.Data[1]=data[1];
+  TxMessage.Data[2]=data[2];
+  TxMessage.Data[3]=data[3];
+  TxMessage.Data[4]=data[4];
+  TxMessage.Data[5]=data[5];
+  TxMessage.Data[6]=data[6];
+  TxMessage.Data[7]=data[7];
   
   CAN_Transmit(CAN1,&TxMessage);
 }

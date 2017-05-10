@@ -116,57 +116,39 @@ u8 search(u8* array,u8 len,u8 data)
 
 void DealCAN(CanRxMsg* RxMessage)
 {
-  u8 ReceiveID=(RxMessage->StdId&0x0F)*16+RxMessage->Data[1];//ID=楼层信息+设备编号
-//  u8 index=0;
-  if( ( (RxMessage->StdId) &0xF0 ) ==0xC0)//来自控制器的消息
+  if(  (RxMessage->StdId==0xC0) || (RxMessage->StdId==Ctrl_ID) )//广播的消息或者发给本控制器的消息
   {
     if(RxMessage->Data[0]==0xF0)//排烟风机消息
     {
-      Fan.ID=ReceiveID;
+      Fan.ID=RxMessage->Data[1];
       Fan.State=RxMessage->Data[2];
     }
     if(RxMessage->Data[0]==0xF1)//卷帘门消息
     {
-      Door.ID=ReceiveID;
+      Door.ID=RxMessage->Data[1];
       Door.State=RxMessage->Data[2];
     }
     if(RxMessage->Data[0]==0xF2)//水泵消息
     {
-      Pump.ID=ReceiveID;
+      Pump.ID=RxMessage->Data[1];
       Pump.State=RxMessage->Data[2];
     }  
-    if(RxMessage->Data[0]==0xF3)//火情消息
+    if(RxMessage->Data[0]==0xF3)//探测器消息
     {
+      if((RxMessage->Data[4])==0xC1)//属于1层的探测器消息
       {
-//      index=search(&Detector_1F.ID[0],12,ReceiveID);
-//      if(index==0)//探测器未登记
-//      {
-//        Detector_1F.ID[Detector_1F.Anum]=ReceiveID;
-//        Detector_1F.type[Detector_1F.Anum]=RxMessage->Data[2];
-//        Detector_1F.temp[Detector_1F.Anum]=RxMessage->Data[3];
-//        if(Detector_1F.type[Detector_1F.Anum]!=0)FireAlarm=1;
-//        Detector_1F.Anum++;
-//      }
-//      else//已经登记，则刷新数据
-//      {
-//        Detector_1F.type[index]=RxMessage->Data[2];
-//        Detector_1F.temp[index]=RxMessage->Data[3];
-//      }
+        Detector_1F[(RxMessage->Data[1]&0x0F)].type=RxMessage->Data[2];
+        Detector_1F[(RxMessage->Data[1]&0x0F)].temp=RxMessage->Data[3];
       }
-      if((RxMessage->StdId&0x0F)==0x01)//1层
+      if((RxMessage->Data[4])==0xC2)//属于2层的探测器消息
       {
-        Detector_1F[RxMessage->Data[1]].type=RxMessage->Data[2];
-        Detector_1F[RxMessage->Data[1]].temp=RxMessage->Data[3];
+        Detector_2F[(RxMessage->Data[1]&0x0F)].type=RxMessage->Data[2];
+        Detector_2F[(RxMessage->Data[1]&0x0F)].temp=RxMessage->Data[3];
       }
-      if((RxMessage->StdId&0x0F)==0x02)//2层
+      if((RxMessage->Data[4])==0xC3)//属于3层的探测器消息
       {
-        Detector_2F[RxMessage->Data[1]].type=RxMessage->Data[2];
-        Detector_2F[RxMessage->Data[1]].temp=RxMessage->Data[3];
-      }
-      if((RxMessage->StdId&0x0F)==0x03)//3层
-      {
-        Detector_3F[RxMessage->Data[1]].type=RxMessage->Data[2];
-        Detector_3F[RxMessage->Data[1]].temp=RxMessage->Data[3];
+        Detector_3F[(RxMessage->Data[1]&0x0F)].type=RxMessage->Data[2];
+        Detector_3F[(RxMessage->Data[1]&0x0F)].temp=RxMessage->Data[3];
       }
       if(RxMessage->Data[2]!=0)FireAlarmFlag=1;
     }
@@ -237,4 +219,91 @@ void DealActuator(void)
   DealFan();
   DealDoor();
   DealPump();
+}
+
+//CAN总线广播数据
+void CAN_Broadcast(void)
+{
+  u8 cache[8]={0};
+  u8 broadcastID=0xC0;
+  static u8 Detect_Num=0xD1;//每次广播一个探测器数据，分三次广播完毕
+
+  switch(Ctrl_ID)//根据ID寻找本层探测器数据所在内存
+  {
+    case 0xC1:cache[0]=0xF3;       cache[1]=Detect_Num;
+              cache[2]=Detector_1F[(Detect_Num&0x0F)].type;
+              cache[3]=Detector_1F[(Detect_Num&0x0F)].temp;
+              cache[4]=Ctrl_ID;    break;
+    
+    case 0xC2:cache[0]=0xF3;       cache[1]=Detect_Num;
+              cache[2]=Detector_2F[(Detect_Num&0x0F)].type;
+              cache[3]=Detector_2F[(Detect_Num&0x0F)].temp;
+              cache[4]=Ctrl_ID;    break;
+    
+    case 0xC3:cache[0]=0xF3;       cache[1]=Detect_Num;
+              cache[2]=Detector_3F[(Detect_Num&0x0F)].type;
+              cache[3]=Detector_3F[(Detect_Num&0x0F)].temp;
+              cache[4]=Ctrl_ID;    break;
+    default:break;
+  }
+  
+  Detect_Num++;
+  if(Detect_Num==0xD4)Detect_Num=0xD1;
+  
+  CAN_Send(&cache[0],broadcastID);
+}
+
+u8 PwrRxBuffer[6];
+//电力载波
+void PwrCarrier_Deal(u8 data)
+{
+  static u8 RxState=0,data_cnt=0;
+  
+  if(RxState==0&&data==0xDD)//帧头
+  {
+    RxState=1;
+    PwrRxBuffer[0]=data;
+  }
+  else if(RxState==1&&data==0xDD)
+  {
+    RxState=2;
+    PwrRxBuffer[1]=data;
+    data_cnt=0;
+  }
+  else if(RxState==2)//开始接收
+  {
+    PwrRxBuffer[2+data_cnt++]=data;
+  }
+  else
+			RxState = 0;
+  
+  if((2+data_cnt)==6)//数据定位变量复位，并处理数据
+  {
+    data_cnt=RxState=0;
+    switch(Ctrl_ID)
+    {
+      case 0xC1:Detector_1F[(PwrRxBuffer[3]&0x0F)].type=PwrRxBuffer[4];
+                Detector_1F[(PwrRxBuffer[3]&0x0F)].temp=PwrRxBuffer[5];break;
+      case 0xC2:Detector_2F[(PwrRxBuffer[3]&0x0F)].type=PwrRxBuffer[4];
+                Detector_2F[(PwrRxBuffer[3]&0x0F)].temp=PwrRxBuffer[5];break;
+      case 0xC3:Detector_3F[(PwrRxBuffer[3]&0x0F)].type=PwrRxBuffer[4];
+                Detector_3F[(PwrRxBuffer[3]&0x0F)].temp=PwrRxBuffer[5];break;
+    }
+  }
+  
+}
+
+void PwrTokenCtrl(void)
+{
+  u8 cache[8]={0};
+  u8 cnt=0;
+  cache[cnt++]=0xDD;
+  cache[cnt++]=0xDD;
+  cache[cnt++]=0x10;
+  cache[cnt++]=Token;
+  
+  USART_SendString(USART1,cache,cnt);
+  
+  Token++;
+  if(Token==0xC4)Token=0xC1;
 }

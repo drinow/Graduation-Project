@@ -30,7 +30,8 @@ uint32_t CAN_ID;//标识符
 u8 SecAlarm=0;//秒
 u8 Ctrl_ID=0xC0;//控制器基标识
 u8 tempflag=0;
-DetectorMsg Detector_1F[4]={0},Detector_2F[4]={0},Detector_3F[4]={0};
+u8 Token=0xC1;//令牌
+DetectorMsg Detector_1F[4]={0},Detector_2F[4]={0},Detector_3F[4]={0};//数组下标+1=探测器编号
 ActuatorMsg Fan;
 ActuatorMsg Door;
 ActuatorMsg Pump;
@@ -38,6 +39,20 @@ u8 FireAlarmFlag;//报警标志位
 /*Extern Function*/
 void NVIC_Config(void);
 
+void ReadID(void)
+{
+  
+  GPIO_InitTypeDef 			 GPIO_InitStructure;
+	
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC,ENABLE);
+  
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0|GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
+  GPIO_Init(GPIOC, &GPIO_InitStructure);    
+  
+  Ctrl_ID=Ctrl_ID+(GPIO_ReadInputData(GPIOC)&0x0F);
+}
  /**
   * @brief  主函数
   * @param  无
@@ -48,9 +63,10 @@ int main(void)
   
 	NVIC_Config();
 	USART1_Config();
-	Screen_Config();
+	
 	CAN_Config();
 	DS3231_Config();
+  ReadID();
   
 //  SetTime.year =0x17;
 //  SetTime.month =0x04;
@@ -62,7 +78,12 @@ int main(void)
   
 	LED_STATE_Config();
 	SysTick_Init();
-	TCPS_Config();
+  
+  if(Ctrl_ID==0xC1)//主控制器启用的功能
+  {
+    Screen_Config();
+    TCPS_Config();
+  }
 	
   tick=0;
   printf("START!\r\n");
@@ -70,14 +91,15 @@ int main(void)
 	while(1)
 	{
     LED_Flash();
-    DealActuator();
     
-    if(dhcp_ok)
+    if( dhcp_ok&&(Ctrl_ID==0xC1) )
       do_tcp_server();
+    
     if(FireAlarmFlag)//有火情，开始执行防灭火控制
     {
       DealActuator();
     }
+    
     if(CAN_ID!=0)
     {
       CAN_ID=0;
@@ -87,9 +109,14 @@ int main(void)
     }
     if(SecAlarm)
     {
-      tempflag=1;
+      tempflag=1;//TCP发送标志
       SecAlarm=0;
-      SC_SendTime();
+      
+      if(Ctrl_ID==0xC1)
+        SC_SendTime();
+      
+      PwrTokenCtrl();//电力载波令牌控制
+      CAN_Broadcast();//CAN总线广播
       #ifdef DEBUG
       printf("Time:%x:%x:%x\r\n",GetTime.hour ,GetTime.min ,GetTime.sec );
       #endif

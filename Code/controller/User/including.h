@@ -29,7 +29,7 @@ typedef struct
 
 typedef struct
 {
-  u8 ID;
+  u8 ID;//BCD,
   u8 State;
 }ActuatorMsg;//Çý¶¯Æ÷
 
@@ -43,7 +43,7 @@ extern uint32_t CAN_ID;//±êÊ¶·û
 extern u8 SecAlarm;
 extern u8 Ctrl_ID;
 extern u8 tempflag;
-
+extern u8 Token;
 extern DetectorMsg Detector_1F[4],Detector_2F[4],Detector_3F[4];
 extern ActuatorMsg Fan;
 extern ActuatorMsg Door;
