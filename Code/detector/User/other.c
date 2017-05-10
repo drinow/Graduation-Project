@@ -5,8 +5,9 @@ extern u16  TIM3CH1_CAPTURE_VAL_A,TIM3CH1_CAPTURE_VAL_B;  //输入捕获值
 extern u8   TIM3CH2_CAPTURE_STA;
 extern u16  TIM3CH2_CAPTURE_VAL_A,TIM3CH2_CAPTURE_VAL_B;
 
-u8 CAP_Detect=0;
-void DealCAP(void)
+
+//处理捕获数据，当捕获的高电平数值（时长）处于范围中间时，返回1，认为烟感动作
+u8 DealCAP(u16 LowLevel,u16 HighLevel)
 {
   u32 temp=0;  
   if(TIM3CH1_CAPTURE_STA&0X80)      //成功捕平获到了一个周期
@@ -20,35 +21,66 @@ void DealCAP(void)
 //			printf("两 次 下 降 沿 时 间 : %d us\r\n---------------------------\r\n",temp);      //打印总的高点平时间
     TIM3CH1_CAPTURE_STA=0;      //开启下一次捕获
   }
-  if(temp>450&&temp<550) CAP_Detect=1;//故意弄成需要人工复位
-		//CH2
-//		if(TIM3CH2_CAPTURE_STA&0X80)
-//		{
-////			printf("TIM3CH2_CAPTURE_STA值：%#x\r\n",TIM3CH2_CAPTURE_STA);
-//			temp=TIM3CH2_CAPTURE_STA&0X3F;		
-//			temp*=65536;           
-//			temp+=TIM3CH2_CAPTURE_VAL_B; 
-//			temp-=TIM3CH2_CAPTURE_VAL_A;
-////			printf("TIM3CH2_CAPTURE_VAL值：%#x  %#x\r\n",TIM3CH2_CAPTURE_VAL_A,TIM3CH2_CAPTURE_VAL_B);
-////			printf("两 次 下 降 沿 时 间 : %d us\r\n---------------------------\r\n",temp);   
-//			TIM3CH2_CAPTURE_STA=0;    
-//		}
+  
+  if(temp>LowLevel && temp<HighLevel) 
+    return 0x2;//因为协议是BIT1表示烟雾报警
+  else 
+    return RESET;
 }
 
-extern u8 DetectID;
-void ExchangeData(void)
+extern u8 DetectorID;
+extern u8 CAP_Detected;
+extern u8 Temp_Detected;
+extern u8 Temperature;
+void UploadData(void)
 {
   u8 cache[8];
   u8 cnt=0;
   cache[cnt++]=0xDD;//Head
   cache[cnt++]=0xDD;
   cache[cnt++]=0x01;//Func
-  cache[cnt++]=DetectID;//ID
-  cache[cnt++]=CAP_Detect;//STATE
-  cache[cnt++]=0;
+  cache[cnt++]=DetectorID;//ID
+  cache[cnt++]=CAP_Detected+Temp_Detected;//STATE
+  cache[cnt++]=Temperature;
   cache[cnt++]=0;
   cache[cnt++]=0;
   
   USART_SendString(USART1,cache,8);
+}
+
+u8 PwrRxBuffer[8];
+extern u8 Token;
+//电力载波
+void PwrCarrier_Deal(u8 data)
+{
+  static u8 RxState=0,data_cnt=0;
+  
+  if(RxState==0&&data==0xDD)//帧头
+  {
+    RxState=1;
+    PwrRxBuffer[0]=data;
+  }
+  else if(RxState==1&&data==0xDD)
+  {
+    RxState=2;
+    PwrRxBuffer[1]=data;
+    data_cnt=0;
+  }
+  else if(RxState==2)//开始接收
+  {
+    PwrRxBuffer[2+data_cnt++]=data;
+  }
+  else
+			RxState = 0;
+  
+  if((2+data_cnt)==8)//数据接收完成，处理数据并重置状态指针
+  {
+    data_cnt=RxState=0;
+    if(PwrRxBuffer[2]==0x10&&PwrRxBuffer[3]==DetectorID)
+    {
+      Token=1;
+    }
+  }
+  
 }
 

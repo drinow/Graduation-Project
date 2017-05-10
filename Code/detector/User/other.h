@@ -5,8 +5,8 @@
 #include "bsp_usart1.h"
 
 
-void ExchangeData(void);
-void DealCAP(void);
-
+void UploadData(void);
+u8 DealCAP(u16 LowLevel,u16 HighLevel);
+void PwrCarrier_Deal(u8 data);
 #endif
 

@@ -253,7 +253,7 @@ void CAN_Broadcast(void)
   CAN_Send(&cache[0],broadcastID);
 }
 
-u8 PwrRxBuffer[6];
+u8 PwrRxBuffer[8];
 //电力载波
 void PwrCarrier_Deal(u8 data)
 {
@@ -277,7 +277,7 @@ void PwrCarrier_Deal(u8 data)
   else
 			RxState = 0;
   
-  if((2+data_cnt)==6)//数据定位变量复位，并处理数据
+  if((2+data_cnt)==8)//数据定位变量复位，并处理数据
   {
     data_cnt=RxState=0;
     switch(Ctrl_ID)
@@ -301,8 +301,12 @@ void PwrTokenCtrl(void)
   cache[cnt++]=0xDD;
   cache[cnt++]=0x10;
   cache[cnt++]=Token;
-  
-  USART_SendString(USART1,cache,cnt);
+  cache[cnt++]=0;
+  cache[cnt++]=0;
+  cache[cnt++]=0;
+  cache[cnt++]=0;
+
+  USART_SendString(USART1,cache,8);
   
   Token++;
   if(Token==0xC4)Token=0xC1;

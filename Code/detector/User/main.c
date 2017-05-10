@@ -25,12 +25,32 @@
 #include "tim.h"
 #include "other.h"
 
-u8 DetectID=0;
-u8 gittest=1;
-extern __IO uint16_t ADC_ConvertedValue;
+u8 DetectorID=0xD0;
+u8 Temperature=0;
+u8 CAP_Detected=0;//烟雾报警
+u8 Temp_Detected=0;//温度报警
+u8 Token=0;
 
+extern __IO uint16_t ADC_ConvertedValue;
+extern u32 __IO tick;
+extern u8  __IO Trig;
+extern u32 __IO msec;
+extern u8  __IO HalfSecWave;
 void NVIC_Configuration(void);
 
+void ReadID(void)
+{
+  u8 temp;
+  GPIO_InitTypeDef GPIO_InitStructure;
+  RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOB, ENABLE); 									   
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4|GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_7;	
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;   
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; 
+  GPIO_Init(GPIOB, &GPIO_InitStructure);	
+
+  temp=(GPIO_ReadInputData(GPIOB)&0xF0)>>4;
+  DetectorID=DetectorID+temp;
+}
 /**
   * @brief  主函数
   * @param  无  
@@ -47,15 +67,29 @@ int main(void)
   DS18B20_Init();
 	CAN_Config();
   TIM3_Cap_Init(0XFFFF,72-1);
+  ReadID();
   
   LED1_ON;
+  tick=0;
 	for(;;)
-	{	
-//		printf("\r\nTEMP %.1f\r\n",DS18B20_Get_Temp());		
-//    printf("ADC:%d\r\n",ADC_ConvertedValue);
-    DealCAP();
-    ExchangeData();
-		Delay_ms(1000);		/* 1s 读取一次温度值 */
+	{
+    if(Trig)//100ms
+    {
+      Temperature=(u8)DS18B20_Get_Temp();
+      CAP_Detected= DealCAP(450,550);
+      if(Temperature>=40)Temp_Detected=1; else Temp_Detected=0;//温度检查
+      if(Token)
+        UploadData();
+      Trig=0;
+    }
+    
+    
+    if(HalfSecWave)
+    {  LED1_ON; }
+    else
+    {  LED1_OFF;}
+    
+//		Delay_ms(500);		/* 1s 读取一次温度值 */
 	}    
 }
 
@@ -85,6 +119,12 @@ void NVIC_Configuration(void)
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;  //从优先级0级
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; //IRQ通道被使能
 	NVIC_Init(&NVIC_InitStructure);  //根据NVIC_InitStruct中指定的参数初始化外设NVIC寄存器 
+  
+  NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;	 
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
 }
 
 /*********************************************END OF FILE**********************/
