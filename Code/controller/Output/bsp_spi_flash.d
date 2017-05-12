@@ -24,6 +24,7 @@
 ..\..\output\bsp_spi_flash.o: F:\Keil\ARM\ARMCC\bin\..\include\string.h
 ..\..\output\bsp_spi_flash.o: ..\..\User\other.h
 ..\..\output\bsp_spi_flash.o: ..\..\User\including.h
+..\..\output\bsp_spi_flash.o: ..\..\User\bsp_actuator.h
 ..\..\output\bsp_spi_flash.o: ..\..\User\bsp_usart1.h
 ..\..\output\bsp_spi_flash.o: ..\..\User\can.h
 ..\..\output\bsp_spi_flash.o: ..\..\User\ds3231.h

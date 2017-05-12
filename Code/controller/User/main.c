@@ -31,11 +31,14 @@ u8 SecAlarm=0;//秒
 u8 Ctrl_ID=0xC0;//控制器基标识
 u8 tempflag=0;
 u8 Token=0xC1;//令牌
-DetectorMsg Detector_1F[4]={0},Detector_2F[4]={0},Detector_3F[4]={0};//数组下标+1=探测器编号
+DetectorMsg Detector_1F[4]={0},Detector_2F[4]={0},Detector_3F[4]={0};//数组下标=探测器编号,0号应该是空的！
 ActuatorMsg Fan;
 ActuatorMsg Door;
 ActuatorMsg Pump;
-u8 FireAlarmFlag;//报警标志位
+ActuatorMsg Alarm;
+u8 RestFire=0;//其它层火灾 
+u8 LocalFire=0;//本层火灾
+u8 Reset=0;
 /*Extern Function*/
 void NVIC_Config(void);
 
@@ -66,6 +69,7 @@ int main(void)
 	
 	CAN_Config();
 	DS3231_Config();
+  ActuatorInit();
   ReadID();
   
 //  SetTime.year =0x17;
@@ -95,11 +99,11 @@ int main(void)
     if( dhcp_ok&&(Ctrl_ID==0xC1) )
       do_tcp_server();
     
-    if(FireAlarmFlag)//有火情，开始执行防灭火控制
+    if(LocalFire||RestFire)//有火情，开始执行防灭火控制
     {
       DealActuator();
     }
-    
+
     if(CAN_ID!=0)
     {
       CAN_ID=0;

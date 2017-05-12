@@ -4,12 +4,6 @@
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
 E:\Disk E\Graduation Project\Code\controller\Project\RVMDK£¨uv4£©\iSO-STM32.uvproj
-Project File Date:  04/20/2017
+Project File Date:  05/12/2017
 
 <h2>Output:</h2>
-Build target 'Controller'
-compiling other.c...
-linking...
-Program Size: Code=34014 RO-data=342 RW-data=356 ZI-data=5348  
-FromELF: creating hex file...
-"..\..\Output\Template.axf" - 0 Errors, 0 Warning(s).

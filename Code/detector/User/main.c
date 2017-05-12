@@ -24,6 +24,7 @@
 #include "bsp_can.h"
 #include "tim.h"
 #include "other.h"
+#include "bsp_pwrcarrier.h"
 
 u8 DetectorID=0xD0;
 u8 Temperature=0;
@@ -63,10 +64,12 @@ int main(void)
 	NVIC_Configuration();
 	LED_GPIO_Config();
 	USART1_Config();	
+  PWRCarrier_USART2_Config();
 	ADC1_Init();
   DS18B20_Init();
 	CAN_Config();
   TIM3_Cap_Init(0XFFFF,72-1);
+  BeepInit();
   ReadID();
   
   LED1_ON;
@@ -75,19 +78,32 @@ int main(void)
 	{
     if(Trig)//100ms
     {
-      Temperature=(u8)DS18B20_Get_Temp();
-      CAP_Detected= DealCAP(450,550);
+      Temperature  = (u8)DS18B20_Get_Temp();
+      CAP_Detected = DealCAP(450,550);
       if(Temperature>=40)Temp_Detected=1; else Temp_Detected=0;//温度检查
       if(Token)
         UploadData();
+        
       Trig=0;
+      
+      #ifdef DEBUG
+      printf("Temp:%2d CAP:%2d \r\n",Temperature,CAP_Detected);
+      #endif
     }
     
-    
+      
     if(HalfSecWave)
-    {  LED1_ON; }
+    { 
+      if(Temp_Detected+CAP_Detected)
+      { BeepOn();}
+      LED1_ON; 
+    }
     else
-    {  LED1_OFF;}
+    { 
+      LED1_OFF;
+      BeepOff();
+    }
+    
     
 //		Delay_ms(500);		/* 1s 读取一次温度值 */
 	}    
@@ -123,6 +139,12 @@ void NVIC_Configuration(void)
   NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;	 
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
+
+  NVIC_InitStructure.NVIC_IRQChannel = USART2_IRQn;	 
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);
 }

@@ -349,7 +349,7 @@
             <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>STM32F10X_MD, USE_STDPERIPH_DRIVER</Define>
+              <Define>STM32F10X_MD, USE_STDPERIPH_DRIVER,DEBUG</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\Libraries\CMSIS;..\..\User;..\..\Libraries\FWlib\inc;..\..\User\Led;..\..\User\SysTick;..\..\User\usart;..\..\User\ds18b20</IncludePath>
             </VariousControls>
@@ -656,6 +656,16 @@
               <FileName>tim.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\User\tim.h</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_pwrcarrier.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\bsp_pwrcarrier.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_pwrcarrier.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\User\bsp_pwrcarrier.h</FilePath>
             </File>
           </Files>
         </Group>

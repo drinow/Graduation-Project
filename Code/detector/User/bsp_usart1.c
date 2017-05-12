@@ -16,6 +16,7 @@
   */ 
   
 #include "bsp_usart1.h"
+#include "other.h"
 
  /**
   * @brief  USART1 GPIO 配置,工作模式配置。115200 8-N-1
@@ -57,12 +58,10 @@ void USART1_Config(void)
 
 void USART1_IRQHandler(void)
 {
-  u8 data;
 	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
 	{ 	
 	    //ch = USART1->DR;
-			data=USART_ReceiveData(USART1);
-      PwrCarrier_Deal(data);//电力载波数据处理.
+			USART_ReceiveData(USART1);
 	} 
 }
 

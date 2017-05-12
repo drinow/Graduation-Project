@@ -26,3 +26,4 @@
 ..\..\output\main.o: ..\..\User\bsp_can.h
 ..\..\output\main.o: ..\..\User\tim.h
 ..\..\output\main.o: ..\..\User\other.h
+..\..\output\main.o: ..\..\User\bsp_pwrcarrier.h

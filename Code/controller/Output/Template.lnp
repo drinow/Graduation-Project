@@ -38,6 +38,7 @@
 "..\..\output\bsp_spi_flash.o"
 "..\..\output\bsp_i2c_ee.o"
 "..\..\output\bsp_timbase.o"
+"..\..\output\bsp_actuator.o"
 "..\..\output\socket.o"
 "..\..\output\utility.o"
 "..\..\output\w5500.o"

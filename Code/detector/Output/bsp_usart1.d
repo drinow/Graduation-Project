@@ -19,3 +19,4 @@
 ..\..\output\bsp_usart1.o: ..\..\Libraries\FWlib\inc\stm32f10x_usart.h
 ..\..\output\bsp_usart1.o: ..\..\Libraries\FWlib\inc\misc.h
 ..\..\output\bsp_usart1.o: F:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+..\..\output\bsp_usart1.o: ..\..\User\other.h

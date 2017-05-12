@@ -24,6 +24,7 @@
 ..\..\output\stm32f10x_it.o: F:\Keil\ARM\ARMCC\bin\..\include\string.h
 ..\..\output\stm32f10x_it.o: ..\..\User\other.h
 ..\..\output\stm32f10x_it.o: ..\..\User\including.h
+..\..\output\stm32f10x_it.o: ..\..\User\bsp_actuator.h
 ..\..\output\stm32f10x_it.o: ..\..\User\bsp_usart1.h
 ..\..\output\stm32f10x_it.o: ..\..\User\can.h
 ..\..\output\stm32f10x_it.o: ..\..\User\ds3231.h

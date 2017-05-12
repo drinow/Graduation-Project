@@ -23,6 +23,7 @@
 ..\..\output\led.o: F:\Keil\ARM\ARMCC\bin\..\include\string.h
 ..\..\output\led.o: ..\..\User\other.h
 ..\..\output\led.o: ..\..\User\including.h
+..\..\output\led.o: ..\..\User\bsp_actuator.h
 ..\..\output\led.o: ..\..\User\bsp_usart1.h
 ..\..\output\led.o: ..\..\User\can.h
 ..\..\output\led.o: ..\..\User\ds3231.h

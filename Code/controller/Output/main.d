@@ -22,6 +22,7 @@
 ..\..\output\main.o: F:\Keil\ARM\ARMCC\bin\..\include\string.h
 ..\..\output\main.o: ..\..\User\other.h
 ..\..\output\main.o: ..\..\User\including.h
+..\..\output\main.o: ..\..\User\bsp_actuator.h
 ..\..\output\main.o: ..\..\User\bsp_usart1.h
 ..\..\output\main.o: ..\..\User\can.h
 ..\..\output\main.o: ..\..\User\ds3231.h
