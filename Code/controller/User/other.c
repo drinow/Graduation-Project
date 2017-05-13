@@ -76,12 +76,46 @@ void TCP_SendFire(void)
 {
   u8 TCPCache[15];
   u8 cnt=0,i=0;
-  static u8 j=0;
+
   TCPCache[cnt++]=0xAA;//Head
   TCPCache[cnt++]=0xAA;
   TCPCache[cnt++]=0x0A;//Len
   TCPCache[cnt++]=0x11;//Func
-  TCPCache[cnt++]=j++;//Serial Num
+  TCPCache[cnt++]=0;//Serial Num
+  TCPCache[cnt++]=0x02;//floor
+  TCPCache[cnt++]=0x12;//detector num
+  
+  TCPCache[cnt++]=GetTime.year;
+  TCPCache[cnt++]=GetTime.month;
+  TCPCache[cnt++]=GetTime.date ;
+  TCPCache[cnt++]=GetTime.hour ;
+  TCPCache[cnt++]=GetTime.min;
+  TCPCache[cnt++]=GetTime.sec;
+  for(i=cnt;i<15;)
+    TCPCache[i++]=0;
+  send(SOCK_TCPS,TCPCache,15);
+}
+
+void TCP_SendActuator(void)
+{
+  u8 TCPCache[15];
+  u8 cnt=0,i=0;
+  static u8 j=0xC1;
+  
+  switch(j)
+  {
+    case 0xC1:break;
+    case 0xC2:break;
+    case 0xC3:break;
+  }
+  j++;
+  if(j==0xC4)j=0xC3;
+  
+  TCPCache[cnt++]=0xAA;//Head
+  TCPCache[cnt++]=0xAA;
+  TCPCache[cnt++]=0x0A;//Len
+  TCPCache[cnt++]=0x14;//Func
+  TCPCache[cnt++]=0;//Serial Num
   TCPCache[cnt++]=0x02;//floor
   TCPCache[cnt++]=0x12;//detector num
   
@@ -150,8 +184,17 @@ void DealCAN(CanRxMsg* RxMessage)
         Detector_3F[(RxMessage->Data[1]&0x0F)].type=RxMessage->Data[2];
         Detector_3F[(RxMessage->Data[1]&0x0F)].temp=RxMessage->Data[3];
       }
-      if(RxMessage->Data[2]!=0)FireAlarmFlag=1;
+      if(RxMessage->Data[2]!=0)RestFire=1;//其它层起火
     }
+    if(RxMessage->Data[0]==0xF4)//警铃消息
+    {
+      Alarm.ID=RxMessage->Data[1];
+      Alarm.State=RxMessage->Data[2];
+    } 
+    if(RxMessage->Data[0]==0xF5)//复位消息
+    {
+      if(RxMessage->Data[2]==1) Reset=1;
+    } 
   }
 }
 
@@ -161,9 +204,9 @@ void DealFan(void)
   if(Fan.ID==1)
   {
     if(Fan.State==0)
-    {}
+    {FanCtrl(STOP);}
     if(Fan.State==1)
-    {}
+    {FanCtrl(RUN);}
   }
   if(Fan.ID==2)
   {
@@ -178,19 +221,19 @@ void DealDoor(void)
 {
   if(Door.ID==1)
   {
-    if(Door.State==0)
-    {}
-    if(Door.State==1)
-    {}
-    if(Door.State==2)
+    if(Door.State==0)//全开
+    {StepMotorCtrl(NUM1,FRD,500);}
+    if(Door.State==1)//全关
+    {StepMotorCtrl(NUM1,REV,500);}
+    if(Door.State==2)//半开
     {}
   }
   if(Door.ID==2)
   {
     if(Door.State==0)
-    {}
+    {StepMotorCtrl(NUM2,FRD,500);}
     if(Door.State==1)
-    {}
+    {StepMotorCtrl(NUM2,REV,500);}
     if(Door.State==2)
     {}
   }
@@ -201,9 +244,9 @@ void DealPump(void)
   if(Pump.ID==1)
   {
     if(Pump.State==0)
-    {}
+    {WaterPumpCtrl(STOP);}
     if(Pump.State==1)
-    {}
+    {WaterPumpCtrl(RUN);}
   }
   if(Pump.ID==2)
   {
@@ -214,11 +257,34 @@ void DealPump(void)
   }
 }
 
+void DealAlarm(void)
+{
+  if(wave&0x08)
+  {
+    AlarmCtrl(RUN);
+  }
+  else
+  {
+    AlarmCtrl(STOP);
+  }
+}
+
+//疏散指示
+void Evacuate(void)
+{
+  
+}
+
 void DealActuator(void)
 {
+  if(LocalFire)
+  {
+    DealDoor();
+    DealPump();
+  }
   DealFan();
-  DealDoor();
-  DealPump();
+  DealAlarm();
+  Evacuate();
 }
 
 //CAN总线广播数据
@@ -228,6 +294,7 @@ void CAN_Broadcast(void)
   u8 broadcastID=0xC0;
   static u8 Detect_Num=0xD1;//每次广播一个探测器数据，分三次广播完毕
 
+  //广播探测器
   switch(Ctrl_ID)//根据ID寻找本层探测器数据所在内存
   {
     case 0xC1:cache[0]=0xF3;       cache[1]=Detect_Num;
@@ -251,9 +318,25 @@ void CAN_Broadcast(void)
   if(Detect_Num==0xD4)Detect_Num=0xD1;
   
   CAN_Send(&cache[0],broadcastID);
+  
+  //广播复位信号
+  if(Reset)
+  {
+    memset(cache,0,sizeof(cache));
+    cache[0]=0xF5;
+    cache[1]=0;
+    cache[2]=1;
+    
+    memset(Detector_1F,0,sizeof(Detector_1F));
+    memset(Detector_1F,0,sizeof(Detector_2F));
+    memset(Detector_1F,0,sizeof(Detector_2F));
+    RestFire=LocalFire=0;
+    Reset=0;
+  }
+  CAN_Send(&cache[0],broadcastID);
 }
 
-u8 PwrRxBuffer[6];
+u8 PwrRxBuffer[8];
 //电力载波
 void PwrCarrier_Deal(u8 data)
 {
@@ -277,7 +360,7 @@ void PwrCarrier_Deal(u8 data)
   else
 			RxState = 0;
   
-  if((2+data_cnt)==6)//数据定位变量复位，并处理数据
+  if((2+data_cnt)==8)//数据定位变量复位，并处理数据
   {
     data_cnt=RxState=0;
     switch(Ctrl_ID)
@@ -289,6 +372,7 @@ void PwrCarrier_Deal(u8 data)
       case 0xC3:Detector_3F[(PwrRxBuffer[3]&0x0F)].type=PwrRxBuffer[4];
                 Detector_3F[(PwrRxBuffer[3]&0x0F)].temp=PwrRxBuffer[5];break;
     }
+    if(PwrRxBuffer[4]!=0)LocalFire=1;//本地起火
   }
   
 }
@@ -301,8 +385,12 @@ void PwrTokenCtrl(void)
   cache[cnt++]=0xDD;
   cache[cnt++]=0x10;
   cache[cnt++]=Token;
-  
-  USART_SendString(USART1,cache,cnt);
+  cache[cnt++]=0;
+  cache[cnt++]=0;
+  cache[cnt++]=0;
+  cache[cnt++]=0;
+
+  USART_SendString(USART1,cache,8);
   
   Token++;
   if(Token==0xC4)Token=0xC1;

@@ -12,6 +12,7 @@
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="bitbug_favicon.ico" Type="Document" URL="../../../../Labview/相关程序/数据采集上位机/LV2012_FreeCOM/LV2016_FreeCOM - 存所有数据 - 带滤波-逼儿子卡顿/bitbug_favicon.ico"/>
 		<Item Name="main.vi" Type="VI" URL="../main.vi"/>
+		<Item Name="protocol.xlsx" Type="Document" URL="../../protocol.xlsx"/>
 		<Item Name="SearchAndExtract.vi" Type="VI" URL="../SearchAndExtract.vi"/>
 		<Item Name="依赖关系" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">

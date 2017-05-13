@@ -692,6 +692,16 @@
               <FileType>5</FileType>
               <FilePath>..\..\User\bsp_TiMbase.h</FilePath>
             </File>
+            <File>
+              <FileName>bsp_actuator.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\bsp_actuator.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_actuator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\User\bsp_actuator.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

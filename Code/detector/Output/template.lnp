@@ -35,6 +35,7 @@
 "..\..\output\bsp_usart1.o"
 "..\..\output\bsp_can.o"
 "..\..\output\tim.o"
+"..\..\output\bsp_pwrcarrier.o"
 --library_type=microlib --strict --scatter "..\..\Output\template.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

@@ -27,6 +27,7 @@
 ..\..\output\tcp_demo.o: ..\..\User\including.h
 ..\..\output\tcp_demo.o: ..\..\User\other.h
 ..\..\output\tcp_demo.o: ..\..\User\including.h
+..\..\output\tcp_demo.o: ..\..\User\bsp_actuator.h
 ..\..\output\tcp_demo.o: ..\..\User\bsp_usart1.h
 ..\..\output\tcp_demo.o: ..\..\User\can.h
 ..\..\output\tcp_demo.o: ..\..\User\ds3231.h

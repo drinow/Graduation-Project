@@ -22,8 +22,9 @@
 ..\..\output\other.o: F:\Keil\ARM\ARMCC\bin\..\include\stdio.h
 ..\..\output\other.o: F:\Keil\ARM\ARMCC\bin\..\include\string.h
 ..\..\output\other.o: ..\..\User\other.h
-..\..\output\other.o: ..\..\User\bsp_usart1.h
+..\..\output\other.o: ..\..\User\bsp_actuator.h
 ..\..\output\other.o: ..\..\User\including.h
+..\..\output\other.o: ..\..\User\bsp_usart1.h
 ..\..\output\other.o: ..\..\User\can.h
 ..\..\output\other.o: ..\..\User\ds3231.h
 ..\..\output\other.o: ..\..\User\bsp_i2c_gpio.h

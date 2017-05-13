@@ -16,6 +16,7 @@
   */ 
   
 #include "bsp_usart1.h"
+#include "other.h"
 
  /**
   * @brief  USART1 GPIO 配置,工作模式配置。115200 8-N-1
@@ -43,15 +44,27 @@ void USART1_Config(void)
 		GPIO_Init(GPIOA, &GPIO_InitStructure);
 			
 		/* USART1 mode config */
-		USART_InitStructure.USART_BaudRate = 115200;
+		USART_InitStructure.USART_BaudRate = 9600;
 		USART_InitStructure.USART_WordLength = USART_WordLength_8b;
 		USART_InitStructure.USART_StopBits = USART_StopBits_1;
 		USART_InitStructure.USART_Parity = USART_Parity_No ;
 		USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
 		USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
 		USART_Init(USART1, &USART_InitStructure); 
+		USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
 		USART_Cmd(USART1, ENABLE);
 }
+
+
+void USART1_IRQHandler(void)
+{
+	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
+	{ 	
+	    //ch = USART1->DR;
+			USART_ReceiveData(USART1);
+	} 
+}
+
 
 ///重定向c库函数printf到USART1
 int fputc(int ch, FILE *f)

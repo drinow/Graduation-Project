@@ -23,6 +23,7 @@
 ..\..\output\screen.o: F:\Keil\ARM\ARMCC\bin\..\include\string.h
 ..\..\output\screen.o: ..\..\User\other.h
 ..\..\output\screen.o: ..\..\User\including.h
+..\..\output\screen.o: ..\..\User\bsp_actuator.h
 ..\..\output\screen.o: ..\..\User\bsp_usart1.h
 ..\..\output\screen.o: ..\..\User\can.h
 ..\..\output\screen.o: ..\..\User\ds3231.h

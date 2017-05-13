@@ -5,7 +5,7 @@
 #include "stdio.h"
 #include "string.h"
 #include "other.h"
-
+#include "bsp_actuator.h"
 #include "bsp_usart1.h"
 #include "can.h"
 #include "ds3231.h"
@@ -48,6 +48,9 @@ extern DetectorMsg Detector_1F[4],Detector_2F[4],Detector_3F[4];
 extern ActuatorMsg Fan;
 extern ActuatorMsg Door;
 extern ActuatorMsg Pump;
-extern u8 FireAlarmFlag;
+extern ActuatorMsg Alarm;
+extern u8 RestFire;
+extern u8 LocalFire;
+extern u8 Reset;
 #endif
 
