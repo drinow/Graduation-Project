@@ -76,12 +76,46 @@ void TCP_SendFire(void)
 {
   u8 TCPCache[15];
   u8 cnt=0,i=0;
-  static u8 j=0;
+
   TCPCache[cnt++]=0xAA;//Head
   TCPCache[cnt++]=0xAA;
   TCPCache[cnt++]=0x0A;//Len
   TCPCache[cnt++]=0x11;//Func
-  TCPCache[cnt++]=j++;//Serial Num
+  TCPCache[cnt++]=0;//Serial Num
+  TCPCache[cnt++]=0x02;//floor
+  TCPCache[cnt++]=0x12;//detector num
+  
+  TCPCache[cnt++]=GetTime.year;
+  TCPCache[cnt++]=GetTime.month;
+  TCPCache[cnt++]=GetTime.date ;
+  TCPCache[cnt++]=GetTime.hour ;
+  TCPCache[cnt++]=GetTime.min;
+  TCPCache[cnt++]=GetTime.sec;
+  for(i=cnt;i<15;)
+    TCPCache[i++]=0;
+  send(SOCK_TCPS,TCPCache,15);
+}
+
+void TCP_SendActuator(void)
+{
+  u8 TCPCache[15];
+  u8 cnt=0,i=0;
+  static u8 j=0xC1;
+  
+  switch(j)
+  {
+    case 0xC1:break;
+    case 0xC2:break;
+    case 0xC3:break;
+  }
+  j++;
+  if(j==0xC4)j=0xC3;
+  
+  TCPCache[cnt++]=0xAA;//Head
+  TCPCache[cnt++]=0xAA;
+  TCPCache[cnt++]=0x0A;//Len
+  TCPCache[cnt++]=0x14;//Func
+  TCPCache[cnt++]=0;//Serial Num
   TCPCache[cnt++]=0x02;//floor
   TCPCache[cnt++]=0x12;//detector num
   
