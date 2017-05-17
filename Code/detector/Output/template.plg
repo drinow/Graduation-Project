@@ -7,3 +7,12 @@ E:\Disk E\Graduation Project\Code\detector\Project\RVMDK£¨uv4£©\iSO-STM32.uvproj
 Project File Date:  05/14/2017
 
 <h2>Output:</h2>
+<<<<<<< HEAD
+=======
+Build target 'detector'
+compiling main.c...
+linking...
+Program Size: Code=9784 RO-data=336 RW-data=108 ZI-data=1028  
+FromELF: creating hex file...
+"..\..\Output\template.axf" - 0 Errors, 0 Warning(s).
+>>>>>>> master

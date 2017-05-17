@@ -307,7 +307,7 @@ void SC_SendID(void)
   SC_Cache[len++]=':';
   SC_Cache[len++]='0';
   SC_Cache[len++]='x';
-  SC_Cache[len++]='0'+(Ctrl_ID>>4);
+  SC_Cache[len++]='C';
   SC_Cache[len++]='0'+(Ctrl_ID&0x0F);
   SC_Cache[2]=len-3;//fill the lenth
   

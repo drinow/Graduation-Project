@@ -1,8 +1,20 @@
 Other
 Code/HostComputer/builds
 Code/controller/Output
+Code/controller/Project/RVMDK£¨uv4£©/ISO-STM32.uvgui.YYH
+Code/controller/Project/RVMDK£¨uv4£©/ISO-STM32.uvgui_YYH.bak
+Code/controller/Project/RVMDK£¨uv4£©/ISO-STM32.uvopt
+Code/controller/Project/RVMDK£¨uv4£©/ISO-STM32_Controller.dep
 Code/detector/Output
+Code/detector/Project/RVMDK£¨uv4£©/ISO-STM32.uvgui.YYH
+Code/detector/Project/RVMDK£¨uv4£©/ISO-STM32.uvgui_YYH.bak
+Code/detector/Project/RVMDK£¨uv4£©/ISO-STM32.uvopt
+Code/detector/Project/RVMDK£¨uv4£©/ISO-STM32_detector.dep
 Code/mobiledevice/Output
+Code/mobiledevice/Project/RVMDK£¨uv4£©/iSO-STM32.uvgui.YYH
+Code/mobiledevice/Project/RVMDK£¨uv4£©/iSO-STM32.uvgui_YYH.bak
+Code/mobiledevice/Project/RVMDK£¨uv4£©/iSO-STM32.uvopt
+Code/mobiledevice/Project/RVMDK£¨uv4£©/iSO-STM32_detector.dep
 
 Circuit/CMBus Test/CMBus_Master/_Previews
 Circuit/CMBus Test/CMBus_Master/History
