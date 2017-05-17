@@ -83,13 +83,14 @@ static void DS18B20_Rst(void)
 	
 	DS18B20_DATA_OUT(LOW);
 	/* 主机至少产生480us的低电平复位信号 */
-	Delay_us(750);
-	
+//	Delay_us(750);
+	Delay_us(75);//10us的时基
 	/* 主机在产生复位信号后，需将总线拉高 */
 	DS18B20_DATA_OUT(HIGH);
 	
 	/*从机接收到主机的复位信号后，会在15~60us后给主机发一个存在脉冲*/
-	Delay_us(15);
+//	Delay_us(15);
+  Delay_us(2);//10us的时基
 }
 
 /*
@@ -141,8 +142,9 @@ static uint8_t DS18B20_Read_Bit(void)
 	DS18B20_Mode_Out_PP();
 	/* 读时间的起始：必须由主机产生 >1us <15us 的低电平信号 */
 	DS18B20_DATA_OUT(LOW);
-	Delay_us(10);
-	
+//	Delay_us(10);
+	Delay_us(1);//10us的时基
+  
 	/* 设置成输入，释放总线，由外部上拉电阻将总线拉高 */
 	DS18B20_Mode_IPU();
 	//Delay_us(2);
@@ -153,8 +155,8 @@ static uint8_t DS18B20_Read_Bit(void)
 		dat = 0;
 	
 	/* 这个延时参数请参考时序图 */
-	Delay_us(45);
-	
+//	Delay_us(45);
+	Delay_us(5);//10us的时基
 	return dat;
 }
 
@@ -191,20 +193,24 @@ void DS18B20_Write_Byte(uint8_t dat)
 		{			
 			DS18B20_DATA_OUT(LOW);
 			/* 1us < 这个延时 < 15us */
-			Delay_us(8);
-			
+//			Delay_us(8);
+			Delay_us(1);//10us的时基
+      
 			DS18B20_DATA_OUT(HIGH);
-			Delay_us(58);
+//			Delay_us(58);
+      Delay_us(6);//10us的时基
 		}		
 		else
 		{			
 			DS18B20_DATA_OUT(LOW);
 			/* 60us < Tx 0 < 120us */
-			Delay_us(70);
-			
+//			Delay_us(70);
+			Delay_us(7);//10us的时基
+      
 			DS18B20_DATA_OUT(HIGH);			
 			/* 1us < Trec(恢复时间) < 无穷大*/
-			Delay_us(2);
+//			Delay_us(2);
+      Delay_us(1);//10us的时基
 		}
 	}
 }

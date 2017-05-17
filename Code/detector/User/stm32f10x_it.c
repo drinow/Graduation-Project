@@ -140,14 +140,16 @@ u32 __IO tick=0;
 u8  __IO Trig=0;
 u32 __IO msec=0;
 u8  __IO HalfSecWave;
+u8  __IO QuarterWave;
+extern __IO u32 TimingDelay;
 void SysTick_Handler(void)
 {
 	TimingDelay_Decrement();	
   tick++;
-  
-  if(tick%1000==0)msec++;
+  if(tick%100==0)msec++;
   if(msec%100==0)Trig=1;
-  if(msec%500>250)HalfSecWave=1;else HalfSecWave=0;
+  if((msec%500)>250)QuarterWave=1;else QuarterWave=0;
+  if((msec%1000)>500)HalfSecWave=1;else HalfSecWave=0;
 }
 
 

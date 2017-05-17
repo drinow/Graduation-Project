@@ -54,12 +54,23 @@ void do_tcp_server(void)
         TCP_DealData(buff,len);
 //				send(SOCK_TCPS,buff,len);									              /*向Client发送数据*/
 		  }
-//      if(pulse)
-//        TCP_KeepAlive();//自己的函数
       if(tempflag)
       {
         tempflag=0;
-        TCP_SendFire();
+        if(RestFire|LocalFire)
+        {
+          if(FiredSended==0)
+          {
+            if(FiredNum!=0)
+            {
+              TCP_SendFire(FiredNum&0xFF,(FiredNum&0xFF00)>>8);
+              FiredSended=1;
+            }
+          }
+        }
+        TCP_SendDetector1F();
+        TCP_SendDetector2F();
+        TCP_SendDetector3F();
 //        TCP_KeepAlive();//每秒钟一定要发送一次数据，用来维持心跳，且一次只发15字节，如果有数据发送则不必也不可发送心跳包
       }
 		  break;

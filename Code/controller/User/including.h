@@ -33,6 +33,12 @@ typedef struct
   u8 State;
 }ActuatorMsg;//Çý¶¯Æ÷
 
+typedef struct
+{
+  u8 Detector;
+  u8 Controller;
+}FiredMsg;//Çý¶¯Æ÷
+
 extern volatile u32 tick;
 extern TIME_TypeDef GetTime,SetTime;
 extern volatile u8 wave;
@@ -49,6 +55,10 @@ extern ActuatorMsg Fan;
 extern ActuatorMsg Door;
 extern ActuatorMsg Pump;
 extern ActuatorMsg Alarm;
+extern FiredMsg FiredDetector[9];
+extern u32 FiredNum;
+extern u8 FiredSended;
+extern u8 Fired[9];
 extern u8 RestFire;
 extern u8 LocalFire;
 extern u8 Reset;
