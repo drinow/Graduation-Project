@@ -24,11 +24,7 @@ void TCPS_Config(void)
   else
     printf("=====DHCP initialization failed=====\r\n");
   
-  SC_SendID();//要发2次，可能是第一次发送又漏第一个数据
-  SC_SendID();
-  SC_SendIPAddr();
-  SC_SendPort();
-  SC_SendDHCP();
+  
   
 }
 

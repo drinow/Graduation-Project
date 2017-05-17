@@ -85,8 +85,11 @@ int main(void)
       Temperature  = (u8)DS18B20_Get_Temp();
       CAP_Detected = DealCAP(450,550);
       if(Temperature>=40)Temp_Detected=1; else Temp_Detected=0;//ÎÂ¶È¼ì²é
-      if(Token)
+      if(Token==DetectorID)
+      {
         UploadData();
+        Token=0;
+      }
         
       Trig=0;
       

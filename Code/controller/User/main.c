@@ -78,9 +78,9 @@ int main(void)
   
 //  SetTime.year =0x17;
 //  SetTime.month =0x05;
-//  SetTime.date =0x16;
-//  SetTime.hour =0x21;
-//  SetTime.min =0x43;
+//  SetTime.date =0x17;
+//  SetTime.hour =0x11;
+//  SetTime.min =0x03;
 //  SetTime.sec =0x00;
 //  DS3231_WriteTime(&SetTime);
   
@@ -88,10 +88,16 @@ int main(void)
 	SysTick_Init();
   Ctrl_ID=0xC1;
   //不插网线会死机！
+  Delay_ms(3000);
   if(Ctrl_ID==0xC1)//主控制器启用的功能
   {
     Screen_Config();
 //    TCPS_Config();
+    SC_SendID();//要发2次，可能是第一次发送又漏第一个数据
+    SC_SendID();
+    SC_SendIPAddr();
+    SC_SendPort();
+    SC_SendDHCP();
   }
 	
   tick=0;
