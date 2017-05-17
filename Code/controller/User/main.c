@@ -30,15 +30,19 @@ uint32_t CAN_ID;//标识符
 u8 SecAlarm=0;//秒
 u8 Ctrl_ID=0xC0;//控制器基标识
 u8 tempflag=0;
-u8 Token=0xC1;//令牌
+u8 Token=0xD1;//令牌
 DetectorMsg Detector_1F[4]={0},Detector_2F[4]={0},Detector_3F[4]={0};//数组下标=探测器编号,0号应该是空的！
 ActuatorMsg Fan;
 ActuatorMsg Door;
 ActuatorMsg Pump;
 ActuatorMsg Alarm;
+FiredMsg FiredDetector[9];
+u32 FiredNum=0;
+u8 Fired[9]={0};
 u8 RestFire=0;//其它层火灾 
 u8 LocalFire=0;//本层火灾
 u8 Reset=0;
+u8 FiredSended=0;
 /*Extern Function*/
 void NVIC_Config(void);
 
@@ -73,20 +77,21 @@ int main(void)
   ReadID();
   
 //  SetTime.year =0x17;
-//  SetTime.month =0x04;
-//  SetTime.date =0x18;
-//  SetTime.hour =0x12;
-//  SetTime.min =0x03;
+//  SetTime.month =0x05;
+//  SetTime.date =0x16;
+//  SetTime.hour =0x21;
+//  SetTime.min =0x43;
 //  SetTime.sec =0x00;
 //  DS3231_WriteTime(&SetTime);
   
 	LED_STATE_Config();
 	SysTick_Init();
-  
+  Ctrl_ID=0xC1;
+  //不插网线会死机！
   if(Ctrl_ID==0xC1)//主控制器启用的功能
   {
     Screen_Config();
-    TCPS_Config();
+//    TCPS_Config();
   }
 	
   tick=0;
@@ -115,15 +120,18 @@ int main(void)
     {
       tempflag=1;//TCP发送标志
       SecAlarm=0;
-      
-      if(Ctrl_ID==0xC1)
+      if(Ctrl_ID==0xC1)//主控制器才控制屏幕
+      {
         SC_SendTime();
+        SC_SendFirePoint();
+      }
       
       PwrTokenCtrl();//电力载波令牌控制
       CAN_Broadcast();//CAN总线广播
       #ifdef DEBUG
-      printf("Time:%x:%x:%x\r\n",GetTime.hour ,GetTime.min ,GetTime.sec );
       #endif
+      printf("Time:%x:%x:%x\r\n",GetTime.hour ,GetTime.min ,GetTime.sec );
+      
     }
 	}
 }

@@ -53,8 +53,8 @@ void SC_SendTime(void)
 
   SC_Cache[len++]=SC_WDAT;//MODE
   
-  SC_Cache[len++]=BYTE0(temp);//ADDRESS is equal to type!
-  SC_Cache[len++]=BYTE1(temp);
+  SC_Cache[len++]=BYTE1(temp);//ADDRESS is equal to type!
+  SC_Cache[len++]=BYTE0(temp);
    
   SC_Cache[len++]='2';
   SC_Cache[len++]='0';
@@ -80,6 +80,97 @@ void SC_SendTime(void)
   
   len++;
   USART_SendString(USART2,&SC_Cache[0],len);
+}
+
+void SC_SendFireICON(u16 pointer,u8 value)
+{
+  u8 len=0;
+  u8 SC_Cache[25];
+  u16 temp=pointer;
+  SC_Cache[len++]=0xA5;//HEADER 
+  SC_Cache[len++]=0x5A;
+  SC_Cache[len++]=0x00;//LEN,filled later.
+
+  SC_Cache[len++]=SC_WDAT;//MODE
+  
+  SC_Cache[len++]=BYTE1(temp);//ADDRESS is equal to type!
+  SC_Cache[len++]=BYTE0(temp);
+   
+  SC_Cache[len++]=0;
+  
+  if(value==1)
+    SC_Cache[len++]=ICON_RED;
+  else
+    SC_Cache[len++]=ICON_GREEN;
+  
+  SC_Cache[2]=len-3;//fill the lenth
+  
+  len++;
+  USART_SendString(USART2,&SC_Cache[0],len);
+}
+
+
+//·¢ËÍÌÓÅÜÂ·Ïß
+//num:µÚnum¸öÌ½²âÆ÷ ·¶Î§0-8
+//value£ºÌ½²âÆ÷ÊÇ·ñ±¨¾¯
+void SC_SendRUNICON(u8 num,u8 value)
+{
+  u8 len=0;
+  u8 SC_Cache[25];
+  u16 temp=0;
+  u8 runway=0;
+  if(num<3)temp=SC_1FWAY;
+  if(num<6)temp=SC_2FWAY;
+  if(num<9)temp=SC_3FWAY;
+  
+  switch(num)
+  {
+    case 0:runway=ICON_RUN11;break;
+    case 1:runway=ICON_RUN12;break;
+    case 2:runway=ICON_RUN13;break;
+    case 3:runway=ICON_RUN21;break;
+    case 4:runway=ICON_RUN22;break;
+    case 5:runway=ICON_RUN23;break;
+    case 6:runway=ICON_RUN31;break;
+    case 7:runway=ICON_RUN32;break;
+    case 8:runway=ICON_RUN33;break;
+    default :runway=ICON_CLR;break;
+  }
+  
+  SC_Cache[len++]=0xA5;//HEADER 
+  SC_Cache[len++]=0x5A;
+  SC_Cache[len++]=0x00;//LEN,filled later.
+
+  SC_Cache[len++]=SC_WDAT;//MODE
+  
+  SC_Cache[len++]=BYTE1(temp);//ADDRESS is equal to type!
+  SC_Cache[len++]=BYTE0(temp);
+   
+  SC_Cache[len++]=0;
+  
+  if(value==1)
+    SC_Cache[len++]=runway;
+  else
+    SC_Cache[len++]=ICON_CLR;
+  
+  SC_Cache[2]=len-3;//fill the lenth
+  
+  len++;
+  USART_SendString(USART2,&SC_Cache[0],len);
+}
+
+
+void SC_SendFirePoint(void)
+{
+  u8 i=0;
+  u16 j=SC_DETECTOR11;
+  for(i=0;i<9;i++)
+  {
+    SC_SendFireICON(j,Fired[i]);
+    j++;j++;
+    if(Fired[i]==1)
+      SC_SendRUNICON(i,SC_ESCAPE);
+  }
 }
 
 void SC_SendIPAddr(void)
@@ -121,6 +212,7 @@ void SC_SendIPAddr(void)
   len++;
   USART_SendString(USART2,&SC_Cache[0],len);
 }
+
 
 void SC_SendPort(void)
 {

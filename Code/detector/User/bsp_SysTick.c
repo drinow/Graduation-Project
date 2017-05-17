@@ -18,7 +18,7 @@
   
 #include "bsp_SysTick.h"
 
-static __IO u32 TimingDelay;
+__IO u32 TimingDelay;
  
 /**
   * @brief  启动系统滴答定时器 SysTick
@@ -32,7 +32,7 @@ void SysTick_Init(void)
 	 * SystemFrequency / 1000000 1us中断一次
 	 */
 //	if (SysTick_Config(SystemFrequency / 100000))	// ST3.0.0库版本
-	if (SysTick_Config(SystemCoreClock / 1000000))	// ST3.5.0库版本
+	if (SysTick_Config(SystemCoreClock / 100000))	// ST3.5.0库版本
 	{ 
 		/* Capture error */ 
 		while (1);
@@ -40,7 +40,7 @@ void SysTick_Init(void)
 		// 关闭滴答定时器  
 	SysTick->CTRL &= ~ SysTick_CTRL_ENABLE_Msk;
   	// 使能滴答定时器  
-	SysTick->CTRL |=  SysTick_CTRL_ENABLE_Msk;
+//	SysTick->CTRL |=  SysTick_CTRL_ENABLE_Msk;
 }
 
 /**

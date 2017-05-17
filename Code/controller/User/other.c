@@ -72,7 +72,7 @@ void TCP_KeepAlive(void)
   send(SOCK_TCPS,TCPCache,15);
 }
 
-void TCP_SendFire(void)
+void TCP_SendFire(u8 detector,u8 controller)
 {
   u8 TCPCache[15];
   u8 cnt=0,i=0;
@@ -81,9 +81,9 @@ void TCP_SendFire(void)
   TCPCache[cnt++]=0xAA;
   TCPCache[cnt++]=0x0A;//Len
   TCPCache[cnt++]=0x11;//Func
-  TCPCache[cnt++]=0;//Serial Num
-  TCPCache[cnt++]=0x02;//floor
-  TCPCache[cnt++]=0x12;//detector num
+  TCPCache[cnt++]=0;//Æð»ðÐòºÅ £¬²»ÓÃÁË£¬Ëæ±ãÌî
+  TCPCache[cnt++]=controller;//floor
+  TCPCache[cnt++]=detector;//detector num
   
   TCPCache[cnt++]=GetTime.year;
   TCPCache[cnt++]=GetTime.month;
@@ -96,35 +96,80 @@ void TCP_SendFire(void)
   send(SOCK_TCPS,TCPCache,15);
 }
 
-void TCP_SendActuator(void)
+
+void TCP_SendDetector1F(void)
 {
   u8 TCPCache[15];
   u8 cnt=0,i=0;
-  static u8 j=0xC1;
-  
-  switch(j)
-  {
-    case 0xC1:break;
-    case 0xC2:break;
-    case 0xC3:break;
-  }
-  j++;
-  if(j==0xC4)j=0xC3;
-  
+
   TCPCache[cnt++]=0xAA;//Head
   TCPCache[cnt++]=0xAA;
-  TCPCache[cnt++]=0x0A;//Len
-  TCPCache[cnt++]=0x14;//Func
-  TCPCache[cnt++]=0;//Serial Num
-  TCPCache[cnt++]=0x02;//floor
-  TCPCache[cnt++]=0x12;//detector num
+  TCPCache[cnt++]=0x0;//Len
+  TCPCache[cnt++]=0x15;//¹¦ÄÜ´úºÅ
+  TCPCache[cnt++]=0xC1;//ËùÊô¿ØÖÆÆ÷
+  TCPCache[cnt++]=0xD1;//Ì½²âÆ÷±àºÅ
+  TCPCache[cnt++]=Detector_1F[1].type;
+  TCPCache[cnt++]=Detector_1F[1].temp;
+  TCPCache[cnt++]=0xD2;//Ì½²âÆ÷±àºÅ
+  TCPCache[cnt++]=Detector_1F[2].type;
+  TCPCache[cnt++]=Detector_1F[2].temp;
+  TCPCache[cnt++]=0xD3;//Ì½²âÆ÷±àºÅ
+  TCPCache[cnt++]=Detector_1F[3].type;
+  TCPCache[cnt++]=Detector_1F[3].temp;
   
-  TCPCache[cnt++]=GetTime.year;
-  TCPCache[cnt++]=GetTime.month;
-  TCPCache[cnt++]=GetTime.date ;
-  TCPCache[cnt++]=GetTime.hour ;
-  TCPCache[cnt++]=GetTime.min;
-  TCPCache[cnt++]=GetTime.sec;
+  TCPCache[2]=cnt-3;
+  for(i=cnt;i<15;)
+    TCPCache[i++]=0;
+  send(SOCK_TCPS,TCPCache,15);
+}
+
+void TCP_SendDetector2F(void)
+{
+  u8 TCPCache[15];
+  u8 cnt=0,i=0;
+
+  TCPCache[cnt++]=0xAA;//Head
+  TCPCache[cnt++]=0xAA;
+  TCPCache[cnt++]=0x0;//Len
+  TCPCache[cnt++]=0x15;//¹¦ÄÜ´úºÅ
+  TCPCache[cnt++]=0xC2;//ËùÊô¿ØÖÆÆ÷
+  TCPCache[cnt++]=0xD1;//Ì½²âÆ÷±àºÅ
+  TCPCache[cnt++]=Detector_2F[1].type;
+  TCPCache[cnt++]=Detector_2F[1].temp;
+  TCPCache[cnt++]=0xD2;//Ì½²âÆ÷±àºÅ
+  TCPCache[cnt++]=Detector_2F[2].type;
+  TCPCache[cnt++]=Detector_2F[2].temp;
+  TCPCache[cnt++]=0xD3;//Ì½²âÆ÷±àºÅ
+  TCPCache[cnt++]=Detector_2F[3].type;
+  TCPCache[cnt++]=Detector_2F[3].temp;
+  
+  TCPCache[2]=cnt-3;
+  for(i=cnt;i<15;)
+    TCPCache[i++]=0;
+  send(SOCK_TCPS,TCPCache,15);
+}
+
+void TCP_SendDetector3F(void)
+{
+  u8 TCPCache[15];
+  u8 cnt=0,i=0;
+
+  TCPCache[cnt++]=0xAA;//Head
+  TCPCache[cnt++]=0xAA;
+  TCPCache[cnt++]=0x0;//Len
+  TCPCache[cnt++]=0x15;//¹¦ÄÜ´úºÅ
+  TCPCache[cnt++]=0xC3;//ËùÊô¿ØÖÆÆ÷
+  TCPCache[cnt++]=0xD1;//Ì½²âÆ÷±àºÅ
+  TCPCache[cnt++]=Detector_3F[1].type;
+  TCPCache[cnt++]=Detector_3F[1].temp;
+  TCPCache[cnt++]=0xD2;//Ì½²âÆ÷±àºÅ
+  TCPCache[cnt++]=Detector_3F[2].type;
+  TCPCache[cnt++]=Detector_3F[2].temp;
+  TCPCache[cnt++]=0xD3;//Ì½²âÆ÷±àºÅ
+  TCPCache[cnt++]=Detector_3F[3].type;
+  TCPCache[cnt++]=Detector_3F[3].temp;
+  
+  TCPCache[2]=cnt-3;
   for(i=cnt;i<15;)
     TCPCache[i++]=0;
   send(SOCK_TCPS,TCPCache,15);
@@ -144,8 +189,6 @@ u8 search(u8* array,u8 len,u8 data)
   }
   return index;
 }
-
-//
 
 
 void DealCAN(CanRxMsg* RxMessage)
@@ -173,18 +216,28 @@ void DealCAN(CanRxMsg* RxMessage)
       {
         Detector_1F[(RxMessage->Data[1]&0x0F)].type=RxMessage->Data[2];
         Detector_1F[(RxMessage->Data[1]&0x0F)].temp=RxMessage->Data[3];
+        if(RxMessage->Data[2]!=0) Fired[(RxMessage->Data[1]&0x0F)-1]=1;
+        else Fired[(RxMessage->Data[1]&0x0F)-1]=0;
       }
       if((RxMessage->Data[4])==0xC2)//ÊôÓÚ2²ãµÄÌ½²âÆ÷ÏûÏ¢
       {
         Detector_2F[(RxMessage->Data[1]&0x0F)].type=RxMessage->Data[2];
         Detector_2F[(RxMessage->Data[1]&0x0F)].temp=RxMessage->Data[3];
+        if(RxMessage->Data[2]!=0) Fired[3+(RxMessage->Data[1]&0x0F)-1]=1;
+        else Fired[(RxMessage->Data[1]&0x0F)-1]=0;
       }
       if((RxMessage->Data[4])==0xC3)//ÊôÓÚ3²ãµÄÌ½²âÆ÷ÏûÏ¢
       {
         Detector_3F[(RxMessage->Data[1]&0x0F)].type=RxMessage->Data[2];
         Detector_3F[(RxMessage->Data[1]&0x0F)].temp=RxMessage->Data[3];
+        if(RxMessage->Data[2]!=0) Fired[6+(RxMessage->Data[1]&0x0F)-1]=1;
+        else Fired[(RxMessage->Data[1]&0x0F)-1]=0;
       }
-      if(RxMessage->Data[2]!=0)RestFire=1;//ÆäËü²ãÆð»ð
+      if(RxMessage->Data[2]!=0)
+      { 
+        RestFire=1;//ÆäËü²ãÆð»ð
+        FiredNum=RxMessage->Data[4]*256+RxMessage->Data[1];
+      }
     }
     if(RxMessage->Data[0]==0xF4)//¾¯ÁåÏûÏ¢
     {
@@ -393,5 +446,5 @@ void PwrTokenCtrl(void)
   USART_SendString(USART1,cache,8);
   
   Token++;
-  if(Token==0xC4)Token=0xC1;
+  if(Token==0xD4)Token=0xD1;
 }

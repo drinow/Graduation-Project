@@ -37,6 +37,7 @@ extern u32 __IO tick;
 extern u8  __IO Trig;
 extern u32 __IO msec;
 extern u8  __IO HalfSecWave;
+extern u8  __IO QuarterWave;
 void NVIC_Configuration(void);
 
 void ReadID(void)
@@ -52,6 +53,7 @@ void ReadID(void)
   temp=(GPIO_ReadInputData(GPIOB)&0xF0)>>4;
   DetectorID=DetectorID+temp;
 }
+
 /**
   * @brief  主函数
   * @param  无  
@@ -59,21 +61,23 @@ void ReadID(void)
   */
 int main(void)
 {	
-	/* 配置SysTick 为1us中断一次 */
+  USART1_Config();	
+  NVIC_Configuration();
+	/* 配置SysTick 为10us中断一次 */
 	SysTick_Init();
-	NVIC_Configuration();
 	LED_GPIO_Config();
-	USART1_Config();	
+
   PWRCarrier_USART2_Config();
 	ADC1_Init();
   DS18B20_Init();
-	CAN_Config();
+  CAN_Config();
   TIM3_Cap_Init(0XFFFF,72-1);
   BeepInit();
   ReadID();
   
   LED1_ON;
   tick=0;
+  printf("START\r\n");
 	for(;;)
 	{
     if(Trig)//100ms
@@ -91,19 +95,31 @@ int main(void)
       #endif
     }
     
-      
-    if(HalfSecWave)
-    { 
-      if(Temp_Detected+CAP_Detected)
-      { BeepOn();}
-      LED1_ON; 
+    if(Temp_Detected+CAP_Detected)
+    {
+      if(QuarterWave)
+      { 
+        BeepOn();
+        LED1_ON; 
+      }
+      else
+      { 
+        LED1_OFF;
+        BeepOff();
+      }
     }
     else
-    { 
-      LED1_OFF;
-      BeepOff();
+    {
+      if(HalfSecWave)
+      { 
+        LED1_ON; 
+      }
+      else
+      { 
+        LED1_OFF;
+        BeepOff();
+      }
     }
-    
     
 //		Delay_ms(500);		/* 1s 读取一次温度值 */
 	}    
@@ -143,8 +159,8 @@ void NVIC_Configuration(void)
 	NVIC_Init(&NVIC_InitStructure);
 
   NVIC_InitStructure.NVIC_IRQChannel = USART2_IRQn;	 
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);
 }
