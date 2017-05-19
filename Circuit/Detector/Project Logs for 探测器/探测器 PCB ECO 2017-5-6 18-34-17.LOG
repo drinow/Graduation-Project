@@ -1,0 +1,19 @@
+Removed Pin From Net: NetName=DC+ Pin=J2-1
+Removed Pin From Net: NetName=DC- Pin=J2-2
+Removed Pin From Net: NetName=GND Pin=w1-1
+Removed Pin From Net: NetName=PB0 Pin=w1-2
+Removed Pin From Net: NetName=GND Pin=w1-3
+Change Component Designator: OldDesignator=J3 NewDesignator=J2
+Added Component: Designator=J3(À¶¶Ë×Ó)
+Added Component: Designator=w2(DS18B20)
+Added Pin To Net: NetName=PB8 Pin=D4-A
+Added Pin To Net: NetName=NetD4_K Pin=D4-K
+Added Pin To Net: NetName=DC+ Pin=J3-1
+Added Pin To Net: NetName=DC- Pin=J3-2
+Added Pin To Net: NetName=DC- Pin=w1-1
+Added Pin To Net: NetName=DC+ Pin=w1-2
+Added Pin To Net: NetName=NetD2_1 Pin=w1-3
+Added Pin To Net: NetName=GND Pin=w1-1
+Added Pin To Net: NetName=PB0 Pin=w1-2
+Added Pin To Net: NetName=GND Pin=w1-3
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component w2 18b20

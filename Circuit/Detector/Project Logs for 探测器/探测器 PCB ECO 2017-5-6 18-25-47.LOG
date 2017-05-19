@@ -1,0 +1,120 @@
+Removed Pin From Net: NetName=PB8 Pin=D3-A
+Removed Pin From Net: NetName=GND Pin=S2-3
+Removed Pin From Net: NetName=GND Pin=w1-1
+Removed Pin From Net: NetName=PB0 Pin=w1-2
+Removed Pin From Net: NetName=GND Pin=w1-3
+Removed Member From Class: ClassName=Ì½²âÆ÷ Member=BUS1
+Change Component DesignItemId : Designator=w1 Old DesignItemId=18b20 New DesignItemId=¹²Ä£µç¸Ð
+Change Component DesignItemId : Designator=D3 Old DesignItemId=0805 ´äÂÌ New DesignItemId=SOD-323 1N4148WS T4
+Change Component DesignItemId : Designator=J2 Old DesignItemId=Header 2 New DesignItemId=À¶¶Ë×Ó
+Change Component Footprint: Designator=w1 Old Footprint=DS18B20 New Footprint=¹²Ä£µç¸Ð
+Change Component Footprint: Designator=D3 Old Footprint=LC-0805_LED_S1 New Footprint=LC-SOD-323
+Change Component Footprint: Designator=J2 Old Footprint=SIP2 New Footprint=À¶¶Ë×Ó
+Change Component Comment : Designator=w1 Old Comment=18b20 New Comment=¹²Ä£µç¸Ð
+Change Component Comment : Designator=J2 Old Comment=Header 2 New Comment=À¶¶Ë×Ó
+Change Component Comment : Designator=D3 Old Comment=´äÂÌ 0805 New Comment=1N4148WS T4
+Change Component Designator: OldDesignator=9V OUT NewDesignator=J10
+Change Component Designator: OldDesignator=24V IN NewDesignator=J8
+Change Component Designator: OldDesignator=C7 NewDesignator=C3
+Change Component Designator: OldDesignator=C9 NewDesignator=C4
+Change Component Designator: OldDesignator=C10 NewDesignator=C5
+Change Component Designator: OldDesignator=C11 NewDesignator=C6
+Change Component Designator: OldDesignator=C12 NewDesignator=C7
+Change Component Designator: OldDesignator=C13 NewDesignator=C8
+Change Component Designator: OldDesignator=C14 NewDesignator=C9
+Change Component Designator: OldDesignator=C15 NewDesignator=C10
+Change Component Designator: OldDesignator=C16 NewDesignator=C11
+Change Component Designator: OldDesignator=C17 NewDesignator=C12
+Change Component Designator: OldDesignator=C18 NewDesignator=C13
+Change Component Designator: OldDesignator=D10 NewDesignator=D7
+Change Component Designator: OldDesignator=D11 NewDesignator=D8
+Change Component Designator: OldDesignator=D12 NewDesignator=D9
+Change Component Designator: OldDesignator=D13 NewDesignator=D10
+Change Component Designator: OldDesignator=R4 NewDesignator=R3
+Change Component Designator: OldDesignator=R5 NewDesignator=R4
+Change Component Designator: OldDesignator=R6 NewDesignator=R5
+Change Component Designator: OldDesignator=R7 NewDesignator=R6
+Change Component Designator: OldDesignator=R8 NewDesignator=R7
+Change Component Designator: OldDesignator=R9 NewDesignator=R8
+Change Component Designator: OldDesignator=R10 NewDesignator=R9
+Change Component Designator: OldDesignator=R11 NewDesignator=R10
+Change Component Designator: OldDesignator=R12 NewDesignator=R11
+Change Component Designator: OldDesignator=R13 NewDesignator=R12
+Change Component Designator: OldDesignator=R14 NewDesignator=R13
+Change Component Designator: OldDesignator=R15 NewDesignator=R14
+Change Component Designator: OldDesignator=U2 NewDesignator=U1
+Change Component Designator: OldDesignator=U3 NewDesignator=U2
+Change Component Designator: OldDesignator=w2 NewDesignator=w3
+Added Component: Designator=C1(AXIAL0.3)
+Added Component: Designator=D1(LC-SOD-323)
+Added Component: Designator=D2(LC-SOD-323)
+Added Component: Designator=D4(LC-0805_LED_S1)
+Added Component: Designator=D5(LC-SOD-323)
+Added Component: Designator=D6(LC-SOD-323)
+Added Component: Designator=DPLC-L1(DPLC-L)
+Added Component: Designator=J4(SIP4)
+Added Component: Designator=w2(DS18B20)
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Pin To Net: NetName=24V Pin=D1-2
+Added Pin To Net: NetName=GND Pin=D5-1
+Added Pin To Net: NetName=GND Pin=D6-1
+Added Pin To Net: NetName=5V Pin=DPLC-L1-1
+Added Pin To Net: NetName=GND Pin=DPLC-L1-4
+Added Pin To Net: NetName=5V Pin=J4-1
+Added Pin To Net: NetName=GND Pin=J4-4
+Added Pin To Net: NetName=GND Pin=S2-1
+Added Pin To Net: NetName=GND Pin=w1-1
+Added Pin To Net: NetName=PB0 Pin=w1-2
+Added Pin To Net: NetName=GND Pin=w1-3
+Change Net Name : Old Net Name=NetC7_2 New Net Name=NetC3_2
+Change Net Name : Old Net Name=NetC9_2 New Net Name=NetC4_2
+Change Net Name : Old Net Name=NetC10_2 New Net Name=NetC5_2
+Change Net Name : Old Net Name=NetD10_K New Net Name=NetD7_K
+Change Net Name : Old Net Name=NetD11_K New Net Name=NetD8_K
+Change Net Name : Old Net Name=NetD12_K New Net Name=NetD9_K
+Change Net Name : Old Net Name=NetD13_K New Net Name=NetD10_K
+Change Net Name : Old Net Name=NetR5_2 New Net Name=NetR4_2
+Added Pin To Net: NetName=DC+ Pin=DPLC-L1-7
+Added Pin To Net: NetName=DC+ Pin=J2-1
+Added Pin To Net: NetName=DC+ Pin=w1-2
+Added Net: Name=DC+
+Added Pin To Net: NetName=DC- Pin=DPLC-L1-6
+Added Pin To Net: NetName=DC- Pin=J2-2
+Added Pin To Net: NetName=DC- Pin=w1-1
+Added Net: Name=DC-
+Added Pin To Net: NetName=NetC1_1 Pin=C1-1
+Added Pin To Net: NetName=NetC1_1 Pin=D1-1
+Added Pin To Net: NetName=NetC1_1 Pin=D2-2
+Added Pin To Net: NetName=NetC1_1 Pin=D3-2
+Added Net: Name=NetC1_1
+Added Pin To Net: NetName=NetD2_1 Pin=D2-1
+Added Pin To Net: NetName=NetD2_1 Pin=D5-2
+Added Pin To Net: NetName=NetD2_1 Pin=w1-3
+Added Net: Name=NetD2_1
+Added Pin To Net: NetName=NetD3_1 Pin=D3-1
+Added Pin To Net: NetName=NetD3_1 Pin=D6-2
+Added Pin To Net: NetName=NetD3_1 Pin=w1-4
+Added Net: Name=NetD3_1
+Added Pin To Net: NetName=NetD4_K Pin=R3-2
+Added Net: Name=NetD4_K
+Added Pin To Net: NetName=RX1 Pin=DPLC-L1-3
+Added Pin To Net: NetName=RX1 Pin=J4-3
+Added Pin To Net: NetName=RX1 Pin=U1-17
+Added Net: Name=RX1
+Added Pin To Net: NetName=TX1 Pin=DPLC-L1-2
+Added Pin To Net: NetName=TX1 Pin=J4-2
+Added Pin To Net: NetName=TX1 Pin=U1-16
+Added Net: Name=TX1
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component C1 Cap Pol1
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component C5 100nF(104) 10% 50V
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component D1 1N4148WS T4
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component D2 1N4148WS T4
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component D4 ´äÂÌ 0805
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component D5 1N4148WS T4
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component D6 1N4148WS T4
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component DPLC-L1 DPLC-L
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component J4 CON4
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component R2 1K¦¸ (102) ¡À5%
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component R5 10K¦¸ (1002) ¡À1%
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component S2 SW SPST
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component w3 ·äÃùÆ÷

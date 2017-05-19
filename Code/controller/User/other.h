@@ -20,4 +20,7 @@ void CAN_Broadcast(void);
 
 void PwrCarrier_Deal(u8 data);
 void PwrTokenCtrl(void);
+
+void DealDoor(void);
+
 #endif

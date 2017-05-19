@@ -1,0 +1,36 @@
+﻿Field=#~Integer~#~50|Field=Comment~String~Comment~99|Field=Description~String~Description~99|Field=Designator~String~Designator~99|Field=Footprint~String~Footprint~99|Field=LibRef~String~LibRef~99|Field=Quantity~Integer~Quantity~99|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~探测器.PrjPcb|ReportField=ProjectFullPath~D:\Users\lenovo\Desktop\联合毕业设计\智能消防联动\探测器\探测器\探测器.PrjPcb|ReportField=Title~Bill of Materials For Project [探测器.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~61|ReportField=ReportTime~15:09:33|ReportField=ReportDate~2017/5/11|ReportField=ReportDateTime~2017/5/11 15:09:33|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~2017/5/11|ReportField=CurrentTime~15:09:00|ReportField=Date~|ReportField=DocumentFullPathAndName~D:\Users\lenovo\Desktop\联合毕业设计\智能消防联动\探测器\探测器\探测器.SchDoc|ReportField=DocumentName~探测器.SchDoc|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~2017/5/11|ReportField=Organization~|ReportField=ProjectName~探测器.PrjPcb|ReportField=Revision~|ReportField=Rule~|ReportField=SheetNumber~|ReportField=SheetTotal~|ReportField=Time~2017.05.04|ReportField=Title~智能消防联动系统|ReportField=DataSourceFileName~探测器.PrjPcb|ReportField=DataSourceFullPath~D:\Users\lenovo\Desktop\联合毕业设计\智能消防联动\探测器\探测器\探测器.PrjPcb
+1|Cap Pol1|Polarized Capacitor (Radial)|C1|RB.2/.4|Cap Pol1|1
+2|22pF (220) 5% 50V|贴片电容|C2, C3|LC-0805_C|0805 22pF (220) 5% 50V|2
+3|100nF(104) 10% 50V|贴片电容|C4, C5, C9, C10, C11, C12|LC-0805_C|0805 100nF(104) 10% 50V|6
+4|220uF (227) ±10% 50V|钽电容|C6, C7, C8, C13|LC-CASE-B_3528|3528 100uF (107) 10% 6.3V|4
+5|1N4148WS T4|二极管|D1, D2, D3, D5, D6|LC-SOD-323|SOD-323 1N4148WS T4|5
+6|翠绿 0805|发光二极管|D4|LC-0805_LED_S1|0805 翠绿|1
+7|白灯 0603|发光二极管|D7, D8, D9, D10|LC-0603_LED_S1|0603 白灯|4
+8|DPLC-L||DPLC-L1|DPLC-L|DPLC-L|1
+9|STLINK||J1|SIP4|CON4|1
+10|CON4||J2, J4, J9|SIP4|CON4|3
+11|蓝端子||J3|蓝端子|蓝端子|1
+12|collect||J5, J11|SIP2|CON2|2
+13|key||J6|SIP2|CON2|1
+14|CAN||J7|蓝端子|蓝端子|1
+15|BLUE  24V||J8|蓝端子|蓝端子|1
+16|BLUE 9V||J10|蓝端子|蓝端子|1
+17|SS8050 Y1|三极管|Q1|LC-SOT-23(SOT-23-3)|SOT-23 SS8050 Y1|1
+18|10KΩ (1002) ±1%|贴片电阻|R1, R4, R5, R6, R14|LC-0805_R|0805 10KΩ (1002) 1%|5
+19|1KΩ (102) ±5%|贴片排阻|R2|LC-0603_Rx4|0603*4  1KΩ (102) 5%|1
+20|470Ω (4700) ±1%|贴片电阻|R3|LC-0805_R|0805 470Ω (4700) 1%|1
+21|1KΩ (1001) ±1%|贴片电阻|R7, R8, R9, R10|LC-0603_R|0603 1KΩ (1001) 1%|4
+22|120Ω (1200) ±1%|贴片电阻|R11|LC-0805_R|0805 120Ω (1200) 1%|1
+23|4.7KΩ (4701) ±1%|贴片电阻|R12|LC-0805_R|0805 4.7KΩ (4701) 1%|1
+24|1KΩ (1001) ±1%|贴片电阻|R13|LC-0805_R|0805 1KΩ (1001) 1%|1
+25|SW-DIP4|4位拨码开关|S1|4位拨码开关|SW-DIP4|1
+26|SW SPST|单刀单掷开关|S2|单片机小按键|SW SPST|1
+27|STM32 R8T6||U1|LC-LQFP-64_10x10x05P|STM32 R8T6|1
+28|CAN/TJA1050T/CM|CAN|U2|LC-SOIC-8_150mil|CAN/TJA1050T/CM|1
+29|78L09G-AB3-R|低压差线性稳压(LDO)|VR1|LC-SOT-89(SOT-89-3)|SOT-89 78L12G-AB3-R|1
+30|78L05G-AB3-R|低压差线性稳压(LDO)|VR2|LC-SOT-89(SOT-89-3)|SOT-89 78L05G-AB3-R|1
+31|AMS1117-3.3|低压差线性稳压(LDO)|VR3|LC-SOT-223|SOT-223 AMS1117-3.3|1
+32|共模电感||W1|共模电感|共模电感|1
+33|18b20||W2|DS18B20|18b20|1
+34|8MHz ±20ppm 20pF|贴片晶振|Y1|LC-SMD-5032_2P|SMD-5032_2P 8MHz 20ppm 20pF|1
+35|蜂鸣器||w3|蜂鸣器|蜂鸣器|1

@@ -24,7 +24,10 @@ void TCPS_Config(void)
   else
     printf("=====DHCP initialization failed=====\r\n");
   
-  
+  SC_SendID();
+  SC_SendIPAddr();
+  SC_SendPort();
+  SC_SendDHCP();
   
 }
 
@@ -271,18 +274,18 @@ void DealDoor(void)
   if(Door.ID==1)
   {
     if(Door.State==0)//全开
-    {StepMotorCtrl(NUM1,FRD,500);}
+    {StepMotorCtrl(NUM1,FRD,1400);}
     if(Door.State==1)//全关
-    {StepMotorCtrl(NUM1,REV,500);}
+    {StepMotorCtrl(NUM1,REV,1400);}
     if(Door.State==2)//半开
     {}
   }
   if(Door.ID==2)
   {
     if(Door.State==0)
-    {StepMotorCtrl(NUM2,FRD,500);}
+    {StepMotorCtrl(NUM2,FRD,1400);}
     if(Door.State==1)
-    {StepMotorCtrl(NUM2,REV,500);}
+    {StepMotorCtrl(NUM2,REV,1400);}
     if(Door.State==2)
     {}
   }
@@ -385,7 +388,7 @@ void CAN_Broadcast(void)
   CAN_Send(&cache[0],broadcastID);
 }
 
-u8 PwrRxBuffer[8];
+u8 PwrRxBuffer[8]={0};
 //电力载波
 void PwrCarrier_Deal(u8 data)
 {
@@ -420,8 +423,9 @@ void PwrCarrier_Deal(u8 data)
                 Detector_2F[(PwrRxBuffer[3]&0x0F)].temp=PwrRxBuffer[5];break;
       case 0xC3:Detector_3F[(PwrRxBuffer[3]&0x0F)].type=PwrRxBuffer[4];
                 Detector_3F[(PwrRxBuffer[3]&0x0F)].temp=PwrRxBuffer[5];break;
+      default:break;
     }
-    if(PwrRxBuffer[4]!=0)LocalFire=1;//本地起火
+    if(PwrRxBuffer[4]==1)LocalFire=1;//本地起火
   }
   
 }

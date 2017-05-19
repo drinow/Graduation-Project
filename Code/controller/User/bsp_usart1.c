@@ -43,7 +43,7 @@ void USART1_Config(void)
 		GPIO_Init(GPIOA, &GPIO_InitStructure);
 			
 		/* USART1 mode config */
-		USART_InitStructure.USART_BaudRate = 9600;
+		USART_InitStructure.USART_BaudRate = 2400;
 		USART_InitStructure.USART_WordLength = USART_WordLength_8b;
 		USART_InitStructure.USART_StopBits = USART_StopBits_1;
 		USART_InitStructure.USART_Parity = USART_Parity_No ;
@@ -63,6 +63,7 @@ void USART1_IRQHandler(void)
 	    //ch = USART1->DR;
 			data=USART_ReceiveData(USART1);
       PwrCarrier_Deal(data);//电力载波数据处理.
+//      printf("0xAA");
 	} 
 }
 

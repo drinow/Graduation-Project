@@ -1,0 +1,236 @@
+Removed Pin From Net: NetName=5V Pin=C19-1
+Removed Pin From Net: NetName=RXP Pin=C20-1
+Removed Pin From Net: NetName=NetC22_1 Pin=C22-1
+Removed Pin From Net: NetName=BUS- Pin=C22-2
+Removed Pin From Net: NetName=RXN Pin=C23-1
+Removed Pin From Net: NetName=NetC24_1 Pin=C24-1
+Removed Pin From Net: NetName=BUS- Pin=C24-2
+Removed Pin From Net: NetName=PB8 Pin=D3-A
+Removed Pin From Net: NetName=PB9 Pin=D4-A
+Removed Pin From Net: NetName=5V Pin=J8-1
+Removed Pin From Net: NetName=BUS- Pin=J8-2
+Removed Pin From Net: NetName=5V Pin=J8-3
+Removed Pin From Net: NetName=PB12 Pin=J8-5
+Removed Pin From Net: NetName=PB13 Pin=J8-6
+Removed Pin From Net: NetName=BUS- Pin=J8-7
+Removed Pin From Net: NetName=BUS- Pin=J9-2
+Removed Pin From Net: NetName=5V Pin=J9-3
+Removed Pin From Net: NetName=PB10 Pin=R3-1
+Removed Pin From Net: NetName=SDA Pin=RP1-5
+Removed Pin From Net: NetName=SCL Pin=RP1-6
+Removed Pin From Net: NetName=32K Pin=RP1-7
+Removed Pin From Net: NetName=SQW Pin=RP1-8
+Removed Pin From Net: NetName=BUS- Pin=S1-1
+Removed Pin From Net: NetName=NetC5_2 Pin=S1-2
+Removed Pin From Net: NetName=SCL Pin=U3-58
+Removed Pin From Net: NetName=SDA Pin=U3-59
+Removed Member From Class: ClassName=控制器 Member=J13
+Change Component DesignItemId : Designator=RP1 Old DesignItemId=0603*4  10KΩ (103) 5% New DesignItemId=0603*4  1KΩ (102) 5%
+Change Component DesignItemId : Designator=C23 Old DesignItemId=0603 6.8nF (682) 10% 50V New DesignItemId=0805 100nF(104) 10% 50V
+Change Component DesignItemId : Designator=C20 Old DesignItemId=0603 6.8nF (682) 10% 50V New DesignItemId=3528 100uF (107) 10% 6.3V
+Change Component DesignItemId : Designator=C21 Old DesignItemId=0603 22nF (223) 10% 50V New DesignItemId=0805 100nF(104) 10% 50V
+Change Component DesignItemId : Designator=C19 Old DesignItemId=0805 10uF (106) 10% 25V New DesignItemId=3528 100uF (107) 10% 6.3V
+Change Component DesignItemId : Designator=C22 Old DesignItemId=0805 18pF (180) 5% 50V New DesignItemId=0805 100nF(104) 10% 50V
+Change Component DesignItemId : Designator=C24 Old DesignItemId=0805 18pF (180) 5% 50V New DesignItemId=3528 100uF (107) 10% 6.3V
+Change Component DesignItemId : Designator=J9 Old DesignItemId=CON7 New DesignItemId=CON6
+Change Component DesignItemId : Designator=S1 Old DesignItemId=SW SPST New DesignItemId=SW-DIP4
+Change Component Footprint: Designator=S1 Old Footprint=4按键 New Footprint=4位拨码开关
+Change Component Footprint: Designator=C21 Old Footprint=LC-0603_C New Footprint=LC-0805_C
+Change Component Footprint: Designator=C23 Old Footprint=LC-0603_C New Footprint=LC-0805_C
+Change Component Footprint: Designator=C20 Old Footprint=LC-0603_C New Footprint=LC-CASE-B_3528
+Change Component Footprint: Designator=C19 Old Footprint=LC-0805_C New Footprint=LC-CASE-B_3528
+Change Component Footprint: Designator=C24 Old Footprint=LC-0805_C New Footprint=LC-CASE-B_3528
+Change Component Footprint: Designator=J9 Old Footprint=SIP7 New Footprint=SIP6
+Change Component Comment : Designator=C23 Old Comment=6.8nF (682) 10% 50V New Comment=100nF(104) 10% 50V
+Change Component Comment : Designator=C20 Old Comment=6.8nF (682) 10% 50V New Comment=220uF (227) ±10% 50V
+Change Component Comment : Designator=RP1 Old Comment=10KΩ (103) ±5% New Comment=1KΩ (102) ±5%
+Change Component Comment : Designator=C19 Old Comment=10uF (106) 10% 25V New Comment=220uF (227) ±10% 50V
+Change Component Comment : Designator=C22 Old Comment=18pF (180) 5% 50V New Comment=100nF(104) 10% 50V
+Change Component Comment : Designator=C24 Old Comment=18pF (180) 5% 50V New Comment=220uF (227) ±10% 50V
+Change Component Comment : Designator=C21 Old Comment=22nF (223) 10% 50V New Comment=100nF(104) 10% 50V
+Change Component Comment : Designator=J9 Old Comment=LED New Comment=CON6
+Change Component Comment : Designator=S1 Old Comment=SW SPST New Comment=SW-DIP4
+Change Component Designator: OldDesignator=C25 NewDesignator=C31
+Change Component Designator: OldDesignator=C26 NewDesignator=C32
+Change Component Designator: OldDesignator=C27 NewDesignator=C33
+Change Component Designator: OldDesignator=C28 NewDesignator=C34
+Change Component Designator: OldDesignator=C29 NewDesignator=C35
+Change Component Designator: OldDesignator=C30 NewDesignator=C36
+Change Component Designator: OldDesignator=C31 NewDesignator=C37
+Change Component Designator: OldDesignator=C32 NewDesignator=C38
+Change Component Designator: OldDesignator=J10 NewDesignator=J8
+Change Component Designator: OldDesignator=J11 NewDesignator=J10
+Change Component Designator: OldDesignator=J12 NewDesignator=J11
+Change Component Designator: OldDesignator=J13 NewDesignator=J12
+Change Component Designator: OldDesignator=R23 NewDesignator=R20
+Change Component Designator: OldDesignator=R24 NewDesignator=R21
+Change Component Designator: OldDesignator=R25 NewDesignator=R22
+Change Component Designator: OldDesignator=R26 NewDesignator=R23
+Change Component Designator: OldDesignator=R27 NewDesignator=R24
+Change Component Designator: OldDesignator=R28 NewDesignator=R25
+Change Component Designator: OldDesignator=R29 NewDesignator=R26
+Change Component Designator: OldDesignator=R30 NewDesignator=R27
+Change Component Designator: OldDesignator=R31 NewDesignator=R28
+Change Component Designator: OldDesignator=R32 NewDesignator=R29
+Change Component Designator: OldDesignator=R33 NewDesignator=R30
+Change Component Designator: OldDesignator=R34 NewDesignator=R31
+Change Component Designator: OldDesignator=R35 NewDesignator=R32
+Change Component Designator: OldDesignator=R36 NewDesignator=R33
+Change Component Designator: OldDesignator=R37 NewDesignator=R34
+Change Component Designator: OldDesignator=R38 NewDesignator=R35
+Change Component Designator: OldDesignator=R39 NewDesignator=R36
+Change Component Designator: OldDesignator=R40 NewDesignator=R37
+Change Component Designator: OldDesignator=R41 NewDesignator=R38
+Change Component Designator: OldDesignator=R42 NewDesignator=R39
+Change Component Designator: OldDesignator=RP2 NewDesignator=RP3
+Change Component Designator: OldDesignator=RP3 NewDesignator=RP4
+Added Component: Designator=C25(LC-0805_C)
+Added Component: Designator=C26(LC-0603_C)
+Added Component: Designator=C27(LC-0603_C)
+Added Component: Designator=C28(LC-0805_C)
+Added Component: Designator=C29(LC-0603_C)
+Added Component: Designator=C30(LC-0805_C)
+Added Component: Designator=RP2(LC-0603_Rx4)
+Added Component: Designator=S2(单片机小按键)
+Added Component: Designator=VR4(LC-SOT-89(SOT-89-3))
+Added Component: Designator=VR5(LC-SOT-223)
+Added Pin To Net: NetName=BUS- Pin=C9-2
+Added Pin To Net: NetName=BUS- Pin=C10-2
+Added Pin To Net: NetName=BUS- Pin=C11-2
+Added Pin To Net: NetName=BUS- Pin=C12-1
+Added Pin To Net: NetName=BUS- Pin=C13-1
+Added Pin To Net: NetName=BUS- Pin=C14-1
+Added Pin To Net: NetName=BUS- Pin=C15-2
+Added Pin To Net: NetName=BUS- Pin=C16-1
+Added Pin To Net: NetName=12V Pin=C19-1
+Added Pin To Net: NetName=5V Pin=C20-1
+Added Pin To Net: NetName=BUS- Pin=C20-2
+Added Pin To Net: NetName=12V Pin=C21-2
+Added Pin To Net: NetName=BUS- Pin=C22-1
+Added Pin To Net: NetName=5V Pin=C22-2
+Added Pin To Net: NetName=3.3V Pin=C23-1
+Added Pin To Net: NetName=BUS- Pin=C23-2
+Added Pin To Net: NetName=BUS- Pin=C24-1
+Added Pin To Net: NetName=3.3V Pin=C24-2
+Added Pin To Net: NetName=5V Pin=C19-1
+Added Pin To Net: NetName=BUS- Pin=C19-2
+Added Pin To Net: NetName=RXP Pin=C20-1
+Added Pin To Net: NetName=BUS- Pin=C21-1
+Added Pin To Net: NetName=NetC22_1 Pin=C22-1
+Added Pin To Net: NetName=BUS- Pin=C22-2
+Added Pin To Net: NetName=RXN Pin=C23-1
+Added Pin To Net: NetName=NetC24_1 Pin=C24-1
+Added Pin To Net: NetName=BUS- Pin=C24-2
+Added Pin To Net: NetName=PB8 Pin=J9-3
+Added Pin To Net: NetName=PB9 Pin=J9-4
+Added Pin To Net: NetName=PB10 Pin=J9-5
+Added Pin To Net: NetName=BUS- Pin=J9-6
+Added Pin To Net: NetName=BUS- Pin=J10-2
+Added Pin To Net: NetName=3.3V Pin=RP1-1
+Added Pin To Net: NetName=3.3V Pin=RP1-2
+Added Pin To Net: NetName=3.3V Pin=RP1-3
+Added Pin To Net: NetName=3.3V Pin=RP1-4
+Added Pin To Net: NetName=SDA Pin=RP1-5
+Added Pin To Net: NetName=SCL Pin=RP1-6
+Added Pin To Net: NetName=32K Pin=RP1-7
+Added Pin To Net: NetName=SQW Pin=RP1-8
+Added Pin To Net: NetName=BUS- Pin=S1-5
+Added Pin To Net: NetName=BUS- Pin=S1-6
+Added Pin To Net: NetName=BUS- Pin=S1-7
+Added Pin To Net: NetName=BUS- Pin=S1-8
+Added Pin To Net: NetName=BUS- Pin=S1-1
+Added Pin To Net: NetName=NetC5_2 Pin=S1-2
+Added Pin To Net: NetName=PB12 Pin=U2-1
+Added Pin To Net: NetName=PB13 Pin=U2-2
+Added Pin To Net: NetName=PB14 Pin=U2-3
+Added Pin To Net: NetName=SQW Pin=U3-56
+Added Pin To Net: NetName=SCL Pin=U3-57
+Added Pin To Net: NetName=SDA Pin=U3-58
+Added Pin To Net: NetName=BUS- Pin=VR1-2
+Added Pin To Net: NetName=BUS- Pin=VR1-2
+Added Pin To Net: NetName=BUS- Pin=VR2-2
+Added Pin To Net: NetName=BUS- Pin=VR2-2
+Added Pin To Net: NetName=BUS- Pin=VR3-1
+Added Pin To Net: NetName=12V Pin=VR4-1
+Added Pin To Net: NetName=BUS- Pin=VR4-2
+Added Pin To Net: NetName=BUS- Pin=VR4-2
+Added Pin To Net: NetName=5V Pin=VR4-3
+Added Pin To Net: NetName=BUS- Pin=VR5-1
+Added Pin To Net: NetName=3.3V Pin=VR5-2
+Added Pin To Net: NetName=3.3V Pin=VR5-2
+Added Pin To Net: NetName=5V Pin=VR5-3
+Change Net Name : Old Net Name=NetC22_1 New Net Name=NetC28_1
+Change Net Name : Old Net Name=NetC24_1 New Net Name=NetC30_1
+Change Net Name : Old Net Name=NetC26_2 New Net Name=NetC32_2
+Change Net Name : Old Net Name=NetC28_2 New Net Name=NetC34_2
+Change Net Name : Old Net Name=NetC29_1 New Net Name=NetC35_1
+Change Net Name : Old Net Name=NetC31_1 New Net Name=NetC37_1
+Change Net Name : Old Net Name=NetC32_1 New Net Name=NetC38_1
+Change Net Name : Old Net Name=NetJ13_10 New Net Name=NetJ12_10
+Change Net Name : Old Net Name=NetJ13_11 New Net Name=NetJ12_11
+Change Net Name : Old Net Name=NetR40_2 New Net Name=NetR37_2
+Change Net Name : Old Net Name=NetR42_1 New Net Name=NetR39_1
+Change Net Name : Old Net Name=NetRP2_4 New Net Name=NetRP3_4
+Change Net Name : Old Net Name=NetRP3_5 New Net Name=NetRP4_5
+Change Net Name : Old Net Name=NetRP3_6 New Net Name=NetRP4_6
+Change Net Name : Old Net Name=NetRP3_7 New Net Name=NetRP4_7
+Change Net Name : Old Net Name=NetRP3_8 New Net Name=NetRP4_8
+Change Net Name : Old Net Name=PA13 New Net Name=SWDIO
+Change Net Name : Old Net Name=PA14 New Net Name=SWCLK
+Added Pin To Net: NetName=ALARM Pin=R5-1
+Added Pin To Net: NetName=ALARM Pin=U3-27
+Added Net: Name=ALARM
+Added Pin To Net: NetName=FAN Pin=J3-3
+Added Pin To Net: NetName=FAN Pin=U3-51
+Added Net: Name=FAN
+Added Pin To Net: NetName=LED1 Pin=D3-A
+Added Pin To Net: NetName=LED1 Pin=U3-30
+Added Net: Name=LED1
+Added Pin To Net: NetName=LED2 Pin=D4-A
+Added Pin To Net: NetName=LED2 Pin=U3-52
+Added Net: Name=LED2
+Added Pin To Net: NetName=NetC26_2 Pin=C20-2
+Added Pin To Net: NetName=NetC26_2 Pin=J12-3
+Added Net: Name=NetC26_2
+Added Pin To Net: NetName=NetC27_2 Pin=C21-2
+Added Pin To Net: NetName=NetC27_2 Pin=J12-4
+Added Pin To Net: NetName=NetC27_2 Pin=R29-1
+Added Net: Name=NetC27_2
+Added Pin To Net: NetName=NetC29_2 Pin=C23-2
+Added Pin To Net: NetName=NetC29_2 Pin=J12-6
+Added Net: Name=NetC29_2
+Added Pin To Net: NetName=NetRP1_5 Pin=RP1-5
+Added Pin To Net: NetName=NetRP1_5 Pin=S1-4
+Added Pin To Net: NetName=NetRP1_5 Pin=U3-11
+Added Net: Name=NetRP1_5
+Added Pin To Net: NetName=NetRP1_6 Pin=RP1-6
+Added Pin To Net: NetName=NetRP1_6 Pin=S1-3
+Added Pin To Net: NetName=NetRP1_6 Pin=U3-10
+Added Net: Name=NetRP1_6
+Added Pin To Net: NetName=NetRP1_7 Pin=RP1-7
+Added Pin To Net: NetName=NetRP1_7 Pin=S1-2
+Added Pin To Net: NetName=NetRP1_7 Pin=U3-9
+Added Net: Name=NetRP1_7
+Added Pin To Net: NetName=NetRP1_8 Pin=RP1-8
+Added Pin To Net: NetName=NetRP1_8 Pin=S1-1
+Added Pin To Net: NetName=NetRP1_8 Pin=U3-8
+Added Net: Name=NetRP1_8
+Added Pin To Net: NetName=PB7 Pin=J9-2
+Added Pin To Net: NetName=PB7 Pin=U3-59
+Added Net: Name=PB7
+Added Pin To Net: NetName=PB15 Pin=U2-4
+Added Pin To Net: NetName=PB15 Pin=U3-36
+Added Net: Name=PB15
+Added Pin To Net: NetName=WATER Pin=R3-1
+Added Pin To Net: NetName=WATER Pin=U3-26
+Added Net: Name=WATER
+Added Member To Class: ClassName=控制器 Member=Component C33 100nF (104) 10% 50V
+Added Member To Class: ClassName=控制器 Member=Component C34 10nF (103) 10% 50V
+Added Member To Class: ClassName=控制器 Member=Component C35 4.7uF (475) 10% 16V
+Added Member To Class: ClassName=控制器 Member=Component C36 100nF (104) 10% 50V
+Added Member To Class: ClassName=控制器 Member=Component C37 10nF (103) 10% 50V
+Added Member To Class: ClassName=控制器 Member=Component C38 4.7uF (475) 10% 25V
+Added Member To Class: ClassName=控制器 Member=Component RP4 10KΩ (103) ±5%
+Added Member To Class: ClassName=控制器 Member=Component S2 SW SPST
+Added Member To Class: ClassName=控制器 Member=Component VR4 78L05G-AB3-R
+Added Member To Class: ClassName=控制器 Member=Component VR5 AMS1117-3.3

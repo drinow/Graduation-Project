@@ -1,0 +1,7 @@
+Added Pin To Net: NetName=TXN Pin=J13-2
+Added Pin To Net: NetName=TXN Pin=R28-1
+Added Pin To Net: NetName=LINKLED Pin=U7-25
+Added Pin To Net: NetName=ACTLED Pin=U7-27
+Added Pin To Net: NetName=W SCLK Pin=U7-33
+Added Pin To Net: NetName=W MISO Pin=U7-34
+Added Pin To Net: NetName=W MOSI Pin=U7-35

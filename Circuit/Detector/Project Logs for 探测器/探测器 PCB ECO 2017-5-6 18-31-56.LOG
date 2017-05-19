@@ -1,0 +1,10 @@
+Change Component Footprint: Designator=S2 Old Footprint=4°´¼ü New Footprint=µ¥Æ¬»úÐ¡°´¼ü
+Change Component Footprint: Designator=C1 Old Footprint=AXIAL0.3 New Footprint=RB.2/.4
+Added Component: Designator=D4(LC-0805_LED_S1)
+Added Component: Designator=w2(DS18B20)
+Added Pin To Net: NetName=GND Pin=w1-1
+Added Pin To Net: NetName=PB0 Pin=w1-2
+Added Pin To Net: NetName=GND Pin=w1-3
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component R6 10K¦¸ (1002) ¡À1%
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component w2 18b20
+Added Room: Name=Ì½²âÆ÷

@@ -1,0 +1,12 @@
+Added Component: Designator=R2(LC-0603_Rx4)
+Added Component: Designator=S1(4Î»²¦Âë¿ª¹Ø)
+Added Pin To Net: NetName=3.3V Pin=R2-1
+Added Pin To Net: NetName=3.3V Pin=R2-2
+Added Pin To Net: NetName=3.3V Pin=R2-3
+Added Pin To Net: NetName=3.3V Pin=R2-4
+Added Pin To Net: NetName=GND Pin=S1-5
+Added Pin To Net: NetName=GND Pin=S1-6
+Added Pin To Net: NetName=GND Pin=S1-7
+Added Pin To Net: NetName=GND Pin=S1-8
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component S1 SW-DIP4
+Added Room: Name=Ì½²âÆ÷

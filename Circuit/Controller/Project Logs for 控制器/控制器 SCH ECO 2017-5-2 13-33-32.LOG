@@ -1,0 +1,36 @@
+Remove Pin=J13-1 From Net=PA10
+Remove Pin=J13-2 From Net=PA9
+Remove Pin=RP2-5 From Net=SDA
+Remove Pin=RP2-6 From Net=SCL
+Remove Pin=RP2-7 From Net=32K
+Remove Pin=RP2-8 From Net=SQW
+Remove Pin=U6-1 From Net=PA12
+Remove Pin=U6-2 From Net=PA10
+Remove Pin=U6-15 From Net=PA11
+Remove Pin=U6-16 From Net=PA9
+Remove Pin=U7-1 From Net=TXN
+Remove Pin=U7-2 From Net=TXP
+Remove Pin=U7-4 From Net=3.3VA
+Remove Pin=U7-5 From Net=RXN
+Remove Pin=U7-6 From Net=RXP
+Remove Pin=U7-24 From Net=SPDLED
+Remove Pin=U7-25 From Net=LINKLED
+Remove Pin=U7-26 From Net=DUPLED
+Remove Pin=U7-27 From Net=ACTLED
+Remove Pin=U7-33 From Net=W SCLK
+Remove Pin=U7-34 From Net=W MISO
+Remove Pin=U7-35 From Net=W MOSI
+Add Pin To Net: Pin=J13-1 Old Net=PA10 New Net=PA10
+Add Pin To Net: Pin=J13-2 Old Net=PA9 New Net=PA9
+Add Pin To Net: Pin=RP2-5 Old Net=SDA New Net=SDA
+Add Pin To Net: Pin=RP2-6 Old Net=SCL New Net=SCL
+Add Pin To Net: Pin=RP2-7 Old Net=32K New Net=32K
+Add Pin To Net: Pin=RP2-8 Old Net=SQW New Net=SQW
+Add Pin To Net: Pin=U7-1 Old Net=TXN New Net=TXN
+Add Pin To Net: Pin=U7-2 Old Net=TXP New Net=TXP
+Add Pin To Net: Pin=U7-4 Old Net=3.3VA New Net=3.3VA
+Add Pin To Net: Pin=U7-5 Old Net=RXN New Net=RXN
+Add Pin To Net: Pin=U7-6 Old Net=RXP New Net=RXP
+Change Pin Designator/Name:  Old Designator=C22-1 Old Name=1 New Designator =2 New Name=2
+Change Pin Designator/Name:  Old Designator=C24-1 Old Name=1 New Designator =2 New Name=2
+Change Pin Designator/Name:  Old Designator=U6-4 Old Name=GND New Designator =BUSL New Name=3

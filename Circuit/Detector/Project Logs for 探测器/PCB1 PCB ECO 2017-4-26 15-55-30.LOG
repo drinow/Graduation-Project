@@ -1,0 +1,9 @@
+Added Component: Designator=w3(DS18B20)
+Added Component: Designator=w4(·äÃùÆ÷)
+Added Pin To Net: NetName=GND Pin=w3-1
+Added Pin To Net: NetName=PB0 Pin=w3-2
+Added Pin To Net: NetName=GND Pin=w3-3
+Added Pin To Net: NetName=5V Pin=w4-1
+Added Pin To Net: NetName=NetQ1_3 Pin=w4-2
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component w3 18b20
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component w4 ·äÃùÆ÷

@@ -1,0 +1,19 @@
+Removed Pin From Net: NetName=5V Pin=C22-1
+Removed Pin From Net: NetName=GND Pin=C22-2
+Removed Pin From Net: NetName=3.3V Pin=C23-1
+Removed Pin From Net: NetName=3.3V Pin=C24-1
+Change Component Footprint: Designator=C8 Old Footprint=RB.2/.4 New Footprint=RB.3/.6
+Change Component Designator: OldDesignator=C21 NewDesignator=C22
+Change Component Designator: OldDesignator=C24 NewDesignator=C21
+Change Component Designator: OldDesignator=J12 NewDesignator=J11
+Change Component Designator: OldDesignator=J13 NewDesignator=J12
+Change Component Designator: OldDesignator=J14 NewDesignator=J13
+Added Component: Designator=C24(LC-0805_C)
+Added Pin To Net: NetName=3.3V Pin=C21-2
+Added Pin To Net: NetName=5V Pin=C23-1
+Added Pin To Net: NetName=3.3V Pin=C23-1
+Added Pin To Net: NetName=GND Pin=C23-2
+Added Pin To Net: NetName=GND Pin=U6-3
+Change Net Name : Old Net Name=NetJ14_10 New Net Name=NetJ13_10
+Change Net Name : Old Net Name=NetJ14_11 New Net Name=NetJ13_11
+Added Room: Name=¿ØÖÆÆ÷

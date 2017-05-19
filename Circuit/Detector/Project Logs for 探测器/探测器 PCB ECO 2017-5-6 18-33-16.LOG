@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=GND Pin=w1-1
+Removed Pin From Net: NetName=PB0 Pin=w1-2
+Removed Pin From Net: NetName=GND Pin=w1-3
+Added Component: Designator=D4(LC-0805_LED_S1)
+Added Component: Designator=w2(DS18B20)
+Added Pin To Net: NetName=DC- Pin=w1-1
+Added Pin To Net: NetName=DC+ Pin=w1-2
+Added Pin To Net: NetName=NetD2_1 Pin=w1-3
+Added Pin To Net: NetName=GND Pin=w1-1
+Added Pin To Net: NetName=PB0 Pin=w1-2
+Added Pin To Net: NetName=GND Pin=w1-3
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component D4 ´äÂÌ 0805
+Added Member To Class: ClassName=Ì½²âÆ÷ Member=Component w2 18b20

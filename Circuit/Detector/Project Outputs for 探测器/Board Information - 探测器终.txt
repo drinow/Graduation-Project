@@ -1,0 +1,12 @@
+Board Information Report
+Filename     : D:\Users\lenovo\Desktop\联合毕业设计\智能消防联动\探测器\探测器\探测器终.PcbDoc
+Date         : 2017/5/16
+Time         : 13:30:49
+Time Elapsed : 00:00:00
+
+Routing Information
+    Routing completion, 100.00%
+    Connections, 150
+    Connections routed, 150
+    Connections remaining, 0
+count : 4

@@ -1,0 +1,5 @@
+Added Component: Designator=J3(SIP3)
+Added Pin To Net: NetName=BUS- Pin=J3-1
+Added Pin To Net: NetName=12V Pin=J3-2
+Added Pin To Net: NetName=PB0 Pin=J3-3
+Added Member To Class: ClassName=¿ØÖÆÆ÷ Member=Component J3 fan

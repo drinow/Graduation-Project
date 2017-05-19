@@ -30,6 +30,7 @@ u8 DetectorID=0xD0;
 u8 Temperature=0;
 u8 CAP_Detected=0;//烟雾报警
 u8 Temp_Detected=0;//温度报警
+u8 Key_Detected=0;//消防按钮
 u8 Token=0;
 
 extern __IO uint16_t ADC_ConvertedValue;
@@ -54,6 +55,17 @@ void ReadID(void)
   DetectorID=DetectorID+temp;
 }
 
+
+void FireKey(void)
+{
+  GPIO_InitTypeDef GPIO_InitStructure;
+  RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOC, ENABLE); 									   
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;	
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;   
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; 
+  GPIO_Init(GPIOC, &GPIO_InitStructure);	
+}
+
 /**
   * @brief  主函数
   * @param  无  
@@ -61,6 +73,7 @@ void ReadID(void)
   */
 int main(void)
 {	
+  u8 keycnt=0;
   USART1_Config();	
   NVIC_Configuration();
 	/* 配置SysTick 为10us中断一次 */
@@ -74,23 +87,35 @@ int main(void)
   TIM3_Cap_Init(0XFFFF,72-1);
   BeepInit();
   ReadID();
+  FireKey();
   
   LED1_ON;
   tick=0;
   printf("START\r\n");
+  Trig=CAP_Detected=Temp_Detected=Token=0;
 	for(;;)
 	{
-    if(Trig)//100ms
+    if(Trig)//200ms
     {
       Temperature  = (u8)DS18B20_Get_Temp();
       CAP_Detected = DealCAP(450,550);
       if(Temperature>=40)Temp_Detected=1; else Temp_Detected=0;//温度检查
-      if(Token==DetectorID)
+      if(Token)
       {
         UploadData();
         Token=0;
       }
-        
+      UploadData();
+      if(GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_6)==0)  
+      {
+        keycnt++;
+        if(keycnt==5)
+        {
+          keycnt=0;Key_Detected=1;
+        }
+      }
+      else { keycnt=0;Key_Detected=0; }
+      
       Trig=0;
       
       #ifdef DEBUG
@@ -98,9 +123,9 @@ int main(void)
       #endif
     }
     
-    if(Temp_Detected+CAP_Detected)
+    if(Temp_Detected+CAP_Detected+Key_Detected)
     {
-      if(QuarterWave)
+      if(msec%500>250)
       { 
         BeepOn();
         LED1_ON; 
@@ -113,7 +138,7 @@ int main(void)
     }
     else
     {
-      if(HalfSecWave)
+      if((msec%1000)>500)
       { 
         LED1_ON; 
       }

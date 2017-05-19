@@ -1,0 +1,21 @@
+Change Component DesignItemId : Designator=Q5 Old DesignItemId=MOSFET-N New DesignItemId=AO3400A N道沟 X0YV1T SOT-23
+Change Component DesignItemId : Designator=Q4 Old DesignItemId=MOSFET-P New DesignItemId=AO3401A P道沟 X13A15 SOT-23
+Change Component Comment : Designator=Q5 Old Comment=BUK98180 New Comment=AO3400A N道沟 X0YV1T SOT-23
+Change Component Comment : Designator=Q4 Old Comment=RSJ250P10 New Comment=AO3401A P道沟 X13A15 SOT-23
+Change Component Description : Designator=Q5 Old Description=N-Channel MOSFET New Description=MOS(场效应管)
+Change Component Description : Designator=Q4 Old Description=P-Channel MOSFET New Description=MOS(场效应管)
+Change Component Library : Designator=Q4 Old Library=Miscellaneous Devices.IntLib New Library=Miscellaneous Devices LC.IntLib
+Change Component Library : Designator=Q5 Old Library=Miscellaneous Devices.IntLib New Library=Miscellaneous Devices LC.IntLib
+Added Pin To Net: NetName=BUS+ Pin=Q4-2
+Added Pin To Net: NetName=NetD11_1 Pin=Q4-3
+Added Pin To Net: NetName=BUS+ Pin=Q5-3
+Added Pin To Net: NetName=NetQ4_1 Pin=Q4-1
+Added Pin To Net: NetName=NetQ4_1 Pin=R24-2
+Added Net: Name=NetQ4_1
+Added Pin To Net: NetName=NetQ5_1 Pin=Q5-1
+Added Pin To Net: NetName=NetQ5_1 Pin=R33-2
+Added Net: Name=NetQ5_1
+Added Pin To Net: NetName=NetQ5_2 Pin=Q5-2
+Added Pin To Net: NetName=NetQ5_2 Pin=R28-2
+Added Pin To Net: NetName=NetQ5_2 Pin=R29-2
+Added Net: Name=NetQ5_2

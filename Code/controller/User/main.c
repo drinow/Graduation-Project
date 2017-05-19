@@ -78,9 +78,9 @@ int main(void)
   
 //  SetTime.year =0x17;
 //  SetTime.month =0x05;
-//  SetTime.date =0x17;
-//  SetTime.hour =0x11;
-//  SetTime.min =0x03;
+//  SetTime.date =0x19;
+//  SetTime.hour =0x14;
+//  SetTime.min =0x11;
 //  SetTime.sec =0x00;
 //  DS3231_WriteTime(&SetTime);
   
@@ -88,21 +88,20 @@ int main(void)
 	SysTick_Init();
   Ctrl_ID=0xC1;
   //不插网线会死机！
-  Delay_ms(3000);
   if(Ctrl_ID==0xC1)//主控制器启用的功能
   {
     Screen_Config();
-//    TCPS_Config();
+    Delay_ms(3000);
     SC_SendID();//要发2次，可能是第一次发送又漏第一个数据
     SC_SendID();
-    SC_SendIPAddr();
-    SC_SendPort();
-    SC_SendDHCP();
+//    TCPS_Config();
   }
 	
   tick=0;
   printf("START!\r\n");
-  
+  LocalFire=RestFire=0;
+  Door.ID=1;
+  Door.State=0;
 	while(1)
 	{
     LED_Flash();
@@ -113,8 +112,9 @@ int main(void)
     if(LocalFire||RestFire)//有火情，开始执行防灭火控制
     {
       DealActuator();
+      
     }
-
+    DealDoor();
     if(CAN_ID!=0)
     {
       CAN_ID=0;
@@ -124,6 +124,10 @@ int main(void)
     }
     if(SecAlarm)
     {
+      #ifdef DEBUG
+      //谨慎因为串口调试使总线繁忙
+      printf("Time:%x:%x:%x\r\n",GetTime.hour ,GetTime.min ,GetTime.sec );
+      #endif
       tempflag=1;//TCP发送标志
       SecAlarm=0;
       if(Ctrl_ID==0xC1)//主控制器才控制屏幕
@@ -132,12 +136,8 @@ int main(void)
         SC_SendFirePoint();
       }
       
-      PwrTokenCtrl();//电力载波令牌控制
+//      PwrTokenCtrl();//电力载波令牌控制
       CAN_Broadcast();//CAN总线广播
-      #ifdef DEBUG
-      #endif
-      printf("Time:%x:%x:%x\r\n",GetTime.hour ,GetTime.min ,GetTime.sec );
-      
     }
 	}
 }

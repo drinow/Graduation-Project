@@ -1,0 +1,127 @@
+Removed Pin From Net: NetName=PA12 Pin=*1-1
+Removed Pin From Net: NetName=PA10 Pin=*1-2
+Removed Pin From Net: NetName=BUS- Pin=*1-4
+Removed Pin From Net: NetName=5V Pin=*1-5
+Removed Pin From Net: NetName=5V Pin=*1-6
+Removed Pin From Net: NetName=24V Pin=*1-12
+Removed Pin From Net: NetName=PA11 Pin=*1-15
+Removed Pin From Net: NetName=PA9 Pin=*1-16
+Removed Pin From Net: NetName=5V Pin=C19-1
+Removed Pin From Net: NetName=RXP Pin=C20-1
+Removed Pin From Net: NetName=NetC26_2 Pin=C20-2
+Removed Pin From Net: NetName=NetC27_2 Pin=C21-2
+Removed Pin From Net: NetName=NetC28_1 Pin=C22-1
+Removed Pin From Net: NetName=BUS- Pin=C22-2
+Removed Pin From Net: NetName=RXN Pin=C23-1
+Removed Pin From Net: NetName=NetC29_2 Pin=C23-2
+Removed Pin From Net: NetName=NetC30_1 Pin=C24-1
+Removed Pin From Net: NetName=BUS- Pin=C24-2
+Removed Pin From Net: NetName=24V Pin=J10-1
+Removed Pin From Net: NetName=PA10 Pin=J11-1
+Removed Pin From Net: NetName=PA9 Pin=J11-2
+Removed Pin From Net: NetName=NetD5_K Pin=P2-1
+Removed Pin From Net: NetName=BUS- Pin=R9-1
+Removed Member From Class: ClassName=控制器 Member=P2
+Change Component DesignItemId : Designator=*1 Old DesignItemId=CMT100 New DesignItemId=继电器
+Change Component DesignItemId : Designator=J11 Old DesignItemId=CON2 New DesignItemId=CON6_1
+Change Component DesignItemId : Designator=J10 Old DesignItemId=蓝端子 New DesignItemId=DC JK
+Change Component Footprint: Designator=*1 Old Footprint=QFN16L New Footprint=RLY-964
+Change Component Footprint: Designator=J10 Old Footprint=蓝端子 New Footprint=DC
+Change Component Comment : Designator=J10 Old Comment=BLUE  24V New Comment=DC JK
+Change Component Comment : Designator=*1 Old Comment=CMT100 New Comment=继电器
+Change Component Comment : Designator=J11 Old Comment=CON2 New Comment=CON6_1
+Change Component Designator: OldDesignator=J12 NewDesignator=J14
+Change Component Designator: OldDesignator=U6 NewDesignator=U5
+Change Component Designator: OldDesignator=U7 NewDesignator=U6
+Change Component Description : Designator=J11 Old Description= New Description=Connector
+Change Component Library : Designator=J11 Old Library=毕设原理图封装库.SchLib New Library=Backup of 座子.Lib
+Added Component: Designator=*2(QFN16L)
+Added Component: Designator=C25(LC-0805_C)
+Added Component: Designator=C26(LC-0603_C)
+Added Component: Designator=C27(LC-0603_C)
+Added Component: Designator=C28(LC-0805_C)
+Added Component: Designator=C29(LC-0603_C)
+Added Component: Designator=C30(LC-0805_C)
+Added Component: Designator=J12(蓝端子)
+Added Component: Designator=J13(SIP2)
+Added Component: Designator=RP2(LC-0603_Rx4)
+Added Component: Designator=S2(单片机小按键)
+Added Pin To Net: NetName=BUS- Pin=*1-1
+Added Pin To Net: NetName=24V Pin=*1-2
+Added Pin To Net: NetName=5V Pin=*1-3
+Added Pin To Net: NetName=PA12 Pin=*1-1
+Added Pin To Net: NetName=PA10 Pin=*1-2
+Added Pin To Net: NetName=BUS- Pin=*1-4
+Added Pin To Net: NetName=5V Pin=*1-5
+Added Pin To Net: NetName=12V Pin=C19-1
+Added Pin To Net: NetName=5V Pin=C20-1
+Added Pin To Net: NetName=BUS- Pin=C20-2
+Added Pin To Net: NetName=12V Pin=C21-2
+Added Pin To Net: NetName=BUS- Pin=C22-1
+Added Pin To Net: NetName=5V Pin=C22-2
+Added Pin To Net: NetName=3.3V Pin=C23-1
+Added Pin To Net: NetName=BUS- Pin=C23-2
+Added Pin To Net: NetName=BUS- Pin=C24-1
+Added Pin To Net: NetName=3.3V Pin=C24-2
+Added Pin To Net: NetName=5V Pin=C19-1
+Added Pin To Net: NetName=BUS- Pin=C19-2
+Added Pin To Net: NetName=RXP Pin=C20-1
+Added Pin To Net: NetName=NetC26_2 Pin=C20-2
+Added Pin To Net: NetName=BUS- Pin=C21-1
+Added Pin To Net: NetName=NetC27_2 Pin=C21-2
+Added Pin To Net: NetName=NetC28_1 Pin=C22-1
+Added Pin To Net: NetName=BUS- Pin=C22-2
+Added Pin To Net: NetName=RXN Pin=C23-1
+Added Pin To Net: NetName=NetC29_2 Pin=C23-2
+Added Pin To Net: NetName=NetC30_1 Pin=C24-1
+Added Pin To Net: NetName=BUS- Pin=C24-2
+Added Pin To Net: NetName=BUS- Pin=D1-K
+Added Pin To Net: NetName=NetD5_K Pin=J10-3
+Added Pin To Net: NetName=24V Pin=J10-1
+Added Pin To Net: NetName=BUS- Pin=J10-2
+Added Pin To Net: NetName=PA10 Pin=J11-1
+Added Pin To Net: NetName=PA9 Pin=J11-2
+Added Pin To Net: NetName=BUS- Pin=P1-2
+Added Pin To Net: NetName=24V Pin=R9-1
+Added Pin To Net: NetName=3.3V Pin=RP1-1
+Added Pin To Net: NetName=3.3V Pin=RP1-2
+Added Pin To Net: NetName=3.3V Pin=RP1-3
+Added Pin To Net: NetName=3.3V Pin=RP1-4
+Added Pin To Net: NetName=SDA Pin=RP1-5
+Added Pin To Net: NetName=SCL Pin=RP1-6
+Added Pin To Net: NetName=32K Pin=RP1-7
+Added Pin To Net: NetName=SQW Pin=RP1-8
+Added Pin To Net: NetName=BUS- Pin=S1-1
+Added Pin To Net: NetName=NetC5_2 Pin=S1-2
+Change Net Name : Old Net Name=NetJ12_10 New Net Name=NetJ14_10
+Change Net Name : Old Net Name=NetJ12_11 New Net Name=NetJ14_11
+Added Pin To Net: NetName=Net*1_5 Pin=*1-5
+Added Pin To Net: NetName=Net*1_5 Pin=J10-1
+Added Net: Name=Net*1_5
+Added Pin To Net: NetName=Net*2_3 Pin=*1-3
+Added Pin To Net: NetName=Net*2_3 Pin=R30-1
+Added Net: Name=Net*2_3
+Added Pin To Net: NetName=Net*2_7 Pin=R23-1
+Added Net: Name=Net*2_7
+Added Pin To Net: NetName=Net*2_8 Pin=R22-1
+Added Net: Name=Net*2_8
+Added Pin To Net: NetName=Net*2_9 Pin=C18-1
+Added Pin To Net: NetName=Net*2_9 Pin=D13-1
+Added Net: Name=Net*2_9
+Added Pin To Net: NetName=Net*2_10 Pin=C17-1
+Added Net: Name=Net*2_10
+Added Pin To Net: NetName=Net*2_11 Pin=R21-1
+Added Net: Name=Net*2_11
+Added Pin To Net: NetName=Net*2_13 Pin=R20-1
+Added Net: Name=Net*2_13
+Added Member To Class: ClassName=控制器 Member=Component *2 CMT100
+Added Member To Class: ClassName=控制器 Member=Component C25 10uF (106) 10% 25V
+Added Member To Class: ClassName=控制器 Member=Component C26 6.8nF (682) 10% 50V
+Added Member To Class: ClassName=控制器 Member=Component C27 22nF (223) 10% 50V
+Added Member To Class: ClassName=控制器 Member=Component C28 18pF (180) 5% 50V
+Added Member To Class: ClassName=控制器 Member=Component C29 6.8nF (682) 10% 50V
+Added Member To Class: ClassName=控制器 Member=Component C30 18pF (180) 5% 50V
+Added Member To Class: ClassName=控制器 Member=Component J13 CON2
+Added Member To Class: ClassName=控制器 Member=Component J14 RJ45
+Added Member To Class: ClassName=控制器 Member=Component RP2 10KΩ (103) ±5%
+Added Room: Name=控制器

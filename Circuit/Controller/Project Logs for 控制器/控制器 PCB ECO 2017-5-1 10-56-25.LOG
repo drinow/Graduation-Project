@@ -1,0 +1,15 @@
+Added Component: Designator=J13(RJ-45_GBE)
+Added Pin To Net: NetName=TXP Pin=J13-1
+Added Pin To Net: NetName=TXV Pin=J13-2
+Added Pin To Net: NetName=NetC20_2 Pin=J13-3
+Added Pin To Net: NetName=NetC21_2 Pin=J13-4
+Added Pin To Net: NetName=NetC28_2 Pin=J13-5
+Added Pin To Net: NetName=NetC23_2 Pin=J13-6
+Added Pin To Net: NetName=NetC26_2 Pin=J13-8
+Added Pin To Net: NetName=3.3V Pin=J13-9
+Added Pin To Net: NetName=NetJ13_10 Pin=J13-10
+Added Pin To Net: NetName=NetJ13_11 Pin=J13-11
+Added Pin To Net: NetName=3.3V Pin=J13-12
+Added Pin To Net: NetName=NetC26_2 Pin=J13-13
+Added Pin To Net: NetName=NetC26_2 Pin=J13-14
+Added Member To Class: ClassName=¿ØÖÆÆ÷ Member=Component J13 RJ45
