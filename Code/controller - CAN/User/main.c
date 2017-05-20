@@ -36,7 +36,6 @@ ActuatorMsg Fan;
 ActuatorMsg Door;
 ActuatorMsg Pump;
 ActuatorMsg Alarm;
-FiredMsg FiredDetector[9];
 u32 FiredNum=0;
 u8 Fired[9]={0};
 u8 RestFire=0;//其它层火灾 
@@ -67,6 +66,9 @@ void ReadID(void)
   */
 int main(void)
 {
+  u8 i=0;
+  Queue Q;
+  InitQueue(&Q,9);
   
 	NVIC_Config();
 	USART1_Config();
@@ -86,22 +88,25 @@ int main(void)
   
 	LED_STATE_Config();
 	SysTick_Init();
-  Ctrl_ID=0xC1;
+//  Ctrl_ID=0xC1;
   //不插网线会死机！
   if(Ctrl_ID==0xC1)//主控制器启用的功能
   {
     Screen_Config();
-    Delay_ms(3000);
+    Delay_ms(5000);//等待屏幕初始化
     SC_SendID();//要发2次，可能是第一次发送又漏第一个数据
     SC_SendID();
+    for(i=0;i<9;i++)//清屏
+      SC_SendRUNICON(i,0);
+    SC_SendClrFireLog();
 //    TCPS_Config();
   }
 	
   tick=0;
   printf("START!\r\n");
   LocalFire=RestFire=0;
-  Door.ID=1;
-  Door.State=0;
+//  Door.ID=1;
+//  Door.State=0;
 	while(1)
 	{
     LED_Flash();
@@ -124,7 +129,8 @@ int main(void)
     if(pulse)
     {
       pulse=0;
-      CAN_TokenCtl();
+      if(Ctrl_ID==0xC1)
+        CAN_TokenCtl();
       CheckFire();
     }
     if(SecAlarm)
@@ -139,6 +145,7 @@ int main(void)
       {
         SC_SendTime();
         SC_SendFirePoint();
+        SC_SendFirelog();
       }
 //    PwrTokenCtrl();//电力载波令牌控制
 //    CAN_Broadcast();//CAN总线广播

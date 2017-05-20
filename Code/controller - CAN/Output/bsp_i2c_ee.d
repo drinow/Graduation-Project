@@ -40,3 +40,5 @@
 ..\..\output\bsp_i2c_ee.o: ..\..\User\Ethernet\W5500\utility.h
 ..\..\output\bsp_i2c_ee.o: ..\..\User\Ethernet\Internet\tcp_demo.h
 ..\..\output\bsp_i2c_ee.o: ..\..\User\Ethernet\Internet\dhcp.h
+..\..\output\bsp_i2c_ee.o: ..\..\User\queue.h
+..\..\output\bsp_i2c_ee.o: F:\Keil\ARM\ARMCC\bin\..\include\stdlib.h

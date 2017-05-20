@@ -94,6 +94,9 @@ int main(void)
   tick=0;
   printf("START\r\n");
   Trig=CAP_Detected=Temp_Detected=Token=0;
+//  DS18B20_Get_Temp();
+  DS18B20_Get_Temp();
+  Delay_ms(100);
 	for(;;)
 	{
     if(Trig)//100ms

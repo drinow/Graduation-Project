@@ -88,12 +88,12 @@ void TIM3_Cap_Init(u16 arr,u16 psc)
 //[6]:0,还没捕获到高电平;1,已经捕获到高电平了.
 //[5:0]:捕获高电平后溢出的次数
 u8   TIM3CH1_CAPTURE_STA=0;  //输入捕获状态             
-u16  TIM3CH1_CAPTURE_VAL_A  ;  //输入捕获值
-u16  TIM3CH1_CAPTURE_VAL_B  ;
+u16  TIM3CH1_CAPTURE_VAL_A=0  ;  //输入捕获值
+u16  TIM3CH1_CAPTURE_VAL_B=0  ;
 
 u8   TIM3CH2_CAPTURE_STA=0;  //输入捕获状态             
-u16  TIM3CH2_CAPTURE_VAL_A  ;  //输入捕获值
-u16  TIM3CH2_CAPTURE_VAL_B  ;
+u16  TIM3CH2_CAPTURE_VAL_A=0  ;  //输入捕获值
+u16  TIM3CH2_CAPTURE_VAL_B=0  ;
 
 //u8   TIM3CH3_CAPTURE_STA=0;  //输入捕获状态             
 //u16  TIM3CH3_CAPTURE_VAL_A  ;  //输入捕获值

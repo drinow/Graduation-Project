@@ -39,3 +39,5 @@
 ..\..\output\can.o: ..\..\User\Ethernet\W5500\utility.h
 ..\..\output\can.o: ..\..\User\Ethernet\Internet\tcp_demo.h
 ..\..\output\can.o: ..\..\User\Ethernet\Internet\dhcp.h
+..\..\output\can.o: ..\..\User\queue.h
+..\..\output\can.o: F:\Keil\ARM\ARMCC\bin\..\include\stdlib.h

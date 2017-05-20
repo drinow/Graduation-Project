@@ -224,25 +224,25 @@ void DealCAN(CanRxMsg* RxMessage)
   {
     if(RxMessage->Data[0]==0xF3)//探测器消息
     {
-      if((RxMessage->StdId&0x0F)<3)//属于1层的探测器消息
+      if((RxMessage->StdId&0x0F)<4)//属于1层的探测器消息
       {
         Detector_1F[(RxMessage->StdId&0x0F)].type=RxMessage->Data[2];
         Detector_1F[(RxMessage->StdId&0x0F)].temp=RxMessage->Data[3];
         if(RxMessage->Data[2]!=0) Fired[(RxMessage->StdId&0x0F)-1]=1;
         else Fired[(RxMessage->Data[1]&0x0F)-1]=0;
       }
-      else if((RxMessage->StdId&0x0F)<6)//属于2层的探测器消息
+      else if((RxMessage->StdId&0x0F)<7)//属于2层的探测器消息
       {
-        Detector_2F[(RxMessage->StdId&0x0F)].type=RxMessage->Data[2];
-        Detector_2F[(RxMessage->StdId&0x0F)].temp=RxMessage->Data[3];
-        if(RxMessage->Data[2]!=0) Fired[3+(RxMessage->StdId&0x0F)-1]=1;
+        Detector_2F[(RxMessage->StdId&0x0F)-3].type=RxMessage->Data[2];
+        Detector_2F[(RxMessage->StdId&0x0F)-3].temp=RxMessage->Data[3];
+        if(RxMessage->Data[2]!=0) Fired[3+(RxMessage->StdId&0x0F)-1-3]=1;
         else Fired[(RxMessage->Data[1]&0x0F)-1]=0;
       }
-      else if((RxMessage->StdId&0x0F)<9)//属于3层的探测器消息
+      else if((RxMessage->StdId&0x0F)<10)//属于3层的探测器消息
       {
-        Detector_3F[(RxMessage->StdId&0x0F)].type=RxMessage->Data[2];
-        Detector_3F[(RxMessage->StdId&0x0F)].temp=RxMessage->Data[3];
-        if(RxMessage->Data[2]!=0) Fired[6+(RxMessage->StdId&0x0F)-1]=1;
+        Detector_3F[(RxMessage->StdId&0x0F)-6].type=RxMessage->Data[2];
+        Detector_3F[(RxMessage->StdId&0x0F)-6].temp=RxMessage->Data[3];
+        if(RxMessage->Data[2]!=0) Fired[6+(RxMessage->StdId&0x0F)-1-6]=1;
         else Fired[(RxMessage->Data[1]&0x0F)-1]=0;
       }
     }

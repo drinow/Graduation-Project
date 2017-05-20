@@ -32,6 +32,7 @@
 "..\..\output\led.o"
 "..\..\output\screen.o"
 "..\..\output\other.o"
+"..\..\output\queue.o"
 "..\..\output\bsp_i2c_gpio.o"
 "..\..\output\bsp_systick.o"
 "..\..\output\bsp_usart1.o"

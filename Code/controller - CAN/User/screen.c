@@ -45,7 +45,7 @@ void Screen_Config(void)
 void SC_SendTime(void)
 {
   u8 len=0;
-  u8 SC_Cache[25];
+  u8 SC_Cache[25]={0};
   u16 temp=SC_TIME;
   SC_Cache[len++]=0xA5;//HEADER 
   SC_Cache[len++]=0x5A;
@@ -85,8 +85,9 @@ void SC_SendTime(void)
 void SC_SendFireICON(u16 pointer,u8 value)
 {
   u8 len=0;
-  u8 SC_Cache[25];
+  u8 SC_Cache[25]={0};
   u16 temp=pointer;
+
   SC_Cache[len++]=0xA5;//HEADER 
   SC_Cache[len++]=0x5A;
   SC_Cache[len++]=0x00;//LEN,filled later.
@@ -116,12 +117,12 @@ void SC_SendFireICON(u16 pointer,u8 value)
 void SC_SendRUNICON(u8 num,u8 value)
 {
   u8 len=0;
-  u8 SC_Cache[25];
+  u8 SC_Cache[25]={0};
   u16 temp=0;
   u8 runway=0;
   if(num<3)temp=SC_1FWAY;
-  if(num<6)temp=SC_2FWAY;
-  if(num<9)temp=SC_3FWAY;
+  else if(num<6)temp=SC_2FWAY;
+  else if(num<9)temp=SC_3FWAY;
   
   switch(num)
   {
@@ -134,7 +135,7 @@ void SC_SendRUNICON(u8 num,u8 value)
     case 6:runway=ICON_RUN31;break;
     case 7:runway=ICON_RUN32;break;
     case 8:runway=ICON_RUN33;break;
-    default :runway=ICON_CLR;break;
+    default :runway=ICON_RUN_CLR;break;
   }
   
   SC_Cache[len++]=0xA5;//HEADER 
@@ -151,7 +152,7 @@ void SC_SendRUNICON(u8 num,u8 value)
   if(value==1)
     SC_Cache[len++]=runway;
   else
-    SC_Cache[len++]=ICON_CLR;
+    SC_Cache[len++]=ICON_RUN_CLR;
   
   SC_Cache[2]=len-3;//fill the lenth
   
@@ -159,6 +160,92 @@ void SC_SendRUNICON(u8 num,u8 value)
   USART_SendString(USART2,&SC_Cache[0],len);
 }
 
+void SC_SendClrFireLog(void)
+{
+  static u8 i=0;
+  u8 len=0;
+  u8 SC_Cache[80]={0};
+  static u16 temp=SC_FIRE;
+
+  SC_Cache[len++]=0xA5;//HEADER 
+  SC_Cache[len++]=0x5A;
+  SC_Cache[len++]=0x00;//LEN,filled later.
+
+  SC_Cache[len++]=SC_WDAT;//MODE
+  
+  SC_Cache[len++]=BYTE1(temp);//ADDRESS is equal to type!
+  SC_Cache[len++]=BYTE0(temp);
+   
+  for(i=0;i<75;i++)
+  {
+    SC_Cache[len++]=0;
+  }
+  
+  SC_Cache[2]=len-3;//fill the lenth
+  
+  len++;
+  USART_SendString(USART2,&SC_Cache[0],len);
+}
+
+void SC_SendFirelog(void)
+{
+  static u8 i=0,icnt=0;
+  u8 len=0;
+  u8 get=0;
+  u8 SC_Cache[50]={0};
+  static u16 temp=SC_FIRE;
+
+  SC_Cache[len++]=0xA5;//HEADER 
+  SC_Cache[len++]=0x5A;
+  SC_Cache[len++]=0x00;//LEN,filled later.
+
+  SC_Cache[len++]=SC_WDAT;//MODE
+  
+  SC_Cache[len++]=BYTE1(temp);//ADDRESS is equal to type!
+  SC_Cache[len++]=BYTE0(temp);
+   
+  for(i=icnt;i<9;i++)
+  {
+    if(Fired[i]==1)
+    {
+      Fired[i]=1;
+      icnt=i;
+      SC_Cache[len++]='D';
+      SC_Cache[len++]='1'+i;
+      get=1;
+      break;
+    }
+  }
+  
+  if(get==0) return;//没有火情退出发送
+  
+  SC_Cache[len++]=' ';
+
+
+  SC_Cache[len++]='0'+((GetTime.month&0xF0)>>4);
+  SC_Cache[len++]='0'+(GetTime.month&0x0F);;
+  
+  SC_Cache[len++]='0'+((GetTime.date&0xF0)>>4);
+  SC_Cache[len++]='0'+(GetTime.date&0x0F);;
+  
+  SC_Cache[len++]='0'+((GetTime.hour&0xF0)>>4);
+  SC_Cache[len++]='0'+(GetTime.hour&0x0F);;
+  SC_Cache[len++]='0'+((GetTime.min&0xF0)>>4);
+  SC_Cache[len++]='0'+(GetTime.min&0x0F);;
+  
+  SC_Cache[len++]=0x0d;
+  SC_Cache[len++]=0x0a;
+  
+  temp=temp+len;
+  
+  if(temp>=75)temp=SC_FIRE;
+  if(icnt>=9)icnt=i=0;
+  
+  SC_Cache[2]=len-3;//fill the lenth
+  
+  len++;
+  USART_SendString(USART2,&SC_Cache[0],len);
+}
 
 void SC_SendFirePoint(void)
 {
@@ -166,17 +253,19 @@ void SC_SendFirePoint(void)
   u16 j=SC_DETECTOR11;
   for(i=0;i<9;i++)
   {
-    SC_SendFireICON(j,Fired[i]);
+    SC_SendFireICON(j,Fired[i]);//起火点
     j++;j++;
-    if(Fired[i]==1)
-      SC_SendRUNICON(i,SC_ESCAPE);
+    if(j==0x0216)j=SC_DETECTOR21;//地址修正
+    if(j==0x0226)j=SC_DETECTOR31;
+    if(Fired[i]!=0)
+      SC_SendRUNICON(i,SC_ESCAPE);//逃生路径
   }
 }
 
 void SC_SendIPAddr(void)
 {
   u8 len=0;
-  u8 SC_Cache[25];
+  u8 SC_Cache[25]={0};
   u16 temp=SC_ADDRESS;
   
   SC_Cache[len++]=0xA5;//HEADER 
@@ -217,7 +306,7 @@ void SC_SendIPAddr(void)
 void SC_SendPort(void)
 {
   u8 len=0;
-  u8 SC_Cache[25];
+  u8 SC_Cache[25]={0};
 
   u16 temp=SC_PORT;
   
@@ -244,7 +333,7 @@ void SC_SendPort(void)
 void SC_SendDHCP(void)
 {
   u8 len=0;
-  u8 SC_Cache[25];
+  u8 SC_Cache[25]={0};
 
   u16 temp=SC_DHCP;
   
@@ -285,7 +374,7 @@ void SC_SendDHCP(void)
 void SC_SendID(void)
 {
   u8 len=0;
-  u8 SC_Cache[25];
+  u8 SC_Cache[25]={0};
 
   u16 temp=SC_ID;
   

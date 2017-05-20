@@ -31,6 +31,7 @@ u8 DealCAP(u16 LowLevel,u16 HighLevel)
 extern u8 DetectorID;
 extern u8 CAP_Detected;
 extern u8 Temp_Detected;
+extern u8 Key_Detected;
 extern u8 Temperature;
 void UploadData(void)
 {
@@ -54,7 +55,7 @@ void UploadData(void)
   
   cnt=temp=0;
   cache[cnt++]=0xF3;
-  cache[cnt++]=0;
+  cache[cnt++]=Key_Detected;
   cache[cnt++]=CAP_Detected+Temp_Detected;
   cache[cnt++]=Temperature;
   cache[cnt++]=0xD0;

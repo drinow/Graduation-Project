@@ -39,3 +39,5 @@
 ..\..\output\stm32f10x_it.o: ..\..\User\Ethernet\W5500\utility.h
 ..\..\output\stm32f10x_it.o: ..\..\User\Ethernet\Internet\tcp_demo.h
 ..\..\output\stm32f10x_it.o: ..\..\User\Ethernet\Internet\dhcp.h
+..\..\output\stm32f10x_it.o: ..\..\User\queue.h
+..\..\output\stm32f10x_it.o: F:\Keil\ARM\ARMCC\bin\..\include\stdlib.h

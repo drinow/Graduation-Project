@@ -18,6 +18,7 @@
 #include "utility.h"
 #include "tcp_demo.h"
 #include "dhcp.h"
+#include "queue.h"
 
 typedef struct
 {
@@ -55,7 +56,6 @@ extern ActuatorMsg Fan;
 extern ActuatorMsg Door;
 extern ActuatorMsg Pump;
 extern ActuatorMsg Alarm;
-extern FiredMsg FiredDetector[9];
 extern u32 FiredNum;
 extern u8 FiredSended;
 extern u8 Fired[9];

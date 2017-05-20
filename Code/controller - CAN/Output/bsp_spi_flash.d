@@ -40,3 +40,5 @@
 ..\..\output\bsp_spi_flash.o: ..\..\User\Ethernet\W5500\utility.h
 ..\..\output\bsp_spi_flash.o: ..\..\User\Ethernet\Internet\tcp_demo.h
 ..\..\output\bsp_spi_flash.o: ..\..\User\Ethernet\Internet\dhcp.h
+..\..\output\bsp_spi_flash.o: ..\..\User\queue.h
+..\..\output\bsp_spi_flash.o: F:\Keil\ARM\ARMCC\bin\..\include\stdlib.h

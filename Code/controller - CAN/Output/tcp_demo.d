@@ -38,3 +38,5 @@
 ..\..\output\tcp_demo.o: ..\..\User\screen.h
 ..\..\output\tcp_demo.o: ..\..\User\Ethernet\W5500\utility.h
 ..\..\output\tcp_demo.o: ..\..\User\Ethernet\Internet\dhcp.h
+..\..\output\tcp_demo.o: ..\..\User\queue.h
+..\..\output\tcp_demo.o: F:\Keil\ARM\ARMCC\bin\..\include\stdlib.h

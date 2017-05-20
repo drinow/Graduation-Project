@@ -74,7 +74,6 @@ void CAN_Config(void)
 * ·µ»Ø    : None
 * ×¢Òâ		: None
 *******************************************************************************/
-
 void USB_LP_CAN1_RX0_IRQHandler(void)
 {
   CanRxMsg RxMessage;

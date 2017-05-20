@@ -38,16 +38,16 @@
 
 #define ICON_RED 1
 #define ICON_GREEN 2
-#define ICON_CLR 0
-#define ICON_RUN11 11
-#define ICON_RUN12 12
-#define ICON_RUN13 13
-#define ICON_RUN21 8
-#define ICON_RUN22 9
-#define ICON_RUN23 10
-#define ICON_RUN31 8
-#define ICON_RUN32 9
-#define ICON_RUN33 10
+#define ICON_RUN_CLR 3
+#define ICON_RUN11 0
+#define ICON_RUN12 1
+#define ICON_RUN13 2
+#define ICON_RUN21 0
+#define ICON_RUN22 1
+#define ICON_RUN23 2
+#define ICON_RUN31 0
+#define ICON_RUN32 1
+#define ICON_RUN33 2
 
 void Screen_Config(void);
 void SC_SendTime(void);
@@ -56,5 +56,7 @@ void SC_SendPort(void);
 void SC_SendDHCP(void);
 void SC_SendID(void);
 void SC_SendFirePoint(void);
-
+void SC_SendRUNICON(u8 num,u8 value);
+void SC_SendFirelog(void);
+void SC_SendClrFireLog(void);
 #endif

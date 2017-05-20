@@ -39,3 +39,5 @@
 ..\..\output\bsp_usart1.o: ..\..\User\Ethernet\W5500\utility.h
 ..\..\output\bsp_usart1.o: ..\..\User\Ethernet\Internet\tcp_demo.h
 ..\..\output\bsp_usart1.o: ..\..\User\Ethernet\Internet\dhcp.h
+..\..\output\bsp_usart1.o: ..\..\User\queue.h
+..\..\output\bsp_usart1.o: F:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
