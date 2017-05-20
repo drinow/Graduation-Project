@@ -80,9 +80,9 @@ int main(void)
   
 //  SetTime.year =0x17;
 //  SetTime.month =0x05;
-//  SetTime.date =0x19;
-//  SetTime.hour =0x14;
-//  SetTime.min =0x11;
+//  SetTime.date =0x20;
+//  SetTime.hour =0x21;
+//  SetTime.min =0x10;
 //  SetTime.sec =0x00;
 //  DS3231_WriteTime(&SetTime);
   
@@ -107,6 +107,7 @@ int main(void)
   LocalFire=RestFire=0;
 //  Door.ID=1;
 //  Door.State=0;
+//  WaterPumpCtrl(1);
 	while(1)
 	{
     LED_Flash();
@@ -118,7 +119,6 @@ int main(void)
     {
       DealActuator();
     }
-//    DealDoor();
     if(CANFlag!=0)
     {
       CANFlag=0;

@@ -236,14 +236,14 @@ void DealCAN(CanRxMsg* RxMessage)
         Detector_2F[(RxMessage->StdId&0x0F)-3].type=RxMessage->Data[2];
         Detector_2F[(RxMessage->StdId&0x0F)-3].temp=RxMessage->Data[3];
         if(RxMessage->Data[2]!=0) Fired[3+(RxMessage->StdId&0x0F)-1-3]=1;
-        else Fired[(RxMessage->Data[1]&0x0F)-1]=0;
+        else Fired[(RxMessage->Data[1]&0x0F)-1-3]=0;
       }
       else if((RxMessage->StdId&0x0F)<10)//属于3层的探测器消息
       {
         Detector_3F[(RxMessage->StdId&0x0F)-6].type=RxMessage->Data[2];
         Detector_3F[(RxMessage->StdId&0x0F)-6].temp=RxMessage->Data[3];
         if(RxMessage->Data[2]!=0) Fired[6+(RxMessage->StdId&0x0F)-1-6]=1;
-        else Fired[(RxMessage->Data[1]&0x0F)-1]=0;
+        else Fired[(RxMessage->Data[1]&0x0F)-1-6]=0;
       }
     }
   }
@@ -258,11 +258,53 @@ void CheckFire(void)
     if(Fired[i])
     {
       if(i<3)
+      {
         sort=sort|0x01;
+        if(Ctrl_ID==0xC1)
+        {
+          Door.ID=1;Door.State=1;
+          Alarm.ID=1;Alarm.State=1;
+          Fan.ID=1;Fan.State=1;
+          Pump.ID=1;Pump.State=1;
+        }
+        else
+        {
+          Alarm.ID=1;Alarm.State=1;
+          Fan.ID=1;Fan.State=1;
+        }
+      }
       else if(i<6)
+      {
         sort=sort|0x02;
+        if(Ctrl_ID==0xC2)
+        {
+          Door.ID=1;Door.State=1;
+          Alarm.ID=1;Alarm.State=1;
+          Fan.ID=1;Fan.State=1;
+          Pump.ID=1;Pump.State=1;
+        }
+        else
+        {
+          Alarm.ID=1;Alarm.State=1;
+          Fan.ID=1;Fan.State=1;
+        }
+      }
       else if(i<9)
+      {
         sort=sort|0x04;
+        if(Ctrl_ID==0xC3)
+        {
+          Door.ID=1;Door.State=1;
+          Alarm.ID=1;Alarm.State=1;
+          Fan.ID=1;Fan.State=1;
+          Pump.ID=1;Pump.State=1;
+        }
+        else
+        {
+          Alarm.ID=1;Alarm.State=1;
+          Fan.ID=1;Fan.State=1;
+        }
+      }
     }
   }
   switch(Ctrl_ID)

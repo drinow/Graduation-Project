@@ -101,7 +101,7 @@ int main(void)
 	{
     if(Trig)//100ms
     {
-      Temperature  = (u8)DS18B20_Get_Temp();
+      Temperature  = (u8)(DS18B20_Get_Temp()+0.5)-4;
       CAP_Detected = DealCAP(3300,3600);
       if(Temperature>=40)Temp_Detected=1; else Temp_Detected=0;//ÎÂ¶È¼ì²é
       if(GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_6)==0)  
