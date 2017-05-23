@@ -108,6 +108,7 @@ int main(void)
   hc595_WriteByte(0xFF,0xFF);
   hc595_WriteByte(0xFF,0xFF);
 //  FanCtrl(1);
+//  hc595_WriteByte(RUN23G,RUN23R);
 	while(1)
 	{
     LED_Flash();

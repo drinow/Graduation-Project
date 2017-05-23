@@ -112,6 +112,7 @@ period:执行次数
 //步进电机控制
 u32 StepMotorCnt;
 u8  LastDirection=0,StepMotorRuning=0;
+u8 motorEnd=0;
 void StepMotorCtrl(u8 order,u8 direction,u32 period)
 {
   if(StepMotorRuning==0)//未运行状态接收步进周期，并标明正在执行，执行完之前不再接收新命令
@@ -123,11 +124,17 @@ void StepMotorCtrl(u8 order,u8 direction,u32 period)
   {
     StepMotorCnt--;
     
+    if(StepMotorCnt>(period/3)&&StepMotorCnt<(period/3*2))//在中间停10*600次
+    {
+      Delay_ms(15);
+      return;
+    }
     if(LastDirection!=direction)
       StepMotor_CW(order,direction);
     
     if(StepMotorCnt==0)//执行完就清空标志位，并记住上次的方向
     {
+      motorEnd=1;
       GPIO_Write(GPIOC,0);
 //      GPIO_Write(GPIOB,0);
       StepMotorRuning=0;

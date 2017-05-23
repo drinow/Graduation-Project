@@ -257,9 +257,21 @@ void lightLED(u8 i)
 {
   switch(i)
   {
-    case 0:hc595_WriteByte(RUN11G,RUN11R);break;
-    case 1:hc595_WriteByte(RUN12G,RUN12R);break;
-    case 2:hc595_WriteByte(RUN13G,RUN13R);break;
+    case 0:if(motorEnd==0)
+              hc595_WriteByte(RUN11G,RUN11R);
+           else
+              hc595_WriteByte(RUN11G,RUN11R2);
+           break;
+    case 1:if(motorEnd==0)
+              hc595_WriteByte(RUN12G,RUN12R);
+           else
+              hc595_WriteByte(RUN12G,RUN12R2);
+           break;
+    case 2:if(motorEnd==0)
+              hc595_WriteByte(RUN13G,RUN13R);
+           else
+              hc595_WriteByte(RUN13G,RUN13R2);
+           break;
     case 3:hc595_WriteByte(RUN21G,RUN21R);break;
     case 4:hc595_WriteByte(RUN22G,RUN22R);break;
     case 5:hc595_WriteByte(RUN23G,RUN23R);break;
@@ -374,9 +386,9 @@ void DealDoor(void)
   if(Door.ID==1)
   {
     if(Door.State==0)//全开
-    {StepMotorCtrl(NUM1,REV,1400);}
+    {StepMotorCtrl(NUM1,REV,1900);}
     if(Door.State==1)//全关
-    {StepMotorCtrl(NUM1,FRD,1400);}
+    {StepMotorCtrl(NUM1,FRD,1900);}
     if(Door.State==2)//半开
     {}
   }

@@ -734,6 +734,7 @@
       <tvExp>0</tvExp>
       <Focus>0</Focus>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1</TopLine>
@@ -743,6 +744,12 @@
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>99</TopLine>
       <CurrentLine>111</CurrentLine>
+>>>>>>> detector
+=======
+      <ColumnNumber>15</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>99</TopLine>
+      <CurrentLine>110</CurrentLine>
 >>>>>>> detector
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\main.c</PathWithFileName>
@@ -938,6 +945,7 @@
       <tvExp>0</tvExp>
       <Focus>0</Focus>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1</TopLine>
@@ -947,6 +955,12 @@
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>292</TopLine>
       <CurrentLine>305</CurrentLine>
+>>>>>>> detector
+=======
+      <ColumnNumber>1</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>381</TopLine>
+      <CurrentLine>385</CurrentLine>
 >>>>>>> detector
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\other.c</PathWithFileName>
@@ -1208,14 +1222,19 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>12</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <TopLine>1</TopLine>
       <CurrentLine>1</CurrentLine>
 =======
       <TopLine>7</TopLine>
       <CurrentLine>18</CurrentLine>
+>>>>>>> detector
+=======
+      <TopLine>115</TopLine>
+      <CurrentLine>116</CurrentLine>
 >>>>>>> detector
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\bsp_actuator.c</PathWithFileName>
@@ -1247,8 +1266,13 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
+<<<<<<< HEAD
       <TopLine>23</TopLine>
       <CurrentLine>16</CurrentLine>
+=======
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
+>>>>>>> detector
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\bsp_74hc595.c</PathWithFileName>
       <FilenameWithoutPath>bsp_74hc595.c</FilenameWithoutPath>
