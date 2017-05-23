@@ -41,3 +41,4 @@
 ..\..\output\stm32f10x_it.o: ..\..\User\Ethernet\Internet\dhcp.h
 ..\..\output\stm32f10x_it.o: ..\..\User\queue.h
 ..\..\output\stm32f10x_it.o: F:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+..\..\output\stm32f10x_it.o: ..\..\User\bsp_74hc595.h

@@ -4,12 +4,12 @@ void FanInit(void)
 {
 	GPIO_InitTypeDef 			 GPIO_InitStructure;
 	
-  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC,ENABLE);
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB,ENABLE);
 
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-  GPIO_Init(GPIOC, &GPIO_InitStructure);      
+  GPIO_Init(GPIOB, &GPIO_InitStructure);      
 }
 
 /*
@@ -18,9 +18,9 @@ void FanInit(void)
 void FanCtrl(u8 state)
 {
   if(state)
-    GPIO_SetBits(GPIOC,GPIO_Pin_10);
+    GPIO_SetBits(GPIOB,GPIO_Pin_15);
   else
-    GPIO_ResetBits(GPIOC,GPIO_Pin_10);
+    GPIO_ResetBits(GPIOB,GPIO_Pin_15);
 }
 
 
@@ -37,10 +37,10 @@ void StepMotorInit(void)
   GPIO_Init(GPIOC, &GPIO_InitStructure); 
 
   //Motor2
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12|GPIO_Pin_13|GPIO_Pin_14|GPIO_Pin_15;
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-  GPIO_Init(GPIOB, &GPIO_InitStructure);      
+//  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12|GPIO_Pin_13|GPIO_Pin_14|GPIO_Pin_15;
+//  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+//  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+//  GPIO_Init(GPIOB, &GPIO_InitStructure);      
 
 }
 
@@ -76,31 +76,31 @@ void StepMotor_CW(u8 order,u8 direction)
       Delay_ms(3);
     }
   }
-  if(order==NUM2)
-  {
-    if(direction==FRD)
-    {
-      GPIO_Write(GPIOB,0x3000);//循环移位，反向转动只需要改变移位方向
-      Delay_ms(3);//调整步进速度，太慢了转的慢，太快了电机响应不过来
-      GPIO_Write(GPIOB,0x6000);
-      Delay_ms(3);
-      GPIO_Write(GPIOB,0xC000);
-      Delay_ms(3);
-      GPIO_Write(GPIOB,0x9000);
-      Delay_ms(3);
-    }
-    else if(direction==REV)
-    {
-      GPIO_Write(GPIOB,0x9000);//循环移位，反向转动只需要改变移位方向
-      Delay_ms(3);//调整步进速度，太慢了转的慢，太快了电机响应不过来
-      GPIO_Write(GPIOB,0xC000);
-      Delay_ms(3);
-      GPIO_Write(GPIOB,0x6000);
-      Delay_ms(3);
-      GPIO_Write(GPIOB,0x3000);
-      Delay_ms(3);
-    }
-  }
+//  if(order==NUM2)
+//  {
+//    if(direction==FRD)
+//    {
+//      GPIO_Write(GPIOB,0x3000);//循环移位，反向转动只需要改变移位方向
+//      Delay_ms(3);//调整步进速度，太慢了转的慢，太快了电机响应不过来
+//      GPIO_Write(GPIOB,0x6000);
+//      Delay_ms(3);
+//      GPIO_Write(GPIOB,0xC000);
+//      Delay_ms(3);
+//      GPIO_Write(GPIOB,0x9000);
+//      Delay_ms(3);
+//    }
+//    else if(direction==REV)
+//    {
+//      GPIO_Write(GPIOB,0x9000);//循环移位，反向转动只需要改变移位方向
+//      Delay_ms(3);//调整步进速度，太慢了转的慢，太快了电机响应不过来
+//      GPIO_Write(GPIOB,0xC000);
+//      Delay_ms(3);
+//      GPIO_Write(GPIOB,0x6000);
+//      Delay_ms(3);
+//      GPIO_Write(GPIOB,0x3000);
+//      Delay_ms(3);
+//    }
+//  }
 }
 
 /*
@@ -128,10 +128,8 @@ void StepMotorCtrl(u8 order,u8 direction,u32 period)
     
     if(StepMotorCnt==0)//执行完就清空标志位，并记住上次的方向
     {
-//      GPIO_Write(GPIOC,0x3C0);
-//      GPIO_Write(GPIOB,0xF000);
       GPIO_Write(GPIOC,0);
-      GPIO_Write(GPIOB,0);
+//      GPIO_Write(GPIOB,0);
       StepMotorRuning=0;
       LastDirection=direction;
     }
@@ -200,14 +198,12 @@ void PwrCutCtrl(u8 state)
 
 void Escape595Init(void)
 {
-	GPIO_InitTypeDef 			 GPIO_InitStructure;
-	
-  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB,ENABLE);
+  hc595_init();
   
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7|GPIO_Pin_8|GPIO_Pin_9|GPIO_Pin_10;
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-  GPIO_Init(GPIOB, &GPIO_InitStructure); 
+  hc595_WriteByte(0x00,0x00);//self-check
+  Delay_ms(500);
+//  hc595_WriteByte(0xFF,0xFF);
+//  hc595_WriteByte(0xFF,0xFF);
 }
 
 void ActuatorInit(void)

@@ -40,7 +40,7 @@ void SysTick_Init(void)
 	// 关闭滴答定时器  
 	SysTick->CTRL &= ~ SysTick_CTRL_ENABLE_Msk;
 	// 使能滴答定时器  
-	SysTick->CTRL |=  SysTick_CTRL_ENABLE_Msk;
+//	SysTick->CTRL |=  SysTick_CTRL_ENABLE_Msk;
 }
 
 /**

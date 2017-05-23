@@ -40,4 +40,5 @@
 ..\..\output\queue.o: ..\..\User\Ethernet\Internet\tcp_demo.h
 ..\..\output\queue.o: ..\..\User\Ethernet\Internet\dhcp.h
 ..\..\output\queue.o: ..\..\User\queue.h
+..\..\output\queue.o: ..\..\User\bsp_74hc595.h
 ..\..\output\queue.o: F:\Keil\ARM\ARMCC\bin\..\include\stdlib.h

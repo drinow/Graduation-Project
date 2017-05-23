@@ -52,7 +52,7 @@ void ClearPoint(void)
   //RedPoint
   printf("PIC(325,95,7)\r\n");delay_ms(5);
   printf("PIC(30,155,7)\r\n");delay_ms(5);
-  printf("PIC(325,305,7)\r\n");delay_ms(5);
+  printf("PIC(240,305,7)\r\n");delay_ms(5);
 }
 
 void InitID(void)
@@ -76,43 +76,45 @@ void ReadID(void)
     case 0xD0:ClearPoint();break;
     case 0xD1:ClearPoint();printf("PIC(325,95,1)\r\n");break;
     case 0xD2:ClearPoint();printf("PIC(30,155,1)\r\n");break;
-    case 0xD3:ClearPoint();printf("PIC(325,305,1)\r\n");break;
+    case 0xD3:ClearPoint();printf("PIC(240,305,1)\r\n");break;
   }
-  delay_ms(5);
+  delay_ms(8);
 }
 
 void Key_Config(void)
 {
 	GPIO_InitTypeDef  GPIO_InitStructure; 
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
 	
-	GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_1;
+	GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_8;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_InitStructure.GPIO_Mode =GPIO_Mode_IPU;//
-	GPIO_Init(GPIOC, &GPIO_InitStructure);
+	GPIO_InitStructure.GPIO_Mode =GPIO_Mode_IPD;//
+	GPIO_Init(GPIOB, &GPIO_InitStructure);
 }
 
 void Orientation(void)//方向判断
 {
+  s16 temp=0;
   char str1[32]={0};
   char str2[32]={0};
   char str3[32]={0};
+//因为传感器倒置，所以反过来
     if((angle < 22.5) || (angle > 337.5 ))
-        printf("DS48(170,650,'正南',1,0);\r\n");
+        printf("DS48(170,650,'正北',1,0);\r\n");
     if((angle > 22.5) && (angle < 67.5 ))
-        printf("DS48(170,650,'西南',1,0);\r\n");
+        printf("DS48(170,650,'西北',1,0);\r\n");
     if((angle > 67.5) && (angle < 112.5 ))
         printf("DS48(170,650,'正西',1,0);\r\n");
     if((angle > 112.5) && (angle < 157.5 ))
-        printf("DS48(170,650,'西北',1,0);\r\n");
+        printf("DS48(170,650,'西南',1,0);\r\n");
     if((angle > 157.5) && (angle < 202.5 ))
-        printf("DS48(170,650,'正北',1,0);\r\n");
+        printf("DS48(170,650,'正南',1,0);\r\n");
     if((angle > 202.5) && (angle < 247.5 ))
-        printf("DS48(170,650,'东北',1,0);\r\n");
+        printf("DS48(170,650,'东南',1,0);\r\n");
     if((angle > 247.5) && (angle < 292.5 ))
         printf("DS48(170,650,'正东',1,0);\r\n");
     if((angle > 292.5) && (angle < 337.5 ))
-        printf("DS48(170,650,'东南',1,0);\r\n");
+        printf("DS48(170,650,'东北',1,0);\r\n");
     
     switch(CardID)
     {
@@ -120,13 +122,18 @@ void Orientation(void)//方向判断
       case ID2:printf("DS48(170,750,'0x85',1,0)\r\n");ClearPoint();printf("PIC(80,255,8)\r\n");break;
       default:break;
     }
-    delay_ms(5);
-    sprintf(str1,"METS(0,%d)\r\n",(int)angle);
-    printf("%s",str1);
-    delay_ms(5);
+    delay_ms(8);
     sprintf(str2,"DS32(20,550,'%3d度',1,0);\r\n",(int)angle);
     printf("%s",str2);
-    delay_ms(5);
+    delay_ms(15);
+    
+    temp=angle+90;//xiu zheng
+    if(temp>360)temp=temp-360;
+//    if(angle<0)angle=360+angle;
+    sprintf(str1,"METS(0,%d)\r\n",temp);
+    printf("%s",str1);
+    delay_ms(8);
+
 //    sprintf(str3,"DS32(370,550,'0x%2x',1,0);\r\n",DetectorID);
 //    printf("%s",str3);
 //    delay_ms(30);

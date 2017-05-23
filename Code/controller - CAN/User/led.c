@@ -23,6 +23,7 @@ void LED_STATE_Config(void)
 void LED_Flash(void)
 {
   if(LocalFire)
+//  if(RestFire)
   {
     if(wave&0x04)
     {  LED8_ON;}

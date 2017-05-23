@@ -41,3 +41,4 @@
 ..\..\output\can.o: ..\..\User\Ethernet\Internet\dhcp.h
 ..\..\output\can.o: ..\..\User\queue.h
 ..\..\output\can.o: F:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+..\..\output\can.o: ..\..\User\bsp_74hc595.h
