@@ -226,26 +226,46 @@ void DealCAN(CanRxMsg* RxMessage)
     {
       if((RxMessage->StdId&0x0F)<4)//属于1层的探测器消息
       {
-        Detector_1F[(RxMessage->StdId&0x0F)].type=RxMessage->Data[2];
+        if(Detector_1F[(RxMessage->StdId&0x0F)].type==0)//火灾后不清零
+          Detector_1F[(RxMessage->StdId&0x0F)].type=RxMessage->Data[2];
         Detector_1F[(RxMessage->StdId&0x0F)].temp=RxMessage->Data[3];
         if(RxMessage->Data[2]!=0) Fired[(RxMessage->StdId&0x0F)-1]=1;
         else Fired[(RxMessage->Data[1]&0x0F)-1]=0;
       }
       else if((RxMessage->StdId&0x0F)<7)//属于2层的探测器消息
       {
-        Detector_2F[(RxMessage->StdId&0x0F)-3].type=RxMessage->Data[2];
+        if(Detector_2F[(RxMessage->StdId&0x0F)-3].type==0)//火灾后不清零
+          Detector_2F[(RxMessage->StdId&0x0F)-3].type=RxMessage->Data[2];
         Detector_2F[(RxMessage->StdId&0x0F)-3].temp=RxMessage->Data[3];
         if(RxMessage->Data[2]!=0) Fired[3+(RxMessage->StdId&0x0F)-1-3]=1;
         else Fired[(RxMessage->Data[1]&0x0F)-1-3]=0;
       }
       else if((RxMessage->StdId&0x0F)<10)//属于3层的探测器消息
       {
-        Detector_3F[(RxMessage->StdId&0x0F)-6].type=RxMessage->Data[2];
+        if(Detector_3F[(RxMessage->StdId&0x0F)-6].type==0)//火灾后不清零
+          Detector_3F[(RxMessage->StdId&0x0F)-6].type=RxMessage->Data[2];
         Detector_3F[(RxMessage->StdId&0x0F)-6].temp=RxMessage->Data[3];
         if(RxMessage->Data[2]!=0) Fired[6+(RxMessage->StdId&0x0F)-1-6]=1;
         else Fired[(RxMessage->Data[1]&0x0F)-1-6]=0;
       }
     }
+  }
+}
+
+//根据编号点亮路线
+void lightLED(u8 i)
+{
+  switch(i)
+  {
+    case 0:hc595_WriteByte(RUN11G,RUN11R);break;
+    case 1:hc595_WriteByte(RUN12G,RUN12R);break;
+    case 2:hc595_WriteByte(RUN13G,RUN13R);break;
+    case 3:hc595_WriteByte(RUN21G,RUN21R);break;
+    case 4:hc595_WriteByte(RUN22G,RUN22R);break;
+    case 5:hc595_WriteByte(RUN23G,RUN23R);break;
+    case 6:hc595_WriteByte(RUN31G,RUN31R);break;
+    case 7:hc595_WriteByte(RUN32G,RUN32R);break;
+    case 8:hc595_WriteByte(RUN33G,RUN33R);break;
   }
 }
 
@@ -266,6 +286,7 @@ void CheckFire(void)
           Alarm.ID=1;Alarm.State=1;
           Fan.ID=1;Fan.State=1;
           Pump.ID=1;Pump.State=1;
+          lightLED(i);
         }
         else
         {
@@ -282,6 +303,7 @@ void CheckFire(void)
           Alarm.ID=1;Alarm.State=1;
           Fan.ID=1;Fan.State=1;
           Pump.ID=1;Pump.State=1;
+          lightLED(i);
         }
         else
         {
@@ -298,6 +320,7 @@ void CheckFire(void)
           Alarm.ID=1;Alarm.State=1;
           Fan.ID=1;Fan.State=1;
           Pump.ID=1;Pump.State=1;
+          lightLED(i);
         }
         else
         {
@@ -351,20 +374,20 @@ void DealDoor(void)
   if(Door.ID==1)
   {
     if(Door.State==0)//全开
-    {StepMotorCtrl(NUM1,FRD,1400);}
-    if(Door.State==1)//全关
     {StepMotorCtrl(NUM1,REV,1400);}
+    if(Door.State==1)//全关
+    {StepMotorCtrl(NUM1,FRD,1400);}
     if(Door.State==2)//半开
     {}
   }
   if(Door.ID==2)
   {
-    if(Door.State==0)
-    {StepMotorCtrl(NUM2,FRD,1400);}
-    if(Door.State==1)
-    {StepMotorCtrl(NUM2,REV,1400);}
-    if(Door.State==2)
-    {}
+//    if(Door.State==0)
+//    {StepMotorCtrl(NUM2,REV,1400);}
+//    if(Door.State==1)
+//    {StepMotorCtrl(NUM2,FRD,1400);}
+//    if(Door.State==2)
+//    {}
   }
 }
 

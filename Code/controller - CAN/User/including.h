@@ -19,6 +19,7 @@
 #include "tcp_demo.h"
 #include "dhcp.h"
 #include "queue.h"
+#include "bsp_74hc595.h"
 
 typedef struct
 {

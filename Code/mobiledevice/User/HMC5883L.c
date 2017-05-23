@@ -191,7 +191,7 @@ void HMC5883L_Carlibrate(void)
 
 	Calibrate(Magn_x,Magn_y,Magn_z);
 
-	if(GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_1)==0)
+	if(GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_8)==1)
 		break;
 	}	
 	HMC58X3_Offset();//¼ÆËãÆ«ÒÆ

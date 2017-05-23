@@ -41,3 +41,4 @@
 ..\..\output\bsp_usart1.o: ..\..\User\Ethernet\Internet\dhcp.h
 ..\..\output\bsp_usart1.o: ..\..\User\queue.h
 ..\..\output\bsp_usart1.o: F:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+..\..\output\bsp_usart1.o: ..\..\User\bsp_74hc595.h

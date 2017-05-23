@@ -68,15 +68,16 @@ int main(void)
 {
   u8 i=0;
   Queue Q;
-  InitQueue(&Q,9);
+  NVIC_Config();
+  SysTick_Init();
+  ReadID();
   
-	NVIC_Config();
-	USART1_Config();
-	
+  InitQueue(&Q,9);
+  ActuatorInit();
+  
+	USART1_Config();	
 	CAN_Config();
 	DS3231_Config();
-  ActuatorInit();
-  ReadID();
   
 //  SetTime.year =0x17;
 //  SetTime.month =0x05;
@@ -87,7 +88,6 @@ int main(void)
 //  DS3231_WriteTime(&SetTime);
   
 	LED_STATE_Config();
-	SysTick_Init();
 //  Ctrl_ID=0xC1;
   //不插网线会死机！
   if(Ctrl_ID==0xC1)//主控制器启用的功能
@@ -105,9 +105,9 @@ int main(void)
   tick=0;
   printf("START!\r\n");
   LocalFire=RestFire=0;
-//  Door.ID=1;
-//  Door.State=0;
-//  WaterPumpCtrl(1);
+  hc595_WriteByte(0xFF,0xFF);
+  hc595_WriteByte(0xFF,0xFF);
+//  FanCtrl(1);
 	while(1)
 	{
     LED_Flash();
@@ -119,6 +119,7 @@ int main(void)
     {
       DealActuator();
     }
+//    DealAlarm();
     if(CANFlag!=0)
     {
       CANFlag=0;

@@ -41,3 +41,4 @@
 ..\..\output\screen.o: ..\..\User\Ethernet\Internet\dhcp.h
 ..\..\output\screen.o: ..\..\User\queue.h
 ..\..\output\screen.o: F:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+..\..\output\screen.o: ..\..\User\bsp_74hc595.h

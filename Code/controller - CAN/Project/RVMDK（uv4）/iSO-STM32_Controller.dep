@@ -448,7 +448,7 @@ I (E:\Disk E\Graduation Project\Code\controller - CAN\Libraries\FWlib\inc\stm32f
 I (E:\Disk E\Graduation Project\Code\controller - CAN\Libraries\FWlib\inc\stm32f10x_tim.h)(0x591F02FA)
 I (E:\Disk E\Graduation Project\Code\controller - CAN\Libraries\FWlib\inc\stm32f10x_usart.h)(0x591F02FA)
 I (E:\Disk E\Graduation Project\Code\controller - CAN\Libraries\FWlib\inc\misc.h)(0x591F02FA)
-F (..\..\User\main.c)(0x592003C9)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Libraries\CMSIS -I..\..\User -I..\..\Libraries\FWlib\inc -I..\..\User\Ethernet\Internet -I..\..\User\Ethernet\W5500-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-I F:\Keil\ARM\Inc\ST\STM32F10x-DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ..\..\output\main.o --omf_browse ..\..\output\main.crf --depend ..\..\output\main.d)
+F (..\..\User\main.c)(0x59214254)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Libraries\CMSIS -I..\..\User -I..\..\Libraries\FWlib\inc -I..\..\User\Ethernet\Internet -I..\..\User\Ethernet\W5500-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-I F:\Keil\ARM\Inc\ST\STM32F10x-DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ..\..\output\main.o --omf_browse ..\..\output\main.crf --depend ..\..\output\main.d)
 I (E:\Disk E\Graduation Project\Code\controller - CAN\User\including.h)(0x592003C9)
 I (E:\Disk E\Graduation Project\Code\controller - CAN\Libraries\CMSIS\stm32f10x.h)(0x591F02FA)
 I (E:\Disk E\Graduation Project\Code\controller - CAN\Libraries\CMSIS\core_cm3.h)(0x591F02FA)
@@ -595,7 +595,7 @@ I (F:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
 I (E:\Disk E\Graduation Project\Code\controller - CAN\User\bsp_i2c_gpio.h)(0x591F02FB)
 I (F:\Keil\ARM\ARMCC\include\inttypes.h)(0x51C7B744)
 F (..\..\User\ds3231.h)(0x591F02FB)()
-F (..\..\User\led.c)(0x591F02FB)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Libraries\CMSIS -I..\..\User -I..\..\Libraries\FWlib\inc -I..\..\User\Ethernet\Internet -I..\..\User\Ethernet\W5500-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-I F:\Keil\ARM\Inc\ST\STM32F10x-DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ..\..\output\led.o --omf_browse ..\..\output\led.crf --depend ..\..\output\led.d)
+F (..\..\User\led.c)(0x59203A85)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Libraries\CMSIS -I..\..\User -I..\..\Libraries\FWlib\inc -I..\..\User\Ethernet\Internet -I..\..\User\Ethernet\W5500-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-I F:\Keil\ARM\Inc\ST\STM32F10x-DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ..\..\output\led.o --omf_browse ..\..\output\led.crf --depend ..\..\output\led.d)
 I (E:\Disk E\Graduation Project\Code\controller - CAN\User\led.h)(0x591F02FB)
 I (E:\Disk E\Graduation Project\Code\controller - CAN\User\including.h)(0x592003C9)
 I (E:\Disk E\Graduation Project\Code\controller - CAN\Libraries\CMSIS\stm32f10x.h)(0x591F02FA)
@@ -677,7 +677,7 @@ I (E:\Disk E\Graduation Project\Code\controller - CAN\User\Ethernet\Internet\dhc
 I (E:\Disk E\Graduation Project\Code\controller - CAN\User\queue.h)(0x592003C9)
 I (F:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
 F (..\..\User\screen.h)(0x592003C9)()
-F (..\..\User\other.c)(0x592003C9)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Libraries\CMSIS -I..\..\User -I..\..\Libraries\FWlib\inc -I..\..\User\Ethernet\Internet -I..\..\User\Ethernet\W5500-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-I F:\Keil\ARM\Inc\ST\STM32F10x-DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ..\..\output\other.o --omf_browse ..\..\output\other.crf --depend ..\..\output\other.d)
+F (..\..\User\other.c)(0x59215234)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Libraries\CMSIS -I..\..\User -I..\..\Libraries\FWlib\inc -I..\..\User\Ethernet\Internet -I..\..\User\Ethernet\W5500-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-I F:\Keil\ARM\Inc\ST\STM32F10x-DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ..\..\output\other.o --omf_browse ..\..\output\other.crf --depend ..\..\output\other.d)
 I (E:\Disk E\Graduation Project\Code\controller - CAN\User\other.h)(0x591F02FB)
 I (E:\Disk E\Graduation Project\Code\controller - CAN\User\including.h)(0x592003C9)
 I (E:\Disk E\Graduation Project\Code\controller - CAN\Libraries\CMSIS\stm32f10x.h)(0x591F02FA)
@@ -948,7 +948,7 @@ I (E:\Disk E\Graduation Project\Code\controller - CAN\User\Ethernet\W5500\w5500_
 I (F:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
 I (E:\Disk E\Graduation Project\Code\controller - CAN\User\Ethernet\W5500\types.h)(0x591F02FB)
 F (..\..\User\bsp_TiMbase.h)(0x591F02FB)()
-F (..\..\User\bsp_actuator.c)(0x591F02FB)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Libraries\CMSIS -I..\..\User -I..\..\Libraries\FWlib\inc -I..\..\User\Ethernet\Internet -I..\..\User\Ethernet\W5500-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-I F:\Keil\ARM\Inc\ST\STM32F10x-DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ..\..\output\bsp_actuator.o --omf_browse ..\..\output\bsp_actuator.crf --depend ..\..\output\bsp_actuator.d)
+F (..\..\User\bsp_actuator.c)(0x59214134)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Libraries\CMSIS -I..\..\User -I..\..\Libraries\FWlib\inc -I..\..\User\Ethernet\Internet -I..\..\User\Ethernet\W5500-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-I F:\Keil\ARM\Inc\ST\STM32F10x-DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ..\..\output\bsp_actuator.o --omf_browse ..\..\output\bsp_actuator.crf --depend ..\..\output\bsp_actuator.d)
 I (E:\Disk E\Graduation Project\Code\controller - CAN\User\bsp_actuator.h)(0x591F02FB)
 I (E:\Disk E\Graduation Project\Code\controller - CAN\User\including.h)(0x592003C9)
 I (E:\Disk E\Graduation Project\Code\controller - CAN\Libraries\CMSIS\stm32f10x.h)(0x591F02FA)
@@ -989,6 +989,8 @@ I (E:\Disk E\Graduation Project\Code\controller - CAN\User\Ethernet\Internet\dhc
 I (E:\Disk E\Graduation Project\Code\controller - CAN\User\queue.h)(0x592003C9)
 I (F:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
 F (..\..\User\bsp_actuator.h)(0x591F02FB)()
+F (..\..\User\bsp_74hc595.c)(0x591E90F8)()
+F (..\..\User\bsp_74hc595.h)(0x591E90F0)()
 F (..\..\User\Ethernet\W5500\socket.c)(0x591F02FB)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Libraries\CMSIS -I..\..\User -I..\..\Libraries\FWlib\inc -I..\..\User\Ethernet\Internet -I..\..\User\Ethernet\W5500-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-I F:\Keil\ARM\Inc\ST\STM32F10x-DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ..\..\output\socket.o --omf_browse ..\..\output\socket.crf --depend ..\..\output\socket.d)
 I (E:\Disk E\Graduation Project\Code\controller - CAN\User\Ethernet\W5500\socket.h)(0x591F02FB)
 I (E:\Disk E\Graduation Project\Code\controller - CAN\Libraries\CMSIS\stm32f10x.h)(0x591F02FA)
