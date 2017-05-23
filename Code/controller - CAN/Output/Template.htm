@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\..\Output\Template.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\..\Output\Template.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Tue May 23 10:51:46 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Tue May 23 17:18:28 2017
 <BR><P>
 <H3>Maximum Stack Usage =        176 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1448,7 +1448,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_LP_CAN1_RX0_IRQHandler
 </UL>
 
-<P><STRONG><a name="[c5]"></a>lightLED</STRONG> (Thumb, 116 bytes, Stack size 8 bytes, other.o(.text))
+<P><STRONG><a name="[c5]"></a>lightLED</STRONG> (Thumb, 164 bytes, Stack size 8 bytes, other.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = lightLED &rArr; hc595_WriteByte &rArr; hc595_input
 </UL>
 <BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hc595_WriteByte
@@ -1456,7 +1456,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CheckFire
 </UL>
 
-<P><STRONG><a name="[87]"></a>CheckFire</STRONG> (Thumb, 408 bytes, Stack size 16 bytes, other.o(.text))
+<P><STRONG><a name="[87]"></a>CheckFire</STRONG> (Thumb, 414 bytes, Stack size 16 bytes, other.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = CheckFire &rArr; lightLED &rArr; hc595_WriteByte &rArr; hc595_input
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lightLED
@@ -1528,7 +1528,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[d0]"></a>PwrTokenCtrl</STRONG> (Thumb, 192 bytes, Stack size 16 bytes, other.o(.text), UNUSED)
+<P><STRONG><a name="[d0]"></a>PwrTokenCtrl</STRONG> (Thumb, 194 bytes, Stack size 16 bytes, other.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendString
 </UL>
 
@@ -1691,6 +1691,7 @@ Global Symbols
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Escape595Init
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StepMotor_CW
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StepMotorCtrl
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1725,8 +1726,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetFlagStatus
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendData
 </UL>
-<BR>[Address Reference Count : 2]<UL><LI> printfa.o(i.__0printf)
-<LI> printf8.o(i.__0printf$8)
+<BR>[Address Reference Count : 2]<UL><LI> printf8.o(i.__0printf$8)
+<LI> printfa.o(i.__0printf)
 </UL>
 <P><STRONG><a name="[da]"></a>fgetc</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, bsp_usart1.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetFlagStatus
@@ -2038,11 +2039,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StepMotorCtrl
 </UL>
 
-<P><STRONG><a name="[c9]"></a>StepMotorCtrl</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, bsp_actuator.o(.text))
+<P><STRONG><a name="[c9]"></a>StepMotorCtrl</STRONG> (Thumb, 130 bytes, Stack size 16 bytes, bsp_actuator.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = StepMotorCtrl &rArr; StepMotor_CW &rArr; Delay_ms
 </UL>
 <BR>[Calls]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Write
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StepMotor_CW
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_ms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DealDoor
 </UL>
