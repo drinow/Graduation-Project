@@ -1,0 +1,21 @@
+MBus主电路需要自己搭
+一些链接：
+http://bbs.elecfans.com/jishu_535538_1_1.html 这里有个芯片是555可能！
+
+这个似乎是TI的MBus主站电路
+http://wenku.baidu.com/link?url=z8iVTFkqcM_bTK7sVb0dYQ__PCt-C7lYVouvXeuuTOFVP2Rrt7bJaUAUB6u2u3o7qQO58SBnUYS_8lr15ctaNFYjglFE3vgw48V8jSg3aHu
+
+这个似乎是TI的MBus主机电路分析
+http://blog.csdn.net/xiaopengzhi/article/details/19828755
+
+TI似乎有给Mbus主站电路，我还没有找到。
+
+从站芯片有TSS721，TSS521，SE722，也可以分立元件
+
+C-MBus也是无极二总线，但是跟Mbus好像不一样，目前只有优倍电子有，型号
+为主机CMT100和从机CMT001，性能要好点，没找到零售
+
+青岛鼎信的XY.CN100、001系列的芯片也可以有主站从站的样子
+http://www.topscomm.com/page/c821.html
+
+论文搜索关键词：基于二总线制的火灾自动报警系统的实现
