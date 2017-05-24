@@ -42,6 +42,8 @@ u8 RestFire=0;//其它层火灾
 u8 LocalFire=0;//本层火灾
 u8 Reset=0;
 u8 FiredSended=0;
+u8 Monitor=0;
+u8 OnService=0xC1;
 /*Extern Function*/
 void NVIC_Config(void);
 
@@ -133,6 +135,17 @@ int main(void)
       pulse=0;
       if(Ctrl_ID==0xC1)
         CAN_TokenCtl();
+      else
+      {
+        Monitor++;
+        if(Monitor>=100)//令牌监视服务
+        {
+          Monitor=100;
+          if(Ctrl_ID==(OnService+1))
+            CAN_TokenCtl();
+        }
+      }
+        
       CheckFire();
     }
     if(SecAlarm)
