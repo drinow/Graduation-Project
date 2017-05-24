@@ -735,6 +735,7 @@
       <Focus>0</Focus>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1</TopLine>
@@ -750,6 +751,12 @@
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>99</TopLine>
       <CurrentLine>110</CurrentLine>
+>>>>>>> detector
+=======
+      <ColumnNumber>7</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>129</TopLine>
+      <CurrentLine>139</CurrentLine>
 >>>>>>> detector
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\main.c</PathWithFileName>
@@ -811,10 +818,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>7</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>91</TopLine>
-      <CurrentLine>77</CurrentLine>
+      <TopLine>87</TopLine>
+      <CurrentLine>91</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\can.c</PathWithFileName>
       <FilenameWithoutPath>can.c</FilenameWithoutPath>
@@ -875,14 +882,19 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>9</ColumnNumber>
+      <ColumnNumber>28</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <TopLine>1</TopLine>
       <CurrentLine>1</CurrentLine>
 =======
       <TopLine>24</TopLine>
       <CurrentLine>30</CurrentLine>
+>>>>>>> detector
+=======
+      <TopLine>21</TopLine>
+      <CurrentLine>25</CurrentLine>
 >>>>>>> detector
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\led.c</PathWithFileName>
@@ -946,6 +958,7 @@
       <Focus>0</Focus>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1</TopLine>
@@ -961,6 +974,12 @@
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>381</TopLine>
       <CurrentLine>385</CurrentLine>
+>>>>>>> detector
+=======
+      <ColumnNumber>16</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>196</TopLine>
+      <CurrentLine>200</CurrentLine>
 >>>>>>> detector
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\other.c</PathWithFileName>

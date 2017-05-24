@@ -194,6 +194,11 @@ void DealCAN(CanRxMsg* RxMessage)
 {
   if( (RxMessage->StdId&0xF0)==0xC0 )//控制器消息
   {
+    if(RxMessage->Data[0]==0xF6)
+    {
+      OnService=RxMessage->StdId;
+      Monitor=0;
+    }
     if(RxMessage->Data[0]==0xF0)//排烟风机消息
     {
       Fan.ID=RxMessage->Data[1];

@@ -64,6 +64,7 @@ extern u8 RestFire;
 extern u8 LocalFire;
 extern u8 Reset;
 extern u8 motorEnd;
-
+extern u8 Monitor;
+extern u8 OnService;
 #endif
 

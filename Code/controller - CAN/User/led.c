@@ -22,7 +22,7 @@ void LED_STATE_Config(void)
 
 void LED_Flash(void)
 {
-  if(LocalFire)
+  if(LocalFire||(Monitor>=100))
 //  if(RestFire)
   {
     if(wave&0x04)
