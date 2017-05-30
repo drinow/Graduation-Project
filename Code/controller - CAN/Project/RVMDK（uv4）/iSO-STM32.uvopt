@@ -755,7 +755,7 @@
 =======
       <ColumnNumber>7</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>129</TopLine>
+      <TopLine>135</TopLine>
       <CurrentLine>139</CurrentLine>
 >>>>>>> detector
       <bDave2>0</bDave2>
@@ -820,7 +820,7 @@
       <Focus>0</Focus>
       <ColumnNumber>7</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>87</TopLine>
+      <TopLine>88</TopLine>
       <CurrentLine>91</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\can.c</PathWithFileName>
@@ -886,6 +886,7 @@
       <tvExpOptDlg>0</tvExpOptDlg>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <TopLine>1</TopLine>
       <CurrentLine>1</CurrentLine>
 =======
@@ -894,6 +895,9 @@
 >>>>>>> detector
 =======
       <TopLine>21</TopLine>
+=======
+      <TopLine>22</TopLine>
+>>>>>>> detector
       <CurrentLine>25</CurrentLine>
 >>>>>>> detector
       <bDave2>0</bDave2>
@@ -978,7 +982,7 @@
 =======
       <ColumnNumber>16</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>196</TopLine>
+      <TopLine>197</TopLine>
       <CurrentLine>200</CurrentLine>
 >>>>>>> detector
       <bDave2>0</bDave2>
