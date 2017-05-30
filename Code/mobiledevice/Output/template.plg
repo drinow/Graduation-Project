@@ -7,15 +7,3 @@ E:\Disk E\Graduation Project\Code\mobiledevice\Project\RVMDK£¨uv4£©\iSO-STM32.uv
 Project File Date:  05/21/2017
 
 <h2>Output:</h2>
-Build target 'detector'
-compiling main.c...
-..\..\User\main.c(100): warning:  #177-D: variable "str3" was declared but never referenced
-linking...
-Program Size: Code=13032 RO-data=496 RW-data=164 ZI-data=1044  
-FromELF: creating hex file...
-"..\..\Output\template.axf" - 0 Errors, 1 Warning(s).
-Load "..\\..\\Output\\template.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...

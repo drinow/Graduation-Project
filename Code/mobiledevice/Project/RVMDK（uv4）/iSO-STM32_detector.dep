@@ -448,7 +448,7 @@ I (E:\Disk E\Graduation Project\Code\mobiledevice\Libraries\FWlib\inc\stm32f10x_
 I (E:\Disk E\Graduation Project\Code\mobiledevice\Libraries\FWlib\inc\stm32f10x_tim.h)(0x591BB358)
 I (E:\Disk E\Graduation Project\Code\mobiledevice\Libraries\FWlib\inc\stm32f10x_usart.h)(0x591BB358)
 I (E:\Disk E\Graduation Project\Code\mobiledevice\Libraries\FWlib\inc\misc.h)(0x591BB358)
-F (..\..\User\main.c)(0x592174D8)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\..\Libraries\CMSIS -I..\..\User -I..\..\Libraries\FWlib\inc -I..\..\User\Led -I..\..\User\SysTick -I..\..\User\usart -I..\..\User\ds18b20-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-I F:\Keil\ARM\Inc\ST\STM32F10x-DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DDEBUG -o ..\..\output\main.o --omf_browse ..\..\output\main.crf --depend ..\..\output\main.d)
+F (..\..\User\main.c)(0x5923D729)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\..\Libraries\CMSIS -I..\..\User -I..\..\Libraries\FWlib\inc -I..\..\User\Led -I..\..\User\SysTick -I..\..\User\usart -I..\..\User\ds18b20-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-I F:\Keil\ARM\Inc\ST\STM32F10x-DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DDEBUG -o ..\..\output\main.o --omf_browse ..\..\output\main.crf --depend ..\..\output\main.d)
 I (E:\Disk E\Graduation Project\Code\mobiledevice\Libraries\CMSIS\stm32f10x.h)(0x591BB358)
 I (E:\Disk E\Graduation Project\Code\mobiledevice\Libraries\CMSIS\core_cm3.h)(0x591BB358)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
@@ -585,7 +585,7 @@ I (E:\Disk E\Graduation Project\Code\mobiledevice\User\other.h)(0x591BB359)
 I (E:\Disk E\Graduation Project\Code\mobiledevice\User\bsp_SysTick.h)(0x591BB359)
 I (E:\Disk E\Graduation Project\Code\mobiledevice\User\rc522.h)(0x591BB359)
 F (..\..\User\bsp_usart1.h)(0x591BB359)()
-F (..\..\User\HMC5883L.c)(0x592162D9)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\..\Libraries\CMSIS -I..\..\User -I..\..\Libraries\FWlib\inc -I..\..\User\Led -I..\..\User\SysTick -I..\..\User\usart -I..\..\User\ds18b20-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-I F:\Keil\ARM\Inc\ST\STM32F10x-DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DDEBUG -o ..\..\output\hmc5883l.o --omf_browse ..\..\output\hmc5883l.crf --depend ..\..\output\hmc5883l.d)
+F (..\..\User\HMC5883L.c)(0x5923D729)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\..\Libraries\CMSIS -I..\..\User -I..\..\Libraries\FWlib\inc -I..\..\User\Led -I..\..\User\SysTick -I..\..\User\usart -I..\..\User\ds18b20-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-I F:\Keil\ARM\Inc\ST\STM32F10x-DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DDEBUG -o ..\..\output\hmc5883l.o --omf_browse ..\..\output\hmc5883l.crf --depend ..\..\output\hmc5883l.d)
 I (E:\Disk E\Graduation Project\Code\mobiledevice\User\HMC5883L.h)(0x591BB359)
 I (E:\Disk E\Graduation Project\Code\mobiledevice\Libraries\CMSIS\stm32f10x.h)(0x591BB358)
 I (E:\Disk E\Graduation Project\Code\mobiledevice\Libraries\CMSIS\core_cm3.h)(0x591BB358)
