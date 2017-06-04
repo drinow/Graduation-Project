@@ -243,6 +243,6 @@ void Read_HMC5883L(void)//读取
 	angle= atan2((double)Magn_y,(double)Magn_x) * (180 / 3.14159265) + 180; // angle in degrees
 	
 	//湖南磁偏角 -3° 山东磁偏角 吉林磁偏角 -9°
-	angle=angle-3;//效果不大，可能是因为校准算法不是很好，误差比较大
+	angle=angle-9;//效果不大，可能是因为校准算法不是很好，误差比较大
 
 }
